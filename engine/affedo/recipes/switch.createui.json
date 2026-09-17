@@ -1,0 +1,35 @@
+{
+  "$schema": "../schemas/recipe.schema.json",
+  "component": "Switch",
+  "branch": "createui",
+  "adapter": "createui",
+  "parts": {
+    "root": "layout.row",
+    "track": "control.switch-track",
+    "thumb": "control.switch-thumb",
+    "label": "typography.body",
+    "hint": "typography.caption"
+  },
+  "axes": {
+    "size": {
+      "sm": {
+        "trackWidth": "2.25rem",
+        "trackHeight": "1.25rem",
+        "thumbSize": "1rem",
+        "text": "var(--text-xs)"
+      },
+      "md": {
+        "trackWidth": "2.75rem",
+        "trackHeight": "1.5rem",
+        "thumbSize": "1.25rem",
+        "text": "var(--text-sm)"
+      },
+      "lg": {
+        "trackWidth": "3.25rem",
+        "trackHeight": "1.75rem",
+        "thumbSize": "1.5rem",
+        "text": "var(--text-base)"
+      }
+    }
+  }
+}

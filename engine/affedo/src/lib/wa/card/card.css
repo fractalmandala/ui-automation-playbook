@@ -1,0 +1,178 @@
+/* Ported from webawesome/src/components/card/card.styles.ts (+ size.styles.ts).
+   Transform applied: `:host` -> `.wa-card`, `:host([appearance='x'])` ->
+   `.wa-card[data-appearance='x']`, `:host([orientation='x'])` ->
+   `.wa-card[data-orientation='x']`, `:host([size='x'])` -> `.wa-card[data-size='x']`,
+   `:host(:not([with-*]))` -> `.wa-card:not([data-with-*])`, internal classes
+   (`.media`, `.header`, `.body`, `.footer`, `.has-actions`, `.actions`) scoped under
+   the root. `::slotted(*)` becomes a direct-child (`> *`) selector: in light DOM the
+   snippet content renders as children of the wrapper that carries the part + class.
+   Card styles carry no `[part~=]` selectors; the `part` attributes are still emitted
+   in markup so the external styling seam survives. The cascade layer is preserved so
+   this cannot collide with the fractalstyler registry. */
+@layer wa-component {
+  .wa-card {
+    --spacing: var(--wa-space-l);
+
+    /* Internal calculated properties */
+    --inner-border-radius: calc(var(--wa-panel-border-radius) - var(--wa-panel-border-width));
+
+    display: flex;
+    flex-direction: column;
+    background-color: var(--wa-color-surface-default);
+    border-color: var(--wa-color-surface-border);
+    border-radius: var(--wa-panel-border-radius);
+    border-style: var(--wa-panel-border-style);
+    box-shadow: var(--wa-shadow-s);
+    border-width: var(--wa-panel-border-width);
+    color: var(--wa-color-text-normal);
+  }
+
+  /* Appearance modifiers */
+  .wa-card[data-appearance='plain'] {
+    background-color: transparent;
+    border-color: transparent;
+    box-shadow: none;
+  }
+
+  .wa-card[data-appearance='outlined'] {
+    background-color: var(--wa-color-surface-default);
+    border-color: var(--wa-color-surface-border);
+  }
+
+  .wa-card[data-appearance='filled'] {
+    background-color: var(--wa-color-neutral-fill-quiet);
+    border-color: transparent;
+  }
+
+  .wa-card[data-appearance='filled-outlined'] {
+    background-color: var(--wa-color-neutral-fill-quiet);
+    border-color: var(--wa-color-surface-border);
+  }
+
+  .wa-card[data-appearance='accent'] {
+    color: var(--wa-color-neutral-on-loud);
+    background-color: var(--wa-color-neutral-fill-loud);
+    border-color: transparent;
+  }
+
+  /* Take care of top and bottom radii */
+  .wa-card .media,
+  .wa-card:not([data-with-media]) .header,
+  .wa-card:not([data-with-media], [data-with-header]) .body {
+    border-start-start-radius: var(--inner-border-radius);
+    border-start-end-radius: var(--inner-border-radius);
+  }
+
+  .wa-card:not([data-with-footer]) .body,
+  .wa-card .footer {
+    border-end-start-radius: var(--inner-border-radius);
+    border-end-end-radius: var(--inner-border-radius);
+  }
+
+  .wa-card .media {
+    display: flex;
+    overflow: hidden;
+  }
+
+  .wa-card .media > * {
+    display: block;
+    width: 100%;
+    border-radius: 0 !important;
+  }
+
+  /* Round all corners for plain appearance */
+  .wa-card[data-appearance='plain'] .media {
+    border-radius: var(--inner-border-radius);
+  }
+
+  .wa-card[data-appearance='plain'] .media > * {
+    border-radius: inherit !important;
+  }
+
+  .wa-card .header {
+    display: block;
+    border-block-end-style: inherit;
+    border-block-end-color: var(--wa-color-surface-border);
+    border-block-end-width: var(--wa-panel-border-width);
+    padding: calc(var(--spacing) / 2) var(--spacing);
+  }
+
+  .wa-card .body {
+    display: block;
+    padding: var(--spacing);
+  }
+
+  .wa-card .footer {
+    display: block;
+    border-block-start-style: inherit;
+    border-block-start-color: var(--wa-color-surface-border);
+    border-block-start-width: var(--wa-panel-border-width);
+    padding: var(--spacing);
+  }
+
+  /* Push slots to sides when the action slots renders */
+  .wa-card .has-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .wa-card:not([data-with-header]) .header,
+  .wa-card:not([data-with-footer]) .footer,
+  .wa-card:not([data-with-media]) .media {
+    display: none;
+  }
+
+  /* Orientation Styles */
+  .wa-card[data-orientation='horizontal'] {
+    flex-direction: row;
+  }
+
+  .wa-card[data-orientation='horizontal'] .media {
+    border-start-start-radius: var(--inner-border-radius);
+    border-end-start-radius: var(--inner-border-radius);
+    border-start-end-radius: 0;
+  }
+
+  .wa-card[data-orientation='horizontal'] .media > * {
+    block-size: 100%;
+    inline-size: 100%;
+    object-fit: cover;
+  }
+
+  .wa-card[data-orientation='horizontal'] .body > * {
+    display: block;
+    height: 100%;
+    margin: 0;
+  }
+
+  .wa-card[data-orientation='horizontal'] .actions > * {
+    display: flex;
+    align-items: center;
+    padding: var(--spacing);
+  }
+
+  /* Size modifiers (from styles/component/size.styles.ts, vendored inline) */
+  .wa-card[data-size='xs'] {
+    font-size: var(--wa-font-size-xs);
+  }
+
+  .wa-card[data-size='s'],
+  .wa-card[data-size='small'] {
+    font-size: var(--wa-font-size-s);
+  }
+
+  .wa-card[data-size='m'],
+  .wa-card[data-size='medium'] {
+    font-size: var(--wa-font-size-m);
+  }
+
+  .wa-card[data-size='l'],
+  .wa-card[data-size='large'] {
+    font-size: var(--wa-font-size-l);
+  }
+
+  .wa-card[data-size='xl'] {
+    font-size: var(--wa-font-size-xl);
+  }
+}

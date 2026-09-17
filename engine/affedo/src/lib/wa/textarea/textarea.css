@@ -1,0 +1,201 @@
+/* Ported from webawesome/src/components/textarea/textarea.styles.ts (+ size.styles.ts,
+   vendored inline per the card.css / input.css precedent).
+   Transform applied: `:host` -> `.wa-textarea`, `:host([appearance='x'])` ->
+   `.wa-textarea[data-appearance='x']`, `:host([resize='x'])` ->
+   `.wa-textarea[data-resize='x']`, bare `textarea` element selectors scoped under
+   the root (`.wa-textarea textarea` — a bare `textarea` would match every textarea
+   on the page in light DOM), internal classes (`.textarea`, `.control`,
+   `.size-adjuster`, `.footer`, `.hint`, `.count`) scoped under the root.
+   `[part~=]` selectors need no rewrite — the part attributes are emitted in
+   markup. Nesting, `&:has()`, `&:focus-within`, custom properties, and `calc()`
+   port verbatim. Label/hint layout rules live in
+   `../_shared/wa-styles/component/form-control.css`, imported from the component
+   script. Wrapped in `@layer wa-component` so this cannot collide with the
+   fractalstyler registry. */
+@layer wa-component {
+  .wa-textarea {
+    border-width: 0;
+  }
+
+  .wa-textarea .textarea {
+    display: grid;
+    align-items: center;
+    margin: 0;
+    border: none;
+    outline: none;
+    cursor: inherit;
+    font: inherit;
+    background-color: var(--wa-form-control-background-color);
+    border-color: var(--wa-form-control-border-color);
+    border-radius: var(--wa-form-control-border-radius);
+    border-style: var(--wa-form-control-border-style);
+    border-width: var(--wa-form-control-border-width);
+    -webkit-appearance: none;
+    outline: var(--wa-focus-ring-style) var(--wa-focus-ring-width) transparent;
+    outline-offset: var(--wa-focus-ring-offset);
+
+    &:focus-within {
+      outline-color: var(--wa-color-focus);
+    }
+
+    /* Style disabled textareas */
+    &:has(:disabled) {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+  }
+
+  /* Appearance modifiers */
+  .wa-textarea[data-appearance='outlined'] .textarea {
+    background-color: var(--wa-form-control-background-color);
+    border-color: var(--wa-form-control-border-color);
+  }
+
+  .wa-textarea[data-appearance='filled'] .textarea {
+    background-color: var(--wa-color-neutral-fill-quiet);
+    border-color: var(--wa-color-neutral-fill-quiet);
+  }
+
+  .wa-textarea[data-appearance='filled-outlined'] .textarea {
+    background-color: var(--wa-color-neutral-fill-quiet);
+    border-color: var(--wa-form-control-border-color);
+  }
+
+  .wa-textarea textarea {
+    display: block;
+    width: 100%;
+    border: none;
+    background: transparent;
+    font: inherit;
+    color: inherit;
+    cursor: inherit;
+    scroll-padding-block: var(--wa-form-control-padding-block);
+    padding: calc(var(--wa-form-control-padding-block) - ((1lh - 1em) / 2)) var(--wa-form-control-padding-inline); /* accounts for the larger line height of textarea content */
+    min-height: calc(var(--wa-form-control-height) - var(--border-width) * 2);
+    box-shadow: none;
+    margin: 0;
+
+    &::placeholder {
+      color: var(--wa-form-control-placeholder-color);
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    &:autofill {
+      &,
+      &:hover,
+      &:focus,
+      &:active {
+        box-shadow: none;
+        caret-color: var(--wa-form-control-value-color);
+      }
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  /* Shared textarea and size-adjuster positioning */
+  .wa-textarea .control,
+  .wa-textarea .size-adjuster {
+    grid-area: 1 / 1 / 2 / 2;
+  }
+
+  .wa-textarea .size-adjuster {
+    visibility: hidden;
+    pointer-events: none;
+    opacity: 0;
+    padding: 0;
+  }
+
+  .wa-textarea textarea::-webkit-search-decoration,
+  .wa-textarea textarea::-webkit-search-cancel-button,
+  .wa-textarea textarea::-webkit-search-results-button,
+  .wa-textarea textarea::-webkit-search-results-decoration {
+    -webkit-appearance: none;
+  }
+
+  /*
+   * Resize types
+   */
+
+  .wa-textarea[data-resize='none'] textarea {
+    resize: none;
+  }
+
+  .wa-textarea textarea,
+  .wa-textarea[data-resize='vertical'] textarea {
+    resize: vertical;
+  }
+
+  .wa-textarea[data-resize='horizontal'] textarea {
+    resize: horizontal;
+  }
+
+  .wa-textarea[data-resize='both'] textarea {
+    resize: both;
+  }
+
+  .wa-textarea[data-resize='auto'] textarea {
+    height: auto;
+    resize: none;
+    overflow-y: hidden;
+  }
+
+  /*
+   * Footer (hint + character count)
+   */
+
+  /*
+   * This element carries the hint part, so the shared form control styles apply to it. Those styles set display:block
+   * and hide the element when it has no hint, both of which have to be undone when a character count is present.
+   */
+  .wa-textarea .footer.has-slotted,
+  .wa-textarea .footer.has-count {
+    display: flex;
+    align-items: baseline;
+    gap: 1em;
+  }
+
+  /* Slots default to display:contents, which would leave the hint unable to shrink below its content */
+  .wa-textarea .footer.has-count .hint {
+    display: block;
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .wa-textarea .count {
+    flex: 0 0 auto;
+    color: var(--wa-form-control-hint-color);
+    font-weight: var(--wa-form-control-hint-font-weight);
+    line-height: var(--wa-form-control-hint-line-height);
+    margin-block-start: 0.5em;
+    font-size: var(--wa-font-size-smaller);
+    margin-inline-start: auto;
+  }
+
+  /* Size modifiers (from styles/component/size.styles.ts, vendored inline) */
+  .wa-textarea[data-size='xs'] {
+    font-size: var(--wa-font-size-xs);
+  }
+
+  .wa-textarea[data-size='s'],
+  .wa-textarea[data-size='small'] {
+    font-size: var(--wa-font-size-s);
+  }
+
+  .wa-textarea[data-size='m'],
+  .wa-textarea[data-size='medium'] {
+    font-size: var(--wa-font-size-m);
+  }
+
+  .wa-textarea[data-size='l'],
+  .wa-textarea[data-size='large'] {
+    font-size: var(--wa-font-size-l);
+  }
+
+  .wa-textarea[data-size='xl'] {
+    font-size: var(--wa-font-size-xl);
+  }
+}

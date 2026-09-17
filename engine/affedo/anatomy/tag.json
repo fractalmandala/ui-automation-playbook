@@ -1,0 +1,60 @@
+{
+  "component": "tag",
+  "source": "src/lib/wa/tag/Tag.svelte",
+  "parts": {
+    "content": {
+      "tag": "span",
+      "role": null,
+      "dataSlot": "content"
+    },
+    "remove-button": {
+      "tag": "button",
+      "role": null,
+      "dataSlot": "remove-button"
+    }
+  },
+  "states": {
+    "span": [
+      "data-variant",
+      "data-appearance",
+      "data-size",
+      "data-pill"
+    ],
+    "remove-button": [
+      "aria-label"
+    ]
+  },
+  "props": {
+    "variant": {
+      "type": "string",
+      "default": "neutral"
+    },
+    "appearance": {
+      "type": "string",
+      "default": "filled-outlined"
+    },
+    "size": {
+      "type": "string",
+      "default": "m"
+    },
+    "pill": {
+      "type": "boolean",
+      "default": false
+    },
+    "withRemove": {
+      "type": "boolean",
+      "default": false
+    },
+    "children": {
+      "type": "object",
+      "default": null
+    },
+    "onremove": {
+      "type": "object",
+      "default": null
+    }
+  },
+  "snippets": [
+    "children"
+  ]
+}

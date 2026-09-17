@@ -1,0 +1,108 @@
+.fs-button
+	display: inline-flex
+	align-items: center
+	justify-content: center
+	gap: var(--space-2)
+	font-family: var(--font-sans)
+	font-weight: 500
+	line-height: 1
+	border-radius: var(--radius-md)
+	cursor: pointer
+	user-select: none
+	white-space: nowrap
+	text-decoration: none
+	transition: background-color var(--duration-fast) var(--ease-out), border-color var(--duration-fast) var(--ease-out), color var(--duration-fast) var(--ease-out), transform var(--duration-fast) var(--ease-out)
+
+	&:focus-visible
+		outline: 2px solid var(--state-focus)
+		outline-offset: 2px
+
+	&:active:not(:disabled)
+		transform: scale(0.98)
+
+	&:disabled
+		opacity: var(--state-disabled)
+		cursor: not-allowed
+		pointer-events: none
+
+	// --- Size Axes ---
+	&[data-size="sm"]
+		padding: var(--space-1) var(--space-3)
+		font-size: var(--text-xs)
+		height: 1.75rem
+
+	&[data-size="md"]
+		padding: var(--space-2) var(--space-4)
+		font-size: var(--text-sm)
+		height: 2.25rem
+
+	&[data-size="lg"]
+		padding: var(--space-3) var(--space-5)
+		font-size: var(--text-base)
+		height: 2.75rem
+
+	// --- Variant Axes ---
+	&[data-variant="primary"]
+		background-color: var(--color-primary)
+		color: var(--color-primary-fg)
+		border: 1px solid transparent
+		box-shadow: var(--shadow-xs)
+
+		&:hover:not(:disabled)
+			background-color: var(--color-primary-hover)
+
+		&:active:not(:disabled)
+			background-color: var(--color-primary-active)
+
+	&[data-variant="secondary"]
+		background-color: var(--bg-base)
+		color: var(--text-primary)
+		border: 1px solid var(--stroke-weaker)
+
+		&:hover:not(:disabled)
+			background-color: var(--bg-stronger)
+			border-color: var(--stroke-base)
+
+	&[data-variant="ghost"]
+		background-color: transparent
+		color: var(--text-secondary)
+		border: 1px solid transparent
+
+		&:hover:not(:disabled)
+			background-color: var(--state-hover)
+			color: var(--text-primary)
+
+	&[data-variant="danger"]
+		background-color: var(--status-danger-bg)
+		color: var(--status-danger-fg)
+		border: 1px solid var(--status-danger-border)
+
+		&:hover:not(:disabled)
+			background-color: var(--status-danger-border)
+			color: var(--text-inverse)
+
+.fs-button-spinner
+	display: inline-flex
+	align-items: center
+	justify-content: center
+
+.fs-spin-icon
+	width: 1rem
+	height: 1rem
+	animation: cui-spin 0.8s linear infinite
+
+@keyframes cui-spin
+	from
+		transform: rotate(0deg)
+	to
+		transform: rotate(360deg)
+
+.fs-button-start, .fs-button-end
+	display: inline-flex
+	align-items: center
+	justify-content: center
+
+.fs-button-label
+	display: inline-flex
+	align-items: center
+	justify-content: center

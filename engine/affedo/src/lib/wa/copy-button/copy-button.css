@@ -1,0 +1,81 @@
+@layer wa-component {
+	.wa-copy-button {
+		display: inline-block;
+		color: var(--wa-color-neutral-on-quiet);
+	}
+
+	.wa-copy-button .button {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		background-color: transparent;
+		border: none;
+		border-radius: var(--wa-form-control-border-radius, 4px);
+		color: inherit;
+		font-size: inherit;
+		height: calc(var(--wa-form-control-height, 2.5rem) * 0.8);
+		aspect-ratio: 1;
+		cursor: pointer;
+		transition-property: background-color, color;
+		transition-duration: var(--wa-transition-fast, 150ms);
+		transition-timing-function: var(--wa-transition-easing, ease);
+		padding: 0;
+	}
+
+	@media (hover: hover) {
+		.wa-copy-button .button:hover:not([disabled]) {
+			background-color: var(--wa-color-neutral-fill-quiet);
+			color: color-mix(in oklab, currentColor, var(--wa-color-mix-hover));
+		}
+	}
+
+	.wa-copy-button .button:focus-visible:not([disabled]) {
+		background-color: var(--wa-color-neutral-fill-quiet);
+		color: color-mix(in oklab, currentColor, var(--wa-color-mix-hover));
+		outline: var(--wa-focus-ring);
+		outline-offset: var(--wa-focus-ring-offset);
+	}
+
+	.wa-copy-button .button:active:not([disabled]) {
+		color: color-mix(in oklab, currentColor, var(--wa-color-mix-active));
+	}
+
+	.wa-copy-button .button[disabled] {
+		opacity: 0.5;
+		cursor: not-allowed !important;
+	}
+
+	.wa-copy-button .icon-container {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 1.25rem;
+		height: 1.25rem;
+	}
+
+	.wa-copy-button .show {
+		animation: wa-copy-icon-show var(--wa-transition-fast, 150ms) var(--wa-transition-easing, ease);
+	}
+
+	.wa-copy-button .hide {
+		animation: wa-copy-icon-show var(--wa-transition-fast, 150ms) var(--wa-transition-easing, ease) reverse;
+	}
+
+	@keyframes wa-copy-icon-show {
+		from {
+			transform: scale(0.25);
+			opacity: 0.25;
+		}
+		to {
+			transform: scale(1);
+			opacity: 1;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.wa-copy-button .show,
+		.wa-copy-button .hide {
+			animation-duration: 1ms;
+		}
+	}
+}

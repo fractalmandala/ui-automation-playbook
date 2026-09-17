@@ -1,0 +1,115 @@
+{
+  "component": "copybutton",
+  "source": "src/lib/wa/copy-button/CopyButton.svelte",
+  "parts": {
+    "button": {
+      "tag": "button",
+      "role": null,
+      "dataSlot": "button"
+    },
+    "icon": {
+      "tag": "span",
+      "role": null,
+      "dataSlot": "icon"
+    },
+    "success-icon": {
+      "tag": "span",
+      "role": null,
+      "dataSlot": "success-icon"
+    },
+    "error-icon": {
+      "tag": "span",
+      "role": null,
+      "dataSlot": "error-icon"
+    },
+    "copy-icon": {
+      "tag": "span",
+      "role": null,
+      "dataSlot": "copy-icon"
+    }
+  },
+  "states": {
+    "div": [
+      "data-status"
+    ],
+    "button": [
+      "aria-label"
+    ]
+  },
+  "props": {
+    "value": {
+      "type": "string",
+      "default": ""
+    },
+    "from": {
+      "type": "string",
+      "default": ""
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "copyLabel": {
+      "type": "string",
+      "default": "Copy"
+    },
+    "successLabel": {
+      "type": "string",
+      "default": "Copied"
+    },
+    "errorLabel": {
+      "type": "string",
+      "default": "Error"
+    },
+    "feedbackDuration": {
+      "type": "number",
+      "default": 1000
+    },
+    "tooltipPlacement": {
+      "type": "string",
+      "default": "top"
+    },
+    "tooltip": {
+      "type": "string",
+      "default": "full"
+    },
+    "id": {
+      "type": "string",
+      "default": "undefined"
+    },
+    "class": {
+      "type": "string",
+      "default": ""
+    },
+    "children": {
+      "type": "object",
+      "default": null
+    },
+    "copyIcon": {
+      "type": "object",
+      "default": null
+    },
+    "successIcon": {
+      "type": "object",
+      "default": null
+    },
+    "errorIcon": {
+      "type": "object",
+      "default": null
+    },
+    "oncopy": {
+      "type": "object",
+      "default": null
+    },
+    "onerror": {
+      "type": "object",
+      "default": null
+    }
+  },
+  "snippets": [
+    "children",
+    "successIcon",
+    "errorIcon",
+    "copyIcon"
+  ]
+}

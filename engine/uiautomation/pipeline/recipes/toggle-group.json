@@ -1,0 +1,19 @@
+{
+	"$schema": "../schemas/recipe.schema.json",
+	"$comment": "This is the recipe that made `anatomy` an explicit field: the component is ToggleGroup but the anatomy file is toggle-group.json, named after the bits-ui namespace directory.",
+	"adapter": "kitui",
+	"anatomy": "anatomy/toggle-group.json",
+	"axes": ["size"],
+	"component": "ToggleGroup",
+	"importFrom": "bits-ui",
+	"importName": "ToggleGroup",
+	"parts": {
+		"root": ["layout.row"],
+		"item": ["control.toggle"]
+	},
+	"source": "bits-ui",
+	"unstyled": {
+		"root": ["disabled"],
+		"item": ["off"]
+	}
+}

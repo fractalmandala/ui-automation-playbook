@@ -1,0 +1,42 @@
+.cui-tooltip-anchor
+	position: relative
+	display: inline-flex
+	align-items: center
+
+.cui-tooltip-balloon
+	position: absolute
+	z-index: 200
+	white-space: nowrap
+	background-color: var(--stroke-stronger)
+	color: var(--bg)
+	padding: var(--space-1) var(--space-2)
+	border-radius: var(--radius-sm)
+	font-family: var(--font-sans)
+	font-size: var(--text-xs)
+	font-weight: 500
+	pointer-events: none
+	opacity: 0
+	transition: opacity var(--duration-fast) var(--ease-out)
+
+	.cui-tooltip-anchor:hover &
+		opacity: 1
+
+	&[data-placement="top"]
+		bottom: calc(100% + var(--space-1))
+		left: 50%
+		transform: translateX(-50%)
+
+	&[data-placement="bottom"]
+		top: calc(100% + var(--space-1))
+		left: 50%
+		transform: translateX(-50%)
+
+	&[data-placement="left"]
+		right: calc(100% + var(--space-1))
+		top: 50%
+		transform: translateY(-50%)
+
+	&[data-placement="right"]
+		left: calc(100% + var(--space-1))
+		top: 50%
+		transform: translateY(-50%)

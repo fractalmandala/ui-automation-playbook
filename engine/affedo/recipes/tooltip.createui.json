@@ -1,0 +1,8 @@
+{
+  "$schema": "../schemas/recipe.schema.json",
+  "component": "Tooltip",
+  "branch": "createui",
+  "adapter": "createui",
+  "parts": { "root": "control.tooltip-anchor", "panel": "surface.tooltip-balloon" },
+  "axes": { "placement": ["top", "bottom", "left", "right"] }
+}

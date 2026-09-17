@@ -1,0 +1,143 @@
+/* Ported from webawesome/src/components/checkbox/checkbox.styles.ts (+
+   styles/component/size.styles.ts, vendored inline per the switch.css precedent).
+   Transform applied: `:host` -> `.wa-checkbox`, `:host([required])` ->
+   `.wa-checkbox[data-required]`, `:host [part~='base']` ->
+   `.wa-checkbox [part~='base']`, the bare `input` rule scoped under the root.
+   `[part~=]` selectors need no rewrite — the part attributes are emitted in
+   markup. The nested `input:not(:checked, :indeterminate) + &` sibling rule is
+   flattened to `.wa-checkbox input:not(...) + [part~='icon']` (keeping the `&`
+   there would re-scope the `input` outside the root). `&::part(svg)` ports
+   verbatim — inert against the inline SVG but kept for fidelity. Label/hint
+   layout rules live in `../_shared/wa-styles/component/form-control.css`,
+   imported from the component script *before* this file so these rules win
+   equal-specificity ties inside `@layer wa-component` (this mirrors WA's own
+   `static css = [formControlStyles, sizeStyles, styles]` order: the shared
+   `flex-direction: column` survives while this file's `display: inline-flex`
+   wins the display tie). Wrapped in `@layer wa-component` so this cannot
+   collide with the fractalstyler registry. */
+@layer wa-component {
+  .wa-checkbox {
+    --checked-icon-color: var(--wa-color-brand-on-loud);
+    --checked-icon-scale: 0.8;
+
+    display: inline-flex;
+    color: var(--wa-form-control-value-color);
+    font-family: inherit;
+    font-weight: var(--wa-form-control-value-font-weight);
+    line-height: var(--wa-form-control-value-line-height);
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  .wa-checkbox [part~='control'] {
+    display: inline-flex;
+    flex: 0 0 auto;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    width: var(--wa-form-control-toggle-size);
+    height: var(--wa-form-control-toggle-size);
+    border-color: var(--wa-form-control-border-color);
+    border-radius: min(
+      calc(var(--wa-form-control-toggle-size) * 0.375),
+      var(--wa-border-radius-s)
+    ); /* min prevents entirely circular checkbox */
+    border-style: var(--wa-border-style);
+    border-width: var(--wa-form-control-border-width);
+    background-color: var(--wa-form-control-background-color);
+    transition:
+      background var(--wa-transition-normal),
+      border-color var(--wa-transition-fast),
+      box-shadow var(--wa-transition-fast),
+      color var(--wa-transition-fast);
+    transition-timing-function: var(--wa-transition-easing);
+
+    margin-inline-end: 0.5em;
+  }
+
+  .wa-checkbox [part~='base'] {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+    color: currentColor;
+    vertical-align: middle;
+    cursor: pointer;
+  }
+
+  .wa-checkbox [part~='label'] {
+    display: inline;
+  }
+
+  /* Checked */
+  .wa-checkbox [part~='control']:has(:checked, :indeterminate) {
+    color: var(--checked-icon-color);
+    border-color: var(--wa-form-control-activated-color);
+    background-color: var(--wa-form-control-activated-color);
+  }
+
+  /* Focus */
+  .wa-checkbox [part~='control']:has(> input:focus-visible:not(:disabled)) {
+    outline: var(--wa-focus-ring);
+    outline-offset: var(--wa-focus-ring-offset);
+  }
+
+  /* Disabled */
+  .wa-checkbox [part~='base']:has(input:disabled) {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .wa-checkbox input {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .wa-checkbox [part~='icon'] {
+    display: flex;
+    scale: var(--checked-icon-scale);
+
+    /* Without this, Safari renders the icon slightly to the left */
+    &::part(svg) {
+      translate: 0.0009765625em;
+    }
+  }
+
+  .wa-checkbox input:not(:checked, :indeterminate) + [part~='icon'] {
+    visibility: hidden;
+  }
+
+  .wa-checkbox[data-required] [part~='label']::after {
+    content: var(--wa-form-control-required-content);
+    color: var(--wa-form-control-required-content-color);
+    margin-inline-start: var(--wa-form-control-required-content-offset);
+  }
+
+  /* Size modifiers (from styles/component/size.styles.ts, vendored inline) */
+  .wa-checkbox[data-size='xs'] {
+    font-size: var(--wa-font-size-xs);
+  }
+
+  .wa-checkbox[data-size='s'],
+  .wa-checkbox[data-size='small'] {
+    font-size: var(--wa-font-size-s);
+  }
+
+  .wa-checkbox[data-size='m'],
+  .wa-checkbox[data-size='medium'] {
+    font-size: var(--wa-font-size-m);
+  }
+
+  .wa-checkbox[data-size='l'],
+  .wa-checkbox[data-size='large'] {
+    font-size: var(--wa-font-size-l);
+  }
+
+  .wa-checkbox[data-size='xl'] {
+    font-size: var(--wa-font-size-xl);
+  }
+}

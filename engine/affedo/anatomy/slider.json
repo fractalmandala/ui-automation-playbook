@@ -1,0 +1,228 @@
+{
+  "component": "Slider",
+  "source": "src/lib/wa/slider/Slider.svelte",
+  "parts": {
+    "form-control": {
+      "tag": "div",
+      "role": null,
+      "dataSlot": "form-control"
+    },
+    "label form-control-label": {
+      "tag": "label",
+      "role": null,
+      "dataSlot": "label form-control-label"
+    },
+    "slider": {
+      "tag": "div",
+      "role": null,
+      "dataSlot": "slider"
+    },
+    "track": {
+      "tag": "div",
+      "role": null,
+      "dataSlot": "track"
+    },
+    "indicator": {
+      "tag": "div",
+      "role": null,
+      "dataSlot": "indicator"
+    },
+    "markers": {
+      "tag": "div",
+      "role": null,
+      "dataSlot": "markers"
+    },
+    "marker": {
+      "tag": "span",
+      "role": null,
+      "dataSlot": "marker"
+    },
+    "thumb thumb-min": {
+      "tag": "span",
+      "role": "slider",
+      "dataSlot": "thumb thumb-min"
+    },
+    "thumb thumb-max": {
+      "tag": "span",
+      "role": "slider",
+      "dataSlot": "thumb thumb-max"
+    },
+    "thumb": {
+      "tag": "span",
+      "role": "slider",
+      "dataSlot": "thumb"
+    },
+    "references": {
+      "tag": "div",
+      "role": null,
+      "dataSlot": "references"
+    },
+    "hint form-control-hint": {
+      "tag": "div",
+      "role": null,
+      "dataSlot": "hint form-control-hint"
+    }
+  },
+  "states": {
+    "div": [
+      "data-orientation",
+      "data-size",
+      "data-range",
+      "data-disabled",
+      "data-readonly"
+    ],
+    "thumb thumb-min": [
+      "aria-valuemin",
+      "aria-valuemax",
+      "aria-valuenow",
+      "aria-valuetext",
+      "aria-label",
+      "aria-orientation",
+      "aria-disabled",
+      "aria-readonly"
+    ],
+    "thumb thumb-max": [
+      "aria-valuemin",
+      "aria-valuemax",
+      "aria-valuenow",
+      "aria-valuetext",
+      "aria-label",
+      "aria-orientation",
+      "aria-disabled",
+      "aria-readonly"
+    ],
+    "thumb": [
+      "aria-valuemin",
+      "aria-valuemax",
+      "aria-valuenow",
+      "aria-valuetext",
+      "aria-label",
+      "aria-orientation",
+      "aria-disabled",
+      "aria-readonly"
+    ]
+  },
+  "props": {
+    "defaultValue": {
+      "type": "number",
+      "default": 0
+    },
+    "value": {
+      "type": "object",
+      "default": null
+    },
+    "range": {
+      "type": "boolean",
+      "default": false
+    },
+    "minValue": {
+      "type": "object",
+      "default": null
+    },
+    "maxValue": {
+      "type": "object",
+      "default": null
+    },
+    "min": {
+      "type": "number",
+      "default": 0
+    },
+    "max": {
+      "type": "number",
+      "default": 100
+    },
+    "step": {
+      "type": "number",
+      "default": 1
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "readonly": {
+      "type": "boolean",
+      "default": false
+    },
+    "orientation": {
+      "type": "string",
+      "default": "horizontal"
+    },
+    "size": {
+      "type": "string",
+      "default": "m"
+    },
+    "indicatorOffset": {
+      "type": "string",
+      "default": "undefined"
+    },
+    "withMarkers": {
+      "type": "boolean",
+      "default": false
+    },
+    "withTooltip": {
+      "type": "boolean",
+      "default": false
+    },
+    "tooltipPlacement": {
+      "type": "string",
+      "default": "top"
+    },
+    "label": {
+      "type": "string",
+      "default": ""
+    },
+    "hint": {
+      "type": "string",
+      "default": ""
+    },
+    "name": {
+      "type": "string",
+      "default": ""
+    },
+    "id": {
+      "type": "string",
+      "default": "undefined"
+    },
+    "class": {
+      "type": "string",
+      "default": ""
+    },
+    "valueFormatter": {
+      "type": "object",
+      "default": null
+    },
+    "labelSnippet": {
+      "type": "object",
+      "default": null
+    },
+    "hintSnippet": {
+      "type": "object",
+      "default": null
+    },
+    "reference": {
+      "type": "object",
+      "default": null
+    },
+    "oninput": {
+      "type": "object",
+      "default": null
+    },
+    "onchange": {
+      "type": "object",
+      "default": null
+    },
+    "onfocus": {
+      "type": "object",
+      "default": null
+    },
+    "onblur": {
+      "type": "object",
+      "default": null
+    }
+  },
+  "snippets": [
+    "labelSnippet",
+    "reference",
+    "hintSnippet"
+  ]
+}

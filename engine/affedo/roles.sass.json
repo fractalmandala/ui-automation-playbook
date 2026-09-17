@@ -1,0 +1,136 @@
+{
+  "$schema": "./schemas/roles.schema.json",
+  "version": "1.0.0",
+  "roles": {
+    "surface.canvas": {
+      "bg": "var(--bg)",
+      "fg": "var(--text-primary)"
+    },
+    "surface.card": {
+      "bg": "var(--bg)",
+      "fg": "var(--text-primary)",
+      "border": "1px solid var(--stroke-weakest)",
+      "radius": "var(--radius-md)",
+      "shadow": "var(--shadow-xs)"
+    },
+    "surface.floating": {
+      "bg": "var(--bg)",
+      "fg": "var(--text-primary)",
+      "border": "1px solid var(--stroke-weakest)",
+      "radius": "var(--radius-md)",
+      "shadow": "var(--shadow-lg)"
+    },
+    "surface.overlay": {
+      "bg": "var(--overlay-dimmer)",
+      "backdropFilter": "blur(var(--blur-xs))"
+    },
+    "surface.modal-overlay": {
+      "bg": "var(--overlay-dimmer)",
+      "backdropFilter": "blur(var(--blur-sm))"
+    },
+    "surface.drawer-panel": {
+      "bg": "var(--bg)",
+      "fg": "var(--text-primary)",
+      "border": "1px solid var(--stroke-weakest)",
+      "shadow": "var(--shadow-xl)"
+    },
+    "surface.dialog-panel": {
+      "bg": "var(--bg)",
+      "fg": "var(--text-primary)",
+      "border": "1px solid var(--stroke-weakest)",
+      "radius": "var(--radius-lg)",
+      "shadow": "var(--shadow-xl)",
+      "pad": "var(--space-6)"
+    },
+    "control.button-primary": {
+      "bg": "var(--color-primary)",
+      "bgHover": "var(--color-primary-hover)",
+      "bgActive": "var(--color-primary-active)",
+      "fg": "var(--color-primary-fg)",
+      "border": "1px solid transparent",
+      "radius": "var(--radius-md)",
+      "pad": "var(--space-2) var(--space-4)",
+      "shadow": "var(--shadow-xs)"
+    },
+    "control.button-secondary": {
+      "bg": "var(--bg-base)",
+      "bgHover": "var(--bg-stronger)",
+      "fg": "var(--text-primary)",
+      "border": "1px solid var(--stroke-weaker)",
+      "radius": "var(--radius-md)",
+      "pad": "var(--space-2) var(--space-4)"
+    },
+    "control.button-ghost": {
+      "bg": "transparent",
+      "bgHover": "var(--state-hover)",
+      "bgActive": "var(--state-active)",
+      "fg": "var(--text-secondary)",
+      "fgHover": "var(--text-primary)",
+      "border": "1px solid transparent",
+      "radius": "var(--radius-md)",
+      "pad": "var(--space-2) var(--space-4)"
+    },
+    "control.button-danger": {
+      "bg": "var(--status-danger-bg)",
+      "bgHover": "var(--status-danger-border)",
+      "fg": "var(--status-danger-fg)",
+      "border": "1px solid var(--status-danger-border)",
+      "radius": "var(--radius-md)",
+      "pad": "var(--space-2) var(--space-4)"
+    },
+    "control.menu-item": {
+      "bg": "transparent",
+      "bgHover": "var(--state-hover)",
+      "bgActive": "var(--state-active)",
+      "fg": "var(--text-primary)",
+      "radius": "var(--radius-sm)",
+      "pad": "var(--space-2) var(--space-3)",
+      "interactive": true
+    },
+    "control.switch-track": {
+      "bg": "var(--bg-base)",
+      "bgChecked": "var(--color-primary)",
+      "radius": "var(--radius-full)",
+      "transition": "background-color var(--duration-fast) var(--ease-out)"
+    },
+    "control.switch-thumb": {
+      "bg": "var(--color-white)",
+      "radius": "var(--radius-full)",
+      "shadow": "var(--shadow-xs)",
+      "transition": "transform var(--duration-fast) var(--ease-spring)"
+    },
+    "layout.row": {
+      "display": "flex",
+      "alignItems": "center",
+      "gap": "var(--space-2)"
+    },
+    "layout.stack": {
+      "display": "flex",
+      "flexDirection": "column",
+      "gap": "var(--space-2)"
+    },
+    "layout.divider": {
+      "bg": "var(--stroke-weakest)",
+      "height": "1px",
+      "width": "100%"
+    },
+    "typography.heading": {
+      "font": "var(--font-sans)",
+      "size": "var(--text-lg)",
+      "weight": "600",
+      "fg": "var(--text-primary)"
+    },
+    "typography.body": {
+      "font": "var(--font-sans)",
+      "size": "var(--text-sm)",
+      "weight": "400",
+      "fg": "var(--text-secondary)"
+    },
+    "typography.caption": {
+      "font": "var(--font-sans)",
+      "size": "var(--text-xs)",
+      "weight": "400",
+      "fg": "var(--text-muted)"
+    }
+  }
+}

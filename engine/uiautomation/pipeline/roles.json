@@ -1,0 +1,815 @@
+{
+	"$comment": "The design system vocabulary, written once. A role has: tokens (base declarations), states (selector suffix -> declarations), when (axis value -> declarations), behavior (lint-only flags, never codegen). Every value is a token name from the active adapter or a literal from vocabulary.json keywords; an array means a space-joined multi-value declaration.",
+	"control.ghost": {
+		"behavior": {
+			"interactive": true
+		},
+		"$note": "One visual channel per state, on purpose: hover owns background-color, :active owns box-shadow, :focus-visible owns the outline, [data-disabled] owns opacity and cursor, and the data-* states own colour. Two states writing the same property at the same specificity is what a tie IS, and a tie means source order silently decides - so roles only create one where library state genuinely has to beat pointer state.",
+		"states": {
+			":active": {
+				"box-shadow": "shadow-pressed"
+			},
+			":focus-visible": {
+				"outline-color": "focus-ring",
+				"outline-offset": "focus-ring-offset",
+				"outline-style": "solid",
+				"outline-width": "focus-ring-width"
+			},
+			":active": {
+				"box-shadow": "shadow-pressed"
+			},
+			":hover": {
+				"background-color": "bg-hover"
+			},
+			"[data-disabled]": {
+				"cursor": "not-allowed",
+				"opacity": "opacity-disabled"
+			}
+		},
+		"tokens": {
+			"align-items": "center",
+			"background-color": "transparent",
+			"border-radius": "radius-s",
+			"border-style": "solid",
+			"border-width": "0",
+			"color": "text-secondary",
+			"cursor": "pointer",
+			"display": "inline-flex",
+			"gap": "space-2xs",
+			"justify-content": "space-between",
+			"transition": ["color", "duration-fast", "ease-out"],
+			"width": "100%"
+		},
+		"when": {
+			"size=lg": {
+				"min-height": "control-h-l",
+				"padding": ["space-2xs", "space-s"]
+			},
+			"size=sm": {
+				"min-height": "control-h-s",
+				"padding": ["space-3xs", "space-2xs"]
+			}
+		}
+	},
+	"control.icon": {
+		"behavior": {
+			"interactive": true
+		},
+		"states": {
+			":active": {
+				"box-shadow": "shadow-pressed"
+			},
+			":focus-visible": {
+				"outline-color": "focus-ring",
+				"outline-offset": "focus-ring-offset",
+				"outline-style": "solid",
+				"outline-width": "focus-ring-width"
+			},
+			":hover": {
+				"background-color": "bg-hover"
+			}
+		},
+		"tokens": {
+			"align-items": "center",
+			"appearance": "none",
+			"background-color": "transparent",
+			"border-radius": "radius-s",
+			"color": "text-secondary",
+			"cursor": "pointer",
+			"display": "inline-flex",
+			"height": "control-h-m",
+			"justify-content": "center",
+			"width": "control-h-m"
+		},
+		"when": {
+			"size=lg": {
+				"height": "control-h-l",
+				"width": "control-h-l"
+			},
+			"size=sm": {
+				"height": "control-h-s",
+				"width": "control-h-s"
+			}
+		}
+	},
+	"control.list-item": {
+		"behavior": {
+			"interactive": true
+		},
+		"states": {
+			":focus-visible": {
+				"outline-color": "focus-ring",
+				"outline-offset": "focus-ring-offset",
+				"outline-style": "solid",
+				"outline-width": "focus-ring-width"
+			},
+			":active": {
+				"box-shadow": "shadow-pressed"
+			},
+			":hover": {
+				"background-color": "bg-hover"
+			},
+			"[data-disabled]": {
+				"cursor": "not-allowed",
+				"opacity": "opacity-disabled"
+			}
+		},
+		"tokens": {
+			"align-items": "center",
+			"background-color": "transparent",
+			"border-radius": "radius-s",
+			"color": "text-primary",
+			"cursor": "pointer",
+			"display": "flex",
+			"gap": "space-2xs",
+			"padding": ["space-2xs", "space-xs"],
+			"text-align": "left",
+			"transition": ["background-color", "duration-fast", "ease-out"],
+			"width": "100%"
+		}
+	},
+	"control.outline": {
+		"behavior": {
+			"interactive": true
+		},
+		"states": {
+			":focus-visible": {
+				"outline-color": "focus-ring",
+				"outline-offset": "focus-ring-offset",
+				"outline-style": "solid",
+				"outline-width": "focus-ring-width"
+			},
+			":active": {
+				"box-shadow": "shadow-pressed"
+			},
+			":hover": {
+				"background-color": "bg-hover"
+			},
+			"[data-disabled]": {
+				"cursor": "not-allowed",
+				"opacity": "opacity-disabled"
+			}
+		},
+		"tokens": {
+			"align-items": "center",
+			"background-color": "transparent",
+			"border-color": "border-strong",
+			"border-radius": "radius-s",
+			"border-style": "solid",
+			"border-width": "border-width",
+			"color": "text-primary",
+			"cursor": "pointer",
+			"display": "inline-flex",
+			"gap": "space-2xs",
+			"justify-content": "center",
+			"transition": ["border-color", "duration-fast", "ease-out"]
+		},
+		"when": {
+			"size=lg": {
+				"min-height": "control-h-l",
+				"padding": ["space-2xs", "space-m"]
+			},
+			"size=sm": {
+				"min-height": "control-h-s",
+				"padding": ["space-3xs", "space-s"]
+			}
+		}
+	},
+	"control.solid": {
+		"behavior": {
+			"interactive": true
+		},
+		"states": {
+			":focus-visible": {
+				"outline-color": "focus-ring",
+				"outline-offset": "focus-ring-offset",
+				"outline-style": "solid",
+				"outline-width": "focus-ring-width"
+			},
+			":active": {
+				"box-shadow": "shadow-pressed"
+			},
+			":hover": {
+				"background-color": "accent-hover"
+			},
+			"[data-disabled]": {
+				"cursor": "not-allowed",
+				"opacity": "opacity-disabled"
+			}
+		},
+		"tokens": {
+			"align-items": "center",
+			"background-color": "accent",
+			"border-color": "transparent",
+			"border-radius": "radius-s",
+			"border-style": "solid",
+			"border-width": "border-width",
+			"color": "text-on-accent",
+			"cursor": "pointer",
+			"display": "inline-flex",
+			"gap": "space-2xs",
+			"justify-content": "center",
+			"transition": ["background-color", "duration-fast", "ease-out"]
+		},
+		"when": {
+			"size=lg": {
+				"min-height": "control-h-l",
+				"padding": ["space-2xs", "space-m"]
+			},
+			"size=sm": {
+				"min-height": "control-h-s",
+				"padding": ["space-3xs", "space-s"]
+			}
+		}
+	},
+	"layout.cluster": {
+		"tokens": {
+			"align-items": "center",
+			"display": "flex",
+			"flex-wrap": "wrap",
+			"gap": "space-xs"
+		}
+	},
+	"layout.divider": {
+		"$note": "A zero-height box with only its top border is how a 1px rule stays one pixel: a full border on a zero-height box would draw two lines. Vertical dividers would need the equivalent inline-start properties, which nothing in this set uses yet.",
+		"tokens": {
+			"border-top-color": "border-subtle",
+			"border-top-style": "solid",
+			"border-top-width": "border-width",
+			"height": "0",
+			"width": "100%"
+		}
+	},
+	"layout.row": {
+		"tokens": {
+			"align-items": "center",
+			"display": "flex",
+			"gap": "space-2xs",
+			"width": "100%"
+		},
+		"when": {
+			"size=lg": {
+				"gap": "space-xs"
+			},
+			"size=sm": {
+				"gap": "space-3xs"
+			}
+		}
+	},
+	"layout.stack": {
+		"tokens": {
+			"display": "flex",
+			"flex-direction": "column",
+			"gap": "space-2xs",
+			"width": "100%"
+		},
+		"when": {
+			"size=lg": {
+				"gap": "space-xs"
+			},
+			"size=sm": {
+				"gap": "space-3xs"
+			}
+		}
+	},
+	"surface.canvas": {
+		"tokens": {
+			"background-color": "bg",
+			"border-radius": "radius-m",
+			"color": "text-primary",
+			"padding": "space-s"
+		}
+	},
+	"surface.panel": {
+		"tokens": {
+			"background-color": "bg-panel",
+			"border-radius": "radius-l",
+			"box-shadow": "shadow-m",
+			"color": "text-primary",
+			"padding": "space-m"
+		}
+	},
+	"surface.raised": {
+		"states": {
+			"[data-disabled]": {
+				"opacity": "opacity-disabled"
+			}
+		},
+		"tokens": {
+			"background-color": "bg-raised",
+			"border-color": "border-subtle",
+			"border-radius": "radius-m",
+			"border-style": "solid",
+			"border-width": "border-width",
+			"color": "text-primary",
+			"padding": "space-s"
+		},
+		"when": {
+			"size=lg": {
+				"border-radius": "radius-l",
+				"padding": "space-m"
+			},
+			"size=sm": {
+				"border-radius": "radius-s",
+				"padding": "space-xs"
+			},
+			"tone=accent": {
+				"background-color": "accent-subtle",
+				"border-color": "accent"
+			},
+			"tone=danger": {
+				"background-color": "danger-subtle",
+				"border-color": "danger"
+			}
+		}
+	},
+	"surface.sunken": {
+		"tokens": {
+			"background-color": "bg-sunken",
+			"border-radius": "radius-m",
+			"color": "text-secondary",
+			"padding": "space-s"
+		}
+	},
+	"typography.body": {
+		"tokens": {
+			"font-family": "font-sans",
+			"font-size": "text-sm",
+			"line-height": "leading-normal"
+		},
+		"when": {
+			"size=lg": {
+				"font-size": "text-md"
+			}
+		}
+	},
+	"typography.heading": {
+		"tokens": {
+			"font-family": "font-sans",
+			"font-size": "text-lg",
+			"font-weight": "font-weight-semibold",
+			"line-height": "leading-tight"
+		},
+		"when": {
+			"size=lg": {
+				"font-size": "text-xl"
+			},
+			"size=sm": {
+				"font-size": "text-md"
+			}
+		}
+	},
+	"typography.label": {
+		"tokens": {
+			"font-family": "font-sans",
+			"font-size": "text-sm",
+			"font-weight": "font-weight-medium",
+			"line-height": "leading-normal"
+		},
+		"when": {
+			"size=lg": {
+				"font-size": "text-md"
+			},
+			"size=sm": {
+				"font-size": "text-xs"
+			}
+		}
+	},
+	"typography.mono": {
+		"tokens": {
+			"font-family": "font-mono",
+			"font-size": "text-sm",
+			"letter-spacing": "tracking-wide",
+			"line-height": "leading-normal"
+		},
+		"when": {
+			"size=sm": {
+				"font-size": "text-xs"
+			}
+		}
+	},
+	"typography.muted": {
+		"$note": "The one typography role allowed to set colour: being muted IS its purpose.",
+		"tokens": {
+			"color": "text-muted",
+			"font-size": "text-sm",
+			"line-height": "leading-normal"
+		}
+	},
+	"control.checkbox": {
+		"behavior": {
+			"interactive": true
+		},
+		"states": {
+			":focus-visible": {
+				"outline-color": "focus-ring",
+				"outline-offset": "focus-ring-offset",
+				"outline-style": "solid",
+				"outline-width": "focus-ring-width"
+			},
+			"[data-disabled]": {
+				"cursor": "not-allowed",
+				"opacity": "opacity-disabled"
+			},
+			"[data-state=\"checked\"]": {
+				"background-color": "accent",
+				"border-color": "accent"
+			},
+			"[data-state=\"indeterminate\"]": {
+				"background-color": "accent",
+				"border-color": "accent"
+			}
+		},
+		"tokens": {
+			"align-items": "center",
+			"appearance": "none",
+			"background-color": "transparent",
+			"border-color": "border-strong",
+			"border-radius": "radius-s",
+			"border-style": "solid",
+			"border-width": "border-width",
+			"color": "text-on-accent",
+			"cursor": "pointer",
+			"display": "inline-flex",
+			"height": "checkbox-size",
+			"justify-content": "center",
+			"transition": [
+				"background-color",
+				"duration-fast",
+				"ease-out"
+			],
+			"width": "checkbox-size"
+		}
+	},
+	"control.radio": {
+		"behavior": {
+			"interactive": true
+		},
+		"states": {
+			":focus-visible": {
+				"outline-color": "focus-ring",
+				"outline-offset": "focus-ring-offset",
+				"outline-style": "solid",
+				"outline-width": "focus-ring-width"
+			},
+			"[data-disabled]": {
+				"cursor": "not-allowed",
+				"opacity": "opacity-disabled"
+			},
+			"[data-state=\"checked\"]": {
+				"background-color": "accent",
+				"border-color": "accent"
+			}
+		},
+		"tokens": {
+			"align-items": "center",
+			"appearance": "none",
+			"background-color": "transparent",
+			"border-color": "border-strong",
+			"border-radius": "radius-full",
+			"border-style": "solid",
+			"border-width": "border-width",
+			"color": "text-on-accent",
+			"cursor": "pointer",
+			"display": "inline-flex",
+			"height": "radio-size",
+			"justify-content": "center",
+			"transition": [
+				"background-color",
+				"duration-fast",
+				"ease-out"
+			],
+			"width": "radio-size"
+		}
+	},
+	"control.expanded": {
+		"$note": "State overlay for disclosure triggers: composed AFTER a control role so `[data-state=\"open\"]` can reach any control. It used to live inside control.ghost, where every pager and icon button silently inherited an accordion-shaped state. The background is deliberate, not decoration: it is what makes an open trigger readable once the pointer has left, and because it ties with `:hover`, the vocabulary's ordering is what decides that open wins.",
+		"states": {
+			"[data-state=\"open\"]": {
+				"background-color": "bg-hover",
+				"color": "text-primary"
+			}
+		},
+		"tokens": {
+			"transition": [
+				"color",
+				"duration-fast",
+				"ease-out"
+			]
+		}
+	},
+	"control.selected": {
+		"$note": "A state overlay, not a control: composed AFTER a control role to add the selected treatment to whatever the control already is. This is what role composition is for - the alternative is a control.ghost-selected variant of every control role.",
+		"states": {
+			"[data-selected]": {
+				"background-color": "accent",
+				"border-color": "accent",
+				"color": "text-on-accent"
+			}
+		},
+		"tokens": {
+			"transition": [
+				"background-color",
+				"duration-fast",
+				"ease-out"
+			]
+		}
+	},
+	"control.switch-thumb": {
+		"states": {
+			"[data-state=\"checked\"] &": {
+				"inset-inline-start": "switch-inset-on"
+			}
+		},
+		"tokens": {
+			"background-color": "thumb-bg",
+			"border-radius": "radius-full",
+			"box-shadow": "shadow-s",
+			"height": "switch-thumb",
+			"inset-inline-start": "switch-inset-off",
+			"position": "absolute",
+			"transition": [
+				"inset-inline-start",
+				"duration-fast",
+				"ease-out"
+			],
+			"width": "switch-thumb"
+		}
+	},
+	"control.switch-track": {
+		"behavior": {
+			"interactive": true
+		},
+		"states": {
+			":focus-visible": {
+				"outline-color": "focus-ring",
+				"outline-offset": "focus-ring-offset",
+				"outline-style": "solid",
+				"outline-width": "focus-ring-width"
+			},
+			"[data-disabled]": {
+				"cursor": "not-allowed",
+				"opacity": "opacity-disabled"
+			},
+			"[data-state=\"checked\"]": {
+				"background-color": "accent",
+				"border-color": "accent"
+			}
+		},
+		"tokens": {
+			"align-items": "center",
+			"appearance": "none",
+			"background-color": "bg-sunken",
+			"border-color": "border-subtle",
+			"border-radius": "radius-full",
+			"border-style": "solid",
+			"border-width": "border-width",
+			"cursor": "pointer",
+			"display": "inline-flex",
+			"height": "switch-h",
+			"position": "relative",
+			"transition": [
+				"background-color",
+				"duration-fast",
+				"ease-out"
+			],
+			"width": "switch-w"
+		}
+	},
+	"control.tab": {
+		"behavior": {
+			"interactive": true
+		},
+		"states": {
+			":focus-visible": {
+				"outline-color": "focus-ring",
+				"outline-offset": "focus-ring-offset",
+				"outline-style": "solid",
+				"outline-width": "focus-ring-width"
+			},
+			":active": {
+				"box-shadow": "shadow-pressed"
+			},
+			":hover": {
+				"background-color": "bg-hover"
+			},
+			"[data-disabled]": {
+				"cursor": "not-allowed",
+				"opacity": "opacity-disabled"
+			},
+			"[data-state=\"active\"]": {
+				"background-color": "accent",
+				"border-color": "accent",
+				"color": "text-on-accent"
+			}
+		},
+		"tokens": {
+			"align-items": "center",
+			"background-color": "transparent",
+			"border-color": "transparent",
+			"border-radius": "radius-s",
+			"border-style": "solid",
+			"border-width": "border-width",
+			"color": "text-secondary",
+			"cursor": "pointer",
+			"display": "inline-flex",
+			"gap": "space-3xs",
+			"justify-content": "center",
+			"padding": [
+				"space-3xs",
+				"space-s"
+			],
+			"transition": [
+				"color",
+				"duration-fast",
+				"ease-out"
+			]
+		}
+	},
+	"control.toggle": {
+		"behavior": {
+			"interactive": true
+		},
+		"states": {
+			":focus-visible": {
+				"outline-color": "focus-ring",
+				"outline-offset": "focus-ring-offset",
+				"outline-style": "solid",
+				"outline-width": "focus-ring-width"
+			},
+			":active": {
+				"box-shadow": "shadow-pressed"
+			},
+			":hover": {
+				"background-color": "bg-hover"
+			},
+			"[data-disabled]": {
+				"cursor": "not-allowed",
+				"opacity": "opacity-disabled"
+			},
+			"[data-state=\"on\"]": {
+				"background-color": "accent",
+				"border-color": "accent",
+				"color": "text-on-accent"
+			}
+		},
+		"tokens": {
+			"align-items": "center",
+			"background-color": "transparent",
+			"border-color": "border-strong",
+			"border-radius": "radius-s",
+			"border-style": "solid",
+			"border-width": "border-width",
+			"color": "text-primary",
+			"cursor": "pointer",
+			"display": "inline-flex",
+			"gap": "space-2xs",
+			"justify-content": "center",
+			"padding": [
+				"space-3xs",
+				"space-xs"
+			],
+			"transition": [
+				"background-color",
+				"duration-fast",
+				"ease-out"
+			]
+		}
+	},
+	"media.cover": {
+		"tokens": {
+			"display": "block",
+			"height": "100%",
+			"object-fit": "cover",
+			"width": "100%"
+		}
+	},
+	"media.frame": {
+		"states": {
+			"[data-status=\"error\"]": {
+				"border-color": "danger"
+			},
+			"[data-status=\"loading\"]": {
+				"opacity": "opacity-disabled"
+			}
+		},
+		"tokens": {
+			"align-items": "center",
+			"background-color": "bg-raised",
+			"border-color": "border-subtle",
+			"border-radius": "radius-full",
+			"border-style": "solid",
+			"border-width": "border-width",
+			"color": "text-secondary",
+			"display": "inline-flex",
+			"height": "avatar-size",
+			"justify-content": "center",
+			"overflow": "hidden",
+			"position": "relative",
+			"user-select": "none",
+			"width": "avatar-size"
+		}
+	},
+	"media.initials": {
+		"tokens": {
+			"align-items": "center",
+			"display": "flex",
+			"font-size": "text-xs",
+			"font-weight": "font-weight-medium",
+			"height": "100%",
+			"justify-content": "center",
+			"letter-spacing": "tracking-wide",
+			"text-transform": "uppercase",
+			"width": "100%"
+		}
+	},
+	"slider.range": {
+		"tokens": {
+			"background-color": "accent",
+			"border-radius": "radius-full",
+			"height": "100%",
+			"position": "absolute"
+		}
+	},
+	"slider.thumb": {
+		"tokens": {
+			"background-color": "thumb-bg",
+			"border-radius": "radius-full",
+			"box-shadow": "shadow-s",
+			"height": "slider-thumb",
+			"position": "absolute",
+			"width": "slider-thumb"
+		}
+	},
+	"slider.tick": {
+		"tokens": {
+			"background-color": "border-strong",
+			"border-radius": "radius-full",
+			"height": "space-3xs",
+			"width": "space-3xs"
+		}
+	},
+	"slider.track": {
+		"states": {
+			"[data-disabled]": {
+				"cursor": "not-allowed",
+				"opacity": "opacity-disabled"
+			}
+		},
+		"tokens": {
+			"align-items": "center",
+			"background-color": "bg-sunken",
+			"border-radius": "radius-full",
+			"cursor": "pointer",
+			"display": "flex",
+			"height": "slider-track-h",
+			"position": "relative",
+			"width": "100%"
+		}
+	},
+	"surface.dialog": {
+		"tokens": {
+			"background-color": "bg-panel",
+			"border-color": "border-subtle",
+			"border-radius": "radius-l",
+			"border-style": "solid",
+			"border-width": "border-width",
+			"box-shadow": "shadow-l",
+			"color": "text-primary",
+			"height": "max-content",
+			"inset": "0",
+			"margin": "auto",
+			"max-width": "100%",
+			"padding": "space-m",
+			"position": "fixed",
+			"width": "dialog-w",
+			"z-index": "z-sticky"
+		}
+	},
+	"surface.floating": {
+		"$note": "Positioning belongs to the headless layer (bits-ui's FloatingLayer writes the coordinates as inline style), so this role only owns the skin. That is why it has no `position`.",
+		"tokens": {
+			"background-color": "bg-raised",
+			"border-color": "border-subtle",
+			"border-radius": "radius-s",
+			"border-style": "solid",
+			"border-width": "border-width",
+			"box-shadow": "shadow-m",
+			"color": "text-primary",
+			"padding": [
+				"space-3xs",
+				"space-2xs"
+			],
+			"white-space": "nowrap",
+			"z-index": "z-sticky"
+		}
+	},
+	"surface.overlay": {
+		"tokens": {
+			"background-color": "overlay",
+			"inset": "0",
+			"position": "fixed",
+			"z-index": "z-raised"
+		}
+	}
+}

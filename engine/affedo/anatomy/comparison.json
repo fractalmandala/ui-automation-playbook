@@ -1,0 +1,26 @@
+{
+  "component": "Comparison",
+  "source": "generated (wave 4)",
+  "parts": {
+    "root": { "tag": "div", "role": null, "dataSlot": "comparison-root" },
+    "afterLayer": { "tag": "div", "role": null, "dataSlot": "afterLayer" },
+    "beforeLayer": { "tag": "div", "role": null, "dataSlot": "beforeLayer" },
+    "divider": { "tag": "div", "role": "separator", "dataSlot": "divider" },
+    "handle": { "tag": "div", "role": "slider", "dataSlot": "handle" },
+    "labelBefore": { "tag": "span", "role": null, "dataSlot": "labelBefore" },
+    "labelAfter": { "tag": "span", "role": null, "dataSlot": "labelAfter" }
+  },
+  "states": {
+    "root": ["data-disabled"],
+    "handle": ["aria-orientation", "aria-valuenow", "aria-valuemin", "aria-valuemax", "tabindex"]
+  },
+  "props": {
+    "position": { "type": "number", "default": "50" },
+    "beforeLabel": { "type": "string", "default": "'Before'" },
+    "afterLabel": { "type": "string", "default": "'After'" },
+    "disabled": { "type": "boolean", "default": false },
+    "before": { "type": "object", "default": null },
+    "class": { "type": "string", "default": "''" }
+  },
+  "snippets": ["before", "children"]
+}

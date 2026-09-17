@@ -1,0 +1,266 @@
+{
+  "component": "select",
+  "source": "src/lib/wa/select/Select.svelte",
+  "parts": {
+    "form-control": {
+      "tag": "div",
+      "role": null,
+      "dataSlot": "form-control"
+    },
+    "form-control-label": {
+      "tag": "label",
+      "role": null,
+      "dataSlot": "form-control-label"
+    },
+    "form-control-input": {
+      "tag": "div",
+      "role": null,
+      "dataSlot": "form-control-input"
+    },
+    "combobox": {
+      "tag": "div",
+      "role": null,
+      "dataSlot": "combobox"
+    },
+    "start": {
+      "tag": "span",
+      "role": null,
+      "dataSlot": "start"
+    },
+    "tags": {
+      "tag": "div",
+      "role": null,
+      "dataSlot": "tags"
+    },
+    "tag": {
+      "tag": "span",
+      "role": null,
+      "dataSlot": "tag"
+    },
+    "tag__content": {
+      "tag": "span",
+      "role": null,
+      "dataSlot": "tag__content"
+    },
+    "tag__remove-button": {
+      "tag": "button",
+      "role": null,
+      "dataSlot": "tag__remove-button"
+    },
+    "display-input": {
+      "tag": "input",
+      "role": "combobox",
+      "dataSlot": "display-input"
+    },
+    "clear-button": {
+      "tag": "button",
+      "role": null,
+      "dataSlot": "clear-button"
+    },
+    "end": {
+      "tag": "span",
+      "role": null,
+      "dataSlot": "end"
+    },
+    "expand-icon": {
+      "tag": "span",
+      "role": null,
+      "dataSlot": "expand-icon"
+    },
+    "listbox": {
+      "tag": "div",
+      "role": "listbox",
+      "dataSlot": "listbox"
+    },
+    "form-control-hint": {
+      "tag": "div",
+      "role": null,
+      "dataSlot": "form-control-hint"
+    }
+  },
+  "states": {
+    "div": [
+      "data-size",
+      "data-appearance",
+      "data-pill",
+      "data-disabled",
+      "data-open",
+      "data-multiple",
+      "data-has-value",
+      "aria-multiselectable"
+    ],
+    "tag__remove-button": [
+      "aria-label"
+    ],
+    "display-input": [
+      "aria-expanded",
+      "aria-controls",
+      "aria-haspopup",
+      "aria-disabled"
+    ],
+    "clear-button": [
+      "aria-label"
+    ],
+    "expand-icon": [
+      "aria-hidden"
+    ],
+    "listbox": [
+      "data-placement"
+    ]
+  },
+  "props": {
+    "name": {
+      "type": "string",
+      "default": ""
+    },
+    "defaultValue": {
+      "type": "object",
+      "default": null
+    },
+    "value": {
+      "type": "object",
+      "default": null
+    },
+    "size": {
+      "type": "string",
+      "default": "m"
+    },
+    "placeholder": {
+      "type": "string",
+      "default": ""
+    },
+    "multiple": {
+      "type": "boolean",
+      "default": false
+    },
+    "maxOptionsVisible": {
+      "type": "number",
+      "default": 3
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "withClear": {
+      "type": "boolean",
+      "default": false
+    },
+    "open": {
+      "type": "object",
+      "default": null
+    },
+    "appearance": {
+      "type": "string",
+      "default": "outlined"
+    },
+    "pill": {
+      "type": "boolean",
+      "default": false
+    },
+    "label": {
+      "type": "string",
+      "default": ""
+    },
+    "placement": {
+      "type": "string",
+      "default": "bottom-start"
+    },
+    "distance": {
+      "type": "number",
+      "default": 4
+    },
+    "skidding": {
+      "type": "number",
+      "default": 0
+    },
+    "hint": {
+      "type": "string",
+      "default": ""
+    },
+    "required": {
+      "type": "boolean",
+      "default": false
+    },
+    "id": {
+      "type": "string",
+      "default": "undefined"
+    },
+    "class": {
+      "type": "string",
+      "default": ""
+    },
+    "labelSnippet": {
+      "type": "object",
+      "default": null
+    },
+    "hintSnippet": {
+      "type": "object",
+      "default": null
+    },
+    "start": {
+      "type": "object",
+      "default": null
+    },
+    "end": {
+      "type": "object",
+      "default": null
+    },
+    "clearIcon": {
+      "type": "object",
+      "default": null
+    },
+    "expandIcon": {
+      "type": "object",
+      "default": null
+    },
+    "children": {
+      "type": "object",
+      "default": null
+    },
+    "onchange": {
+      "type": "object",
+      "default": null
+    },
+    "oninput": {
+      "type": "object",
+      "default": null
+    },
+    "onclear": {
+      "type": "object",
+      "default": null
+    },
+    "onshow": {
+      "type": "object",
+      "default": null
+    },
+    "onaftershow": {
+      "type": "object",
+      "default": null
+    },
+    "onhide": {
+      "type": "object",
+      "default": null
+    },
+    "onafterhide": {
+      "type": "object",
+      "default": null
+    },
+    "onfocus": {
+      "type": "object",
+      "default": null
+    },
+    "onblur": {
+      "type": "object",
+      "default": null
+    }
+  },
+  "snippets": [
+    "labelSnippet",
+    "start",
+    "clearIcon",
+    "end",
+    "expandIcon",
+    "children",
+    "hintSnippet"
+  ]
+}

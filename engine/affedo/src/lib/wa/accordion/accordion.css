@@ -1,0 +1,33 @@
+/* Ported from webawesome/src/components/accordion/accordion.styles.ts.
+   Transform applied: `:host` -> `.wa-accordion`, `:host([appearance='x'])` ->
+   `.wa-accordion[data-appearance='x']`. Nothing else changed; the cascade layer
+   is preserved so this cannot collide with the fractalstyler registry. */
+@layer wa-component {
+  .wa-accordion {
+    display: block;
+    border: var(--wa-panel-border-width) var(--wa-panel-border-style) var(--wa-color-surface-border);
+    border-radius: var(--wa-panel-border-radius);
+    overflow: hidden;
+  }
+
+  /* Appearance modifiers */
+  .wa-accordion[data-appearance='outlined'] {
+    background-color: var(--wa-color-surface-default);
+    border-color: var(--wa-color-surface-border);
+  }
+
+  .wa-accordion[data-appearance='filled'] {
+    border-color: transparent;
+  }
+
+  .wa-accordion[data-appearance='filled-outlined'] {
+    background-color: var(--wa-color-neutral-fill-quiet);
+    border-color: var(--wa-color-neutral-border-quiet);
+  }
+
+  .wa-accordion[data-appearance='plain'] {
+    background-color: transparent;
+    border-color: transparent;
+    border-radius: 0;
+  }
+}

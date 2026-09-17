@@ -1,0 +1,49 @@
+{
+  "component": "callout",
+  "source": "src/lib/wa/callout/Callout.svelte",
+  "parts": {
+    "icon": {
+      "tag": "div",
+      "role": null,
+      "dataSlot": "icon"
+    },
+    "message": {
+      "tag": "div",
+      "role": null,
+      "dataSlot": "message"
+    }
+  },
+  "states": {
+    "div": [
+      "data-variant",
+      "data-appearance",
+      "data-size"
+    ]
+  },
+  "props": {
+    "variant": {
+      "type": "string",
+      "default": "brand"
+    },
+    "appearance": {
+      "type": "object",
+      "default": null
+    },
+    "size": {
+      "type": "string",
+      "default": "m"
+    },
+    "children": {
+      "type": "object",
+      "default": null
+    },
+    "icon": {
+      "type": "object",
+      "default": null
+    }
+  },
+  "snippets": [
+    "icon",
+    "children"
+  ]
+}

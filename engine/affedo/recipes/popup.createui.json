@@ -1,0 +1,28 @@
+{
+  "$schema": "../schemas/recipe.schema.json",
+  "component": "Popup",
+  "branch": "createui",
+  "adapter": "createui",
+  "parts": {
+    "root": "layout.row",
+    "anchor": "layout.row",
+    "popup": "surface.floating",
+    "arrow": "surface.floating"
+  },
+  "axes": {
+    "placement": {
+      "top": {
+        "offset": "8px"
+      },
+      "bottom": {
+        "offset": "8px"
+      },
+      "left": {
+        "offset": "8px"
+      },
+      "right": {
+        "offset": "8px"
+      }
+    }
+  }
+}

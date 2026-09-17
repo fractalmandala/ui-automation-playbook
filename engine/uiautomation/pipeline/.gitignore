@@ -1,0 +1,3 @@
+# The `svelte` and `sass` symlinks point at the copies already installed in
+# ../../fractalsvelte-ui/node_modules. Run `pnpm install` here to stand alone.
+node_modules/

@@ -1,0 +1,17 @@
+{
+  "$schema": "../schemas/recipe.schema.json",
+  "component": "Toast",
+  "branch": "createui",
+  "adapter": "createui",
+  "parts": {
+    "region": "layout.toast-region",
+    "item": "surface.toast-card",
+    "icon": "control.icon",
+    "message": "typography.body",
+    "close": "control.button-ghost"
+  },
+  "axes": {
+    "placement": ["bottom-end", "bottom-start", "top-end", "top-start", "top-center", "bottom-center"],
+    "variant": ["brand", "neutral", "success", "warning", "danger"]
+  }
+}

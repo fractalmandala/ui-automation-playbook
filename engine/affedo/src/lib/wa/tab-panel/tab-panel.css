@@ -1,0 +1,17 @@
+/* Ported from webawesome/src/components/tab-panel/tab-panel.styles.ts.
+   Transform applied: `:host` -> `.wa-tab-panel`, wrapped in @layer wa-component. */
+@layer wa-component {
+  .wa-tab-panel {
+    --padding: 0;
+    display: none;
+  }
+
+  .wa-tab-panel[data-active] {
+    display: block;
+  }
+
+  .wa-tab-panel .tab-panel {
+    display: block;
+    padding: var(--padding);
+  }
+}

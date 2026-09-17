@@ -1,0 +1,172 @@
+/* Ported from webawesome/src/components/pagination/pagination.styles.ts.
+   Transform applied: `:host` -> `.wa-pagination`, `:host([appearance='…'])` ->
+   `.wa-pagination[data-appearance='…']`, internal classes (`.container`,
+   `.summary`, `.label`, `.pagination`, `.pages`, `.button`, `.page`,
+   `.current`, `.ellipsis`, `.nav-button`) scoped under the root.
+   `[part~=]` selectors need no rewrite — the part attributes are emitted in
+   markup. The source wraps only the `:host` rule in `@layer wa-component`;
+   it is wrapped wholesale here like every other port so vendored WA styles
+   cannot override the fractalstyler registry.
+   Addition: `svg.default-icon` joins the `wa-icon` sizing rule — the ported
+   component renders the WA system icons (chevron/angles/ellipsis, Font Awesome
+   paths from webawesome/src/components/icon/library.system.ts) as inline SVG
+   since wa-icon is unported, and they need the same 0.875em sizing. */
+@layer wa-component {
+  .wa-pagination {
+    display: contents;
+  }
+
+  .wa-pagination .container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    /* Sizing is relative to the current font size, so we use em rather than spacing tokens */
+    gap: 1em;
+  }
+
+  .wa-pagination .summary {
+    font-size: 0.875em;
+    color: var(--wa-color-text-quiet);
+    white-space: nowrap;
+  }
+
+  /* Compact layout */
+  .wa-pagination .label {
+    display: inline-flex;
+    align-items: center;
+    min-height: max(2.16em, 24px);
+    padding-inline: 0.75em;
+    color: var(--wa-color-text-normal);
+    white-space: nowrap;
+  }
+
+  .wa-pagination .pagination {
+    display: flex;
+  }
+
+  .wa-pagination .pages {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.25em;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .wa-pagination .pages li {
+    display: flex;
+  }
+
+  .wa-pagination .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+
+    /* Guarantee a minimum 24×24px target (WCAG 2.5.8) while still scaling with font-size. */
+    min-width: max(2.16em, 24px);
+    min-height: max(2.16em, 24px);
+    padding-inline: 0.25em;
+
+    font: inherit;
+    font-size: inherit;
+    line-height: 1;
+    color: var(--wa-color-text-normal);
+    text-decoration: none;
+
+    background-color: transparent;
+    /* Default (outlined) appearance */
+    border: solid var(--wa-border-width-s) var(--wa-color-neutral-border-quiet);
+    border-radius: var(--wa-border-radius-m);
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    transition:
+      background-color var(--wa-transition-fast),
+      border-color var(--wa-transition-fast),
+      color var(--wa-transition-fast);
+  }
+
+  /* Ellipsis */
+  .wa-pagination .button.ellipsis {
+    color: var(--wa-color-text-quiet);
+    position: relative;
+  }
+
+  .wa-pagination .button.ellipsis:hover,
+  .wa-pagination .button.ellipsis:focus-visible {
+    color: var(--wa-color-text-normal);
+  }
+
+  .wa-pagination .button:hover {
+    background-color: var(--wa-color-neutral-fill-quiet);
+  }
+
+  .wa-pagination .button:focus {
+    outline: none;
+  }
+
+  .wa-pagination .button:focus-visible {
+    outline: var(--wa-focus-ring);
+    outline-offset: var(--wa-focus-ring-offset);
+  }
+
+  /* Current page */
+  .wa-pagination .button.current {
+    font-weight: var(--wa-font-weight-bold);
+    color: var(--wa-color-brand-on-loud);
+    background-color: var(--wa-form-control-activated-color);
+    /* Read as a solid chip: drop the outlined border so it doesn't double up against the fill. */
+    border-color: transparent;
+  }
+
+  .wa-pagination .button.current:hover {
+    background-color: var(--wa-form-control-activated-color);
+  }
+
+  /* Disabled (pagination buttons use aria-disabled so they stay focusable) */
+  .wa-pagination .button[aria-disabled='true'] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .wa-pagination .button[aria-disabled='true']:hover {
+    background-color: transparent;
+  }
+
+  .wa-pagination wa-icon,
+  .wa-pagination svg.default-icon {
+    font-size: 0.875em;
+  }
+
+  /* Filled */
+  .wa-pagination[data-appearance='filled'] .button {
+    background-color: var(--wa-color-neutral-fill-quiet);
+    border-color: transparent;
+  }
+
+  .wa-pagination[data-appearance='filled'] .button:hover {
+    background-color: var(--wa-color-neutral-fill-normal);
+  }
+
+  .wa-pagination[data-appearance='filled'] .button.current,
+  .wa-pagination[data-appearance='filled'] .button.current:hover {
+    background-color: var(--wa-form-control-activated-color);
+  }
+
+  /* Plain */
+  .wa-pagination[data-appearance='plain'] .button {
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  .wa-pagination[data-appearance='plain'] .button:hover {
+    background-color: transparent;
+  }
+
+  .wa-pagination[data-appearance='plain'] .button.current {
+    color: var(--wa-color-brand-on-loud);
+    background-color: var(--wa-form-control-activated-color);
+  }
+}

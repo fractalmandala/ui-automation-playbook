@@ -1,0 +1,18 @@
+{
+	"$schema": "../schemas/recipe.schema.json",
+	"$comment": "Four of seven parts are passthroughs: the provider and portal render nothing, and root/arrow are components. `content` composes surface.floating with typography.muted, so the muted colour wins on the raised panel by authored order.",
+	"adapter": "kitui",
+	"axes": ["size"],
+	"component": "Tooltip",
+	"importFrom": "bits-ui",
+	"importName": "Tooltip",
+	"parts": {
+		"trigger": ["control.outline"],
+		"content": ["surface.floating", "typography.muted"],
+		"contentstatic": ["surface.raised", "typography.body"]
+	},
+	"source": "bits-ui",
+	"unstyled": {
+		"content": ["disabled"]
+	}
+}

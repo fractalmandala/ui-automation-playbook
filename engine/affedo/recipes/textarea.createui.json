@@ -1,0 +1,28 @@
+{
+  "$schema": "../schemas/recipe.schema.json",
+  "component": "Textarea",
+  "branch": "createui",
+  "adapter": "createui",
+  "parts": {
+    "root": "layout.stack",
+    "label": "typography.label",
+    "control": "control.input",
+    "hint": "typography.caption"
+  },
+  "axes": {
+    "size": {
+      "sm": {
+        "pad": "var(--space-2)",
+        "text": "var(--text-xs)"
+      },
+      "md": {
+        "pad": "var(--space-3)",
+        "text": "var(--text-sm)"
+      },
+      "lg": {
+        "pad": "var(--space-4)",
+        "text": "var(--text-base)"
+      }
+    }
+  }
+}

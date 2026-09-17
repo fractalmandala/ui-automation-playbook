@@ -1,0 +1,71 @@
+{
+  "component": "avatar",
+  "source": "src/lib/wa/avatar/Avatar.svelte",
+  "parts": {
+    "image": {
+      "tag": "img",
+      "role": "img",
+      "dataSlot": "image"
+    },
+    "initials": {
+      "tag": "div",
+      "role": "img",
+      "dataSlot": "initials"
+    },
+    "icon": {
+      "tag": "div",
+      "role": "img",
+      "dataSlot": "icon"
+    }
+  },
+  "states": {
+    "div": [
+      "data-shape"
+    ],
+    "image": [
+      "aria-label"
+    ],
+    "initials": [
+      "aria-label"
+    ],
+    "icon": [
+      "aria-label"
+    ],
+    "svg": [
+      "aria-hidden"
+    ]
+  },
+  "props": {
+    "image": {
+      "type": "string",
+      "default": ""
+    },
+    "label": {
+      "type": "string",
+      "default": ""
+    },
+    "initials": {
+      "type": "string",
+      "default": ""
+    },
+    "loading": {
+      "type": "string",
+      "default": "eager"
+    },
+    "shape": {
+      "type": "string",
+      "default": "circle"
+    },
+    "onerror": {
+      "type": "object",
+      "default": null
+    },
+    "icon": {
+      "type": "object",
+      "default": null
+    }
+  },
+  "snippets": [
+    "icon"
+  ]
+}

@@ -1,0 +1,159 @@
+@layer wa-component {
+  .wa-page {
+    display: block;
+    background-color: var(--wa-color-surface-default);
+    box-sizing: border-box;
+    min-height: 100%;
+    --menu-width: auto;
+    --main-width: 1fr;
+    --aside-width: auto;
+    --banner-height: 0px;
+    --header-height: 0px;
+    --subheader-height: 0px;
+    --scroll-margin-top: calc(var(--header-height, 0px) + var(--subheader-height, 0px) + 0.5em);
+
+    --banner-top: var(--banner-height);
+    --header-top: var(--header-height);
+    --subheader-top: var(--subheader-height);
+  }
+
+  .wa-page [part~='base'] {
+    min-height: 100dvh;
+    display: grid;
+    grid-template-rows: repeat(3, minmax(0, auto)) minmax(0, 1fr) minmax(0, auto);
+    grid-template-columns: 100%;
+    width: 100%;
+    grid-template-areas:
+      'banner'
+      'header'
+      'subheader'
+      'body'
+      'footer';
+  }
+
+  .wa-page [part~='banner'] {
+    grid-area: banner;
+    position: sticky;
+    top: 0px;
+    z-index: 5;
+    align-items: center;
+    justify-content: center;
+    gap: var(--wa-space-m);
+    padding: var(--wa-space-xs) var(--wa-space-m);
+  }
+
+  .wa-page [part~='header'] {
+    grid-area: header;
+    position: sticky;
+    top: var(--banner-top);
+    background-color: var(--wa-color-surface-default);
+    z-index: 5;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--wa-space-m);
+    padding: var(--wa-space-m);
+  }
+
+  .wa-page [part~='subheader'] {
+    grid-area: subheader;
+    position: sticky;
+    top: calc(var(--header-top) + var(--banner-top));
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--wa-space-m);
+    padding: var(--wa-space-xs) var(--wa-space-m);
+  }
+
+  .wa-page [part~='body'] {
+    grid-area: body;
+    display: grid;
+    min-height: 100%;
+    align-items: start;
+    grid-template-columns: minmax(0, var(--menu-width)) minmax(0, var(--main-width)) minmax(0, var(--aside-width));
+    grid-template-rows: minmax(0, 1fr);
+    grid-template-areas: 'menu main aside';
+  }
+
+  .wa-page [part~='menu'] {
+    grid-area: menu;
+    position: sticky;
+    top: calc(var(--banner-top) + var(--header-top) + var(--subheader-top));
+    z-index: 4;
+    min-height: 0;
+    align-self: stretch;
+    max-height: calc(100dvh - var(--header-top) - var(--banner-top) - var(--subheader-top));
+    overflow: auto;
+    padding: var(--wa-space-m);
+  }
+
+  .wa-page [part~='aside'] {
+    grid-area: aside;
+    position: sticky;
+    top: calc(var(--banner-top) + var(--header-top) + var(--subheader-top));
+    z-index: 4;
+    min-height: 0;
+    align-self: stretch;
+    max-height: calc(100dvh - var(--header-top) - var(--banner-top) - var(--subheader-top));
+    overflow: auto;
+    padding: var(--wa-space-m);
+  }
+
+  .wa-page [part~='main'] {
+    grid-area: main;
+    display: grid;
+    min-height: 100%;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, auto) minmax(0, 1fr) minmax(0, auto);
+    grid-template-areas:
+      'main-header'
+      'main-content'
+      'main-footer';
+  }
+
+  .wa-page [part~='main-header'] {
+    grid-area: main-header;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--wa-space-m);
+    padding: var(--wa-space-m) var(--wa-space-3xl);
+  }
+
+  .wa-page [part~='main-content'] {
+    grid-area: main-content;
+    padding: var(--wa-space-3xl);
+  }
+
+  .wa-page [part~='main-footer'] {
+    grid-area: main-footer;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--wa-space-m);
+    padding: var(--wa-space-3xl);
+  }
+
+  .wa-page [part~='footer'] {
+    grid-area: footer;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--wa-space-m);
+    padding: var(--wa-space-3xl);
+  }
+
+  .wa-page [part~='navigation'] {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--wa-space-m);
+  }
+}

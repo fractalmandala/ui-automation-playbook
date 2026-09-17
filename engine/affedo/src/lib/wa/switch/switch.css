@@ -1,0 +1,143 @@
+/* Ported from webawesome/src/components/switch/switch.styles.ts (+
+   styles/component/size.styles.ts, vendored inline per the input.css precedent).
+   Transform applied: `:host` -> `.wa-switch`, `:host([size='x'])` ->
+   `.wa-switch[data-size='x']`, `:host([required])` ->
+   `.wa-switch[data-required]`, the `label` element and internal classes (`.switch`,
+   `.thumb`, `.input`, `.checked`, `.disabled`) scoped under the root.
+   `[part~=]` selectors need no rewrite — the part attributes are emitted in
+   markup. The `:host([did-ssr]:not(:defined))` rule is SSR scaffolding and is
+   deleted per the pipeline. Label/hint layout rules live in
+   `../_shared/wa-styles/component/form-control.css`, imported from the component
+   script *before* this file so these rules win equal-specificity ties inside
+   `@layer wa-component`. Wrapped in `@layer wa-component` so this cannot collide
+   with the fractalstyler registry. */
+@layer wa-component {
+  .wa-switch {
+    --height: var(--wa-form-control-toggle-size);
+    --width: calc(var(--height) * 1.75);
+    --thumb-size: 0.75em;
+
+    display: inline-flex;
+    line-height: var(--wa-form-control-value-line-height);
+  }
+
+  .wa-switch label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    font: inherit;
+    color: var(--wa-form-control-value-color);
+    vertical-align: middle;
+    cursor: pointer;
+  }
+
+  .wa-switch .switch {
+    flex: 0 0 auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--width);
+    height: var(--height);
+    background-color: var(--wa-form-control-background-color);
+    border-color: var(--wa-form-control-border-color);
+    border-radius: var(--height);
+    border-style: var(--wa-form-control-border-style);
+    border-width: var(--wa-form-control-border-width);
+    transition-property: translate, background, border-color, box-shadow;
+    transition-duration: var(--wa-transition-normal);
+    transition-timing-function: var(--wa-transition-easing);
+  }
+
+  .wa-switch .switch .thumb {
+    aspect-ratio: 1 / 1;
+    width: var(--thumb-size);
+    height: var(--thumb-size);
+    background-color: var(--wa-form-control-border-color);
+    border-radius: 50%;
+    translate: calc((var(--width) - var(--height)) / -2);
+    transition: inherit;
+  }
+  .wa-switch .switch .thumb:dir(rtl) {
+    translate: calc((var(--width) - var(--height)) / 2);
+  }
+
+  .wa-switch .input {
+    position: absolute;
+    opacity: 0;
+    padding: 0;
+    margin: 0;
+    pointer-events: none;
+  }
+
+  /* Focus */
+  .wa-switch label:not(.disabled) .input:focus-visible ~ [part~='control'] {
+    outline: var(--wa-focus-ring);
+    outline-offset: var(--wa-focus-ring-offset);
+  }
+
+  /* Checked */
+  .wa-switch .checked .switch {
+    background-color: var(--wa-form-control-activated-color);
+    border-color: var(--wa-form-control-activated-color);
+  }
+
+  .wa-switch .checked .switch .thumb {
+    background-color: var(--wa-color-surface-default);
+    translate: calc((var(--width) - var(--height)) / 2);
+  }
+  .wa-switch .checked .switch .thumb:dir(rtl) {
+    translate: calc((var(--width) - var(--height)) / -2);
+  }
+
+  /* Disabled */
+  .wa-switch label:has(> :disabled) {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .wa-switch [part~='label'] {
+    display: inline-block;
+    line-height: var(--height);
+    margin-inline-start: 0.5em;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  .wa-switch[data-required] [part~='label']::after {
+    content: var(--wa-form-control-required-content);
+    color: var(--wa-form-control-required-content-color);
+    margin-inline-start: var(--wa-form-control-required-content-offset);
+  }
+
+  @media (forced-colors: active) {
+    .wa-switch :checked:enabled + .switch:hover .thumb,
+    .wa-switch :checked + .switch .thumb {
+      background-color: ButtonText;
+    }
+  }
+
+  /* Size modifiers (from styles/component/size.styles.ts, vendored inline) */
+  .wa-switch[data-size='xs'] {
+    font-size: var(--wa-font-size-xs);
+  }
+
+  .wa-switch[data-size='s'],
+  .wa-switch[data-size='small'] {
+    font-size: var(--wa-font-size-s);
+  }
+
+  .wa-switch[data-size='m'],
+  .wa-switch[data-size='medium'] {
+    font-size: var(--wa-font-size-m);
+  }
+
+  .wa-switch[data-size='l'],
+  .wa-switch[data-size='large'] {
+    font-size: var(--wa-font-size-l);
+  }
+
+  .wa-switch[data-size='xl'] {
+    font-size: var(--wa-font-size-xl);
+  }
+}

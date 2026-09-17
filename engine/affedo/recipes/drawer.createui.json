@@ -1,0 +1,31 @@
+{
+  "$schema": "../schemas/recipe.schema.json",
+  "component": "Drawer",
+  "branch": "createui",
+  "adapter": "createui",
+  "parts": {
+    "overlay": "surface.overlay",
+    "panel": "surface.drawer-panel",
+    "header": "layout.row",
+    "title": "typography.heading",
+    "body": "typography.body",
+    "footer": "layout.row",
+    "closeButton": "control.button-ghost"
+  },
+  "axes": {
+    "placement": {
+      "left": {
+        "width": "22rem"
+      },
+      "right": {
+        "width": "22rem"
+      },
+      "top": {
+        "height": "16rem"
+      },
+      "bottom": {
+        "height": "16rem"
+      }
+    }
+  }
+}

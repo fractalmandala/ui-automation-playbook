@@ -1,0 +1,166 @@
+// =============================================================================
+// 05_NEOBRUTALIST — Neo-Brutalist Theme
+// Stark 1-2px solid borders, hard offset shadows, high-energy pop accents,
+// punchy contrast and unyielding structural presence.
+// =============================================================================
+
+=neobrutalist-light
+	color-scheme: light
+	--bg: #fffdf5
+	--bg-weakest: #fef9c3
+	--bg-weaker: #fef08a
+	--bg-base: #fde047
+	--bg-stronger: #facc15
+	--bg-strongest: #eab308
+
+	--stroke-weakest: #000000
+	--stroke-weaker: #000000
+	--stroke-base: #000000
+	--stroke-stronger: #000000
+	--stroke-strongest: #000000
+
+	--text-primary: #000000
+	--text-secondary: #171717
+	--text-tertiary: #404040
+	--text-muted: #525252
+	--text-inverse: #ffffff
+
+	--icon-primary: #000000
+	--icon-secondary: #171717
+	--icon-tertiary: #404040
+	--icon-disabled: rgba(0, 0, 0, 0.35)
+
+	--color-primary: #ffde00
+	--color-primary-hover: #facc15
+	--color-primary-active: #eab308
+	--color-primary-fg: #000000
+	--color-primary-subtle: #fef9c3
+
+	--state-hover: rgba(0, 0, 0, 0.08)
+	--state-active: rgba(0, 0, 0, 0.16)
+	--state-selected: rgba(255, 222, 0, 0.4)
+	--state-focus: #000000
+	--state-disabled: 0.45
+
+	--status-success-bg: #86efac
+	--status-success-fg: #000000
+	--status-success-border: #000000
+	--status-warning-bg: #fde047
+	--status-warning-fg: #000000
+	--status-warning-border: #000000
+	--status-danger-bg: #fca5a5
+	--status-danger-fg: #000000
+	--status-danger-border: #000000
+	--status-info-bg: #93c5fd
+	--status-info-fg: #000000
+	--status-info-border: #000000
+
+	--overlay-dimmer: rgba(0, 0, 0, 0.75)
+	--blur-xs: 0px
+	--blur-sm: 0px
+	--blur-md: 0px
+	--blur-lg: 0px
+	--blur-xl: 0px
+
+	--shadow-xs: 1px 1px 0px #000000
+	--shadow-sm: 2px 2px 0px #000000
+	--shadow-md: 4px 4px 0px #000000
+	--shadow-lg: 6px 6px 0px #000000
+	--shadow-xl: 8px 8px 0px #000000
+
+	--radius-xs: 0px
+	--radius-sm: 2px
+	--radius-md: 4px
+	--radius-lg: 4px
+	--radius-xl: 6px
+	--radius-full: 9999px
+
+	--font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif
+	--font-mono: ui-monospace, 'Cascadia Code', monospace
+
+=neobrutalist-dark
+	color-scheme: dark
+	--bg: #121212
+	--bg-weakest: #1a1a1a
+	--bg-weaker: #242424
+	--bg-base: #303030
+	--bg-stronger: #424242
+	--bg-strongest: #585858
+
+	--stroke-weakest: #ffffff
+	--stroke-weaker: #ffffff
+	--stroke-base: #ffffff
+	--stroke-stronger: #ffffff
+	--stroke-strongest: #ffffff
+
+	--text-primary: #ffffff
+	--text-secondary: #e5e5e5
+	--text-tertiary: #a3a3a3
+	--text-muted: #a3a3a3
+	--text-inverse: #000000
+
+	--icon-primary: #ffffff
+	--icon-secondary: #e5e5e5
+	--icon-tertiary: #a3a3a3
+	--icon-disabled: rgba(255, 255, 255, 0.35)
+
+	--color-primary: #a3e635
+	--color-primary-hover: #bef264
+	--color-primary-active: #84cc16
+	--color-primary-fg: #000000
+	--color-primary-subtle: #1a2e05
+
+	--state-hover: rgba(255, 255, 255, 0.1)
+	--state-active: rgba(255, 255, 255, 0.2)
+	--state-selected: rgba(163, 230, 53, 0.3)
+	--state-focus: #a3e635
+	--state-disabled: 0.4
+
+	--status-success-bg: #14532d
+	--status-success-fg: #86efac
+	--status-success-border: #86efac
+	--status-warning-bg: #713f12
+	--status-warning-fg: #fde047
+	--status-warning-border: #fde047
+	--status-danger-bg: #7f1d1d
+	--status-danger-fg: #fca5a5
+	--status-danger-border: #fca5a5
+	--status-info-bg: #1e3a8a
+	--status-info-fg: #93c5fd
+	--status-info-border: #93c5fd
+
+	--overlay-dimmer: rgba(0, 0, 0, 0.85)
+	--blur-xs: 0px
+	--blur-sm: 0px
+	--blur-md: 0px
+	--blur-lg: 0px
+	--blur-xl: 0px
+
+	--shadow-xs: 1px 1px 0px #ffffff
+	--shadow-sm: 2px 2px 0px #ffffff
+	--shadow-md: 4px 4px 0px #ffffff
+	--shadow-lg: 6px 6px 0px #ffffff
+	--shadow-xl: 8px 8px 0px #ffffff
+
+	--radius-xs: 0px
+	--radius-sm: 2px
+	--radius-md: 4px
+	--radius-lg: 4px
+	--radius-xl: 6px
+	--radius-full: 9999px
+
+	--font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif
+	--font-mono: ui-monospace, 'Cascadia Code', monospace
+
+[data-theme="neobrutalist"]
+	+neobrutalist-light
+
+[data-theme="neobrutalist"][data-mode="dark"]
+	+neobrutalist-dark
+
+[data-theme="neobrutalist"][data-mode="light"]
+	+neobrutalist-light
+
+@media (prefers-color-scheme: dark)
+	[data-theme="neobrutalist"]:not([data-mode="light"])
+		+neobrutalist-dark

@@ -1,0 +1,87 @@
+{
+  "component": "Popup",
+  "source": "src/lib/wa/popup/Popup.svelte",
+  "parts": {
+    "popup": {
+      "tag": "div",
+      "role": null,
+      "dataSlot": "popup"
+    },
+    "arrow": {
+      "tag": "div",
+      "role": null,
+      "dataSlot": "arrow"
+    }
+  },
+  "states": {
+    "div": [
+      "data-current-placement"
+    ]
+  },
+  "props": {
+    "active": {
+      "type": "boolean",
+      "default": false
+    },
+    "placement": {
+      "type": "string",
+      "default": "top"
+    },
+    "anchor": {
+      "type": "object",
+      "default": null
+    },
+    "distance": {
+      "type": "number",
+      "default": 0
+    },
+    "skidding": {
+      "type": "number",
+      "default": 0
+    },
+    "arrow": {
+      "type": "boolean",
+      "default": false
+    },
+    "arrowPlacement": {
+      "type": "string",
+      "default": "anchor"
+    },
+    "arrowPadding": {
+      "type": "number",
+      "default": 10
+    },
+    "flip": {
+      "type": "boolean",
+      "default": true
+    },
+    "shift": {
+      "type": "boolean",
+      "default": true
+    },
+    "sync": {
+      "type": "object",
+      "default": null
+    },
+    "onreposition": {
+      "type": "object",
+      "default": null
+    },
+    "anchorSnippet": {
+      "type": "object",
+      "default": null
+    },
+    "children": {
+      "type": "object",
+      "default": null
+    },
+    "class": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "snippets": [
+    "anchorSnippet",
+    "children"
+  ]
+}

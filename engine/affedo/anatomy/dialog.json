@@ -1,0 +1,105 @@
+{
+  "component": "Dialog",
+  "source": "src/lib/wa/dialog/Dialog.svelte",
+  "parts": {
+    "dialog": {
+      "tag": "dialog",
+      "role": null,
+      "dataSlot": "dialog"
+    },
+    "header": {
+      "tag": "div",
+      "role": null,
+      "dataSlot": "header"
+    },
+    "title": {
+      "tag": "h2",
+      "role": null,
+      "dataSlot": "title"
+    },
+    "header-actions": {
+      "tag": "div",
+      "role": null,
+      "dataSlot": "header-actions"
+    },
+    "body": {
+      "tag": "div",
+      "role": null,
+      "dataSlot": "body"
+    },
+    "footer": {
+      "tag": "div",
+      "role": null,
+      "dataSlot": "footer"
+    }
+  },
+  "states": {},
+  "props": {
+    "open": {
+      "type": "object",
+      "default": null
+    },
+    "label": {
+      "type": "string",
+      "default": ""
+    },
+    "withoutHeader": {
+      "type": "boolean",
+      "default": false
+    },
+    "lightDismiss": {
+      "type": "boolean",
+      "default": false
+    },
+    "withFooter": {
+      "type": "boolean",
+      "default": false
+    },
+    "id": {
+      "type": "string",
+      "default": "undefined"
+    },
+    "class": {
+      "type": "string",
+      "default": ""
+    },
+    "children": {
+      "type": "object",
+      "default": null
+    },
+    "labelSnippet": {
+      "type": "object",
+      "default": null
+    },
+    "headerActionsSnippet": {
+      "type": "object",
+      "default": null
+    },
+    "footer": {
+      "type": "object",
+      "default": null
+    },
+    "onshow": {
+      "type": "object",
+      "default": null
+    },
+    "onaftershow": {
+      "type": "object",
+      "default": null
+    },
+    "onhide": {
+      "type": "object",
+      "default": null
+    },
+    "onafterhide": {
+      "type": "object",
+      "default": null
+    }
+  },
+  "snippets": [
+    "labelSnippet",
+    "headerActionsSnippet",
+    "children",
+    "footer"
+  ]
+}

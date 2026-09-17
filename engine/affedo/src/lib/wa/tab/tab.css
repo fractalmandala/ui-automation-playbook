@@ -1,0 +1,52 @@
+/* Ported from webawesome/src/components/tab/tab.styles.ts.
+   Transform applied: `:host` -> `.wa-tab`, wrapped in @layer wa-component. */
+@layer wa-component {
+  .wa-tab {
+    display: inline-block;
+    color: var(--wa-color-neutral-on-quiet);
+    font-weight: var(--wa-font-weight-action);
+  }
+
+  .wa-tab .tab {
+    display: inline-flex;
+    align-items: center;
+    font: inherit;
+    padding: 1em 1.5em;
+    white-space: nowrap;
+    user-select: none;
+    -webkit-user-select: none;
+    cursor: pointer;
+    transition: color var(--wa-transition-fast) var(--wa-transition-easing);
+  }
+
+  @media (hover: hover) {
+    .wa-tab:hover:not([data-disabled]) .tab {
+      color: var(--wa-color-text-normal, currentColor);
+    }
+  }
+
+  .wa-tab:focus {
+    outline: transparent;
+  }
+
+  .wa-tab:focus-visible .tab {
+    outline: var(--wa-focus-ring);
+    outline-offset: calc(-1 * var(--wa-border-width-l, 2px) - var(--wa-focus-ring-offset));
+  }
+
+  .wa-tab[data-active]:not([data-disabled]) {
+    color: var(--wa-color-brand-on-quiet, var(--wa-color-brand-50));
+  }
+
+  .wa-tab[data-disabled] .tab {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  @media (forced-colors: active) {
+    .wa-tab[data-active]:not([data-disabled]) {
+      outline: solid 1px transparent;
+      outline-offset: -3px;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+	"$schema": "../schemas/recipe.schema.json",
+	"adapter": "kitui",
+	"axes": ["size"],
+	"component": "Tabs",
+	"importFrom": "bits-ui",
+	"importName": "Tabs",
+	"parts": {
+		"root": ["layout.stack"],
+		"list": ["layout.row"],
+		"trigger": ["control.tab"],
+		"content": ["surface.canvas", "typography.body"]
+	},
+	"source": "bits-ui",
+	"unstyled": {
+		"list": ["disabled"],
+		"trigger": ["inactive"],
+		"content": ["active", "inactive"]
+	}
+}

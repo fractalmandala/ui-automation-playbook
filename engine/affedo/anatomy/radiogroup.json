@@ -1,0 +1,97 @@
+{
+  "component": "RadioGroup",
+  "source": "src/lib/wa/radio-group/RadioGroup.svelte",
+  "parts": {
+    "form-control": {
+      "tag": "fieldset",
+      "role": null,
+      "dataSlot": "form-control"
+    },
+    "form-control-label": {
+      "tag": "legend",
+      "role": null,
+      "dataSlot": "form-control-label"
+    },
+    "form-control-input": {
+      "tag": "div",
+      "role": "radiogroup",
+      "dataSlot": "form-control-input"
+    },
+    "hint": {
+      "tag": "div",
+      "role": null,
+      "dataSlot": "hint"
+    }
+  },
+  "states": {
+    "div": [
+      "data-orientation",
+      "data-size",
+      "data-disabled",
+      "data-required"
+    ],
+    "form-control-input": [
+      "aria-labelledby",
+      "aria-describedby"
+    ]
+  },
+  "props": {
+    "value": {
+      "type": "object",
+      "default": null
+    },
+    "name": {
+      "type": "object",
+      "default": null
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "orientation": {
+      "type": "string",
+      "default": "vertical"
+    },
+    "size": {
+      "type": "string",
+      "default": "undefined"
+    },
+    "required": {
+      "type": "boolean",
+      "default": false
+    },
+    "label": {
+      "type": "string",
+      "default": ""
+    },
+    "hint": {
+      "type": "string",
+      "default": ""
+    },
+    "labelSnippet": {
+      "type": "object",
+      "default": null
+    },
+    "hintSnippet": {
+      "type": "object",
+      "default": null
+    },
+    "children": {
+      "type": "object",
+      "default": null
+    },
+    "onchange": {
+      "type": "object",
+      "default": null
+    },
+    "oninput": {
+      "type": "object",
+      "default": null
+    }
+  },
+  "snippets": [
+    "labelSnippet",
+    "children",
+    "hintSnippet"
+  ]
+}

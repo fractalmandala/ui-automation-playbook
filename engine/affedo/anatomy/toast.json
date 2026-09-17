@@ -1,0 +1,43 @@
+{
+  "component": "toast",
+  "source": "src/lib/wa/toast/Toast.svelte",
+  "parts": {
+    "base": {
+      "tag": "div",
+      "role": "region",
+      "dataSlot": "base"
+    },
+    "stack": {
+      "tag": "div",
+      "role": null,
+      "dataSlot": "stack"
+    }
+  },
+  "states": {
+    "div": [
+      "data-placement",
+      "aria-label"
+    ]
+  },
+  "props": {
+    "placement": {
+      "type": "string",
+      "default": "bottom-end"
+    },
+    "id": {
+      "type": "string",
+      "default": "undefined"
+    },
+    "class": {
+      "type": "string",
+      "default": ""
+    },
+    "children": {
+      "type": "object",
+      "default": null
+    }
+  },
+  "snippets": [
+    "children"
+  ]
+}

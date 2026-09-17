@@ -1,0 +1,15 @@
+{
+  "$schema": "../schemas/recipe.schema.json",
+  "component": "Comparison",
+  "branch": "createui",
+  "adapter": "createui",
+  "parts": {
+    "root": "layout.split",
+    "afterLayer": "surface.media",
+    "beforeLayer": "surface.media",
+    "divider": "control.divider-handle",
+    "handle": "control.divider-grip",
+    "labelBefore": "typography.label",
+    "labelAfter": "typography.label"
+  }
+}

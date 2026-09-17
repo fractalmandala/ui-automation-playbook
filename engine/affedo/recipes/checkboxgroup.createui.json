@@ -1,0 +1,17 @@
+{
+  "$schema": "../schemas/recipe.schema.json",
+  "component": "CheckboxGroup",
+  "branch": "createui",
+  "adapter": "createui",
+  "parts": {
+    "root": "layout.stack",
+    "label": "typography.label",
+    "hint": "typography.caption"
+  },
+  "axes": {
+    "orientation": {
+      "vertical": "layout.stack",
+      "horizontal": "layout.row"
+    }
+  }
+}

@@ -1,0 +1,312 @@
+// Playground chrome. Every value here is a generated token, so the chrome moves
+// when the adapter moves - the same discipline the pipeline enforces on
+// component Sass.
+
+\:root
+	color-scheme: dark
+
+body
+	margin: 0
+	background: var(--bg)
+	color: var(--text-primary)
+	font-family: var(--font-sans)
+	font-size: var(--text-sm)
+	line-height: var(--leading-normal)
+
+*
+	box-sizing: border-box
+
+button
+	font: inherit
+
+.pg-shell
+	display: grid
+	grid-template-columns: 216px minmax(0, 1fr) 400px
+	gap: var(--space-m)
+	padding: var(--space-m)
+	align-items: start
+
+// --- sidebar ----------------------------------------------------------------
+
+.pg-nav
+	position: sticky
+	top: var(--space-m)
+	// space-m of sticky offset at the top, space-m of shell padding below.
+	max-height: calc(100vh - var(--space-m) * 2)
+	overflow: auto
+	display: flex
+	flex-direction: column
+	gap: var(--space-s)
+
+.pg-nav-title
+	font-size: var(--text-lg)
+	font-weight: var(--font-weight-semibold)
+	line-height: var(--leading-tight)
+	margin: 0
+
+.pg-nav-group
+	display: flex
+	flex-direction: column
+	gap: 2px
+
+.pg-nav-group-label
+	font-size: var(--text-xs)
+	letter-spacing: var(--tracking-wide)
+	text-transform: uppercase
+	color: var(--text-muted)
+	margin-bottom: var(--space-3xs)
+
+.pg-nav-link
+	display: flex
+	align-items: center
+	justify-content: space-between
+	gap: var(--space-3xs)
+	width: 100%
+	text-align: left
+	background: transparent
+	border: var(--border-width) solid transparent
+	border-radius: var(--radius-s)
+	color: var(--text-secondary)
+	cursor: pointer
+	padding: 3px var(--space-2xs)
+
+	&:hover
+		background: var(--bg-hover)
+		color: var(--text-primary)
+
+	&[data-on="true"]
+		background: var(--accent-subtle)
+		border-color: var(--accent)
+		color: var(--text-primary)
+
+.pg-nav-badge
+	flex: none
+	font-family: var(--font-mono)
+	font-size: var(--text-xs)
+	color: var(--text-muted)
+
+// --- main -------------------------------------------------------------------
+
+.pg-main
+	display: flex
+	flex-direction: column
+	gap: var(--space-s)
+	min-width: 0
+
+.pg-side
+	display: flex
+	flex-direction: column
+
+.pg-header
+	display: flex
+	align-items: flex-start
+	justify-content: space-between
+	gap: var(--space-s)
+	border-bottom: var(--border-width) solid var(--border-subtle)
+	padding-bottom: var(--space-s)
+
+.pg-title
+	font-size: var(--text-lg)
+	font-weight: var(--font-weight-semibold)
+	line-height: var(--leading-tight)
+	margin: 0
+
+.pg-sub
+	color: var(--text-muted)
+	font-size: var(--text-xs)
+	margin: 0
+
+.pg-panel
+	background: var(--bg-raised)
+	border: var(--border-width) solid var(--border-subtle)
+	border-radius: var(--radius-m)
+	padding: var(--space-s)
+
+.pg-panel + .pg-panel
+	margin-top: var(--space-s)
+
+.pg-panel-title
+	display: flex
+	align-items: baseline
+	justify-content: space-between
+	gap: var(--space-2xs)
+	margin: 0 0 var(--space-2xs)
+	font-size: var(--text-xs)
+	letter-spacing: var(--tracking-wide)
+	text-transform: uppercase
+	color: var(--text-muted)
+
+// --- demo frame -------------------------------------------------------------
+
+.pg-cols
+	display: grid
+	grid-template-columns: repeat(3, minmax(0, 1fr))
+	gap: var(--space-s)
+
+.pg-cols[data-count="1"]
+	grid-template-columns: minmax(0, 1fr)
+
+.pg-col-label
+	display: flex
+	justify-content: space-between
+	font-family: var(--font-mono)
+	font-size: var(--text-xs)
+	color: var(--text-muted)
+	margin-bottom: var(--space-3xs)
+
+// Playground-only affordance, and opt-in: outline whichever generated part the
+// pointer is inside. Off by default, because a dashed outline on every hover
+// competes with the thing being inspected. There is no per-component rule here -
+// it works off the data-slot attributes the pipeline stamps on, so it covers
+// every component including ones added after this file was written.
+.pg-demo[data-outline="true"] [data-slot]:hover
+	outline: 1px dashed var(--accent)
+	outline-offset: -1px
+
+.pg-row
+	display: flex
+	flex-wrap: wrap
+	gap: var(--space-s)
+	align-items: center
+
+.pg-label
+	display: flex
+	align-items: center
+	gap: var(--space-3xs)
+
+.pg-stack
+	display: flex
+	flex-direction: column
+	gap: var(--space-2xs)
+
+.pg-note
+	color: var(--text-muted)
+	font-size: var(--text-xs)
+	margin: 0
+
+// --- controls, chips, tables, code ------------------------------------------
+
+.pg-controls
+	display: flex
+	flex-wrap: wrap
+	gap: var(--space-s)
+	align-items: center
+
+.pg-field
+	display: flex
+	align-items: center
+	gap: var(--space-3xs)
+	color: var(--text-muted)
+	font-size: var(--text-xs)
+
+.pg-chip
+	display: inline-flex
+	align-items: center
+	gap: 4px
+	border: var(--border-width) solid var(--border-strong)
+	background: transparent
+	color: var(--text-secondary)
+	border-radius: var(--radius-full)
+	padding: 2px var(--space-2xs)
+	font-size: var(--text-xs)
+	cursor: pointer
+
+	&:hover
+		background: var(--bg-hover)
+		color: var(--text-primary)
+
+	&[data-on="true"]
+		background: var(--accent-subtle)
+		border-color: var(--accent)
+		color: var(--text-primary)
+
+.pg-chip-row
+	display: flex
+	flex-wrap: wrap
+	gap: 6px
+
+.pg-table-scroll
+	max-height: 280px
+	overflow: auto
+
+.pg-table
+	width: 100%
+	border-collapse: collapse
+	font-size: var(--text-xs)
+
+	th
+		text-align: left
+		color: var(--text-muted)
+		font-weight: var(--font-weight-medium)
+		padding: 2px var(--space-3xs) 2px 0
+		white-space: nowrap
+
+	td
+		padding: 2px 0
+		color: var(--text-primary)
+		font-family: var(--font-mono)
+		overflow-wrap: anywhere
+
+.pg-role
+	font-family: var(--font-mono)
+	font-size: var(--text-xs)
+	background: var(--accent-subtle)
+	color: var(--accent)
+	border-radius: var(--radius-s)
+	padding: 1px 6px
+
+.pg-code
+	margin: 0
+	padding: var(--space-2xs)
+	background: var(--bg-sunken)
+	border: var(--border-width) solid var(--border-subtle)
+	border-radius: var(--radius-s)
+	font-family: var(--font-mono)
+	font-size: var(--text-xs)
+	line-height: var(--leading-normal)
+	max-height: 340px
+	overflow: auto
+	white-space: pre
+
+.pg-finding
+	display: flex
+	gap: var(--space-3xs)
+	align-items: flex-start
+	font-size: var(--text-xs)
+	color: var(--text-secondary)
+	padding: 3px 0
+
+.pg-finding-tag
+	flex: none
+	min-width: 72px
+	font-family: var(--font-mono)
+	color: var(--text-muted)
+
+.pg-warn
+	color: var(--warning)
+
+.pg-err
+	color: var(--danger)
+
+.pg-ok
+	color: var(--accent)
+
+.pg-swatch
+	width: 100%
+	height: 14px
+	border-radius: var(--radius-s)
+	border: var(--border-width) solid var(--border-subtle)
+
+.pg-token-row
+	display: grid
+	grid-template-columns: 1fr 72px
+	gap: var(--space-3xs)
+	align-items: center
+	font-family: var(--font-mono)
+	font-size: var(--text-xs)
+
+.pg-token-value
+	color: var(--text-muted)
+	overflow: hidden
+	text-overflow: ellipsis
+	white-space: nowrap

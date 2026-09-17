@@ -1,0 +1,15 @@
+# A workspace at uiautomation/ so `pipeline` (which generates code importing
+# bits-ui) and `playground` (which renders it) share ONE physical copy of
+# svelte, bits-ui and sass. Two Svelte runtimes in one browser tab fail in
+# confusing ways ($props/lifecycle errors), so this is not cosmetic.
+packages:
+  - pipeline
+  - playground
+
+# pnpm 11 blocks postinstall scripts unless they are approved. esbuild needs its
+# platform binary and @parcel/watcher powers Vite's file watching; without the
+# approval `pnpm install` exits non-zero, which in turn makes every `pnpm <script>`
+# fail its pre-run dependency check. Recorded by `pnpm approve-builds --all`.
+allowBuilds:
+  '@parcel/watcher': true
+  esbuild: true

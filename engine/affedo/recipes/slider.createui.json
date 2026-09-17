@@ -1,0 +1,30 @@
+{
+  "$schema": "../schemas/recipe.schema.json",
+  "component": "Slider",
+  "branch": "createui",
+  "adapter": "createui",
+  "parts": {
+    "root": "layout.stack",
+    "label": "typography.label",
+    "track": "control.slider-track",
+    "fill": "control.slider-fill",
+    "thumb": "control.slider-thumb",
+    "hint": "typography.caption"
+  },
+  "axes": {
+    "size": {
+      "sm": {
+        "trackHeight": "4px",
+        "thumbSize": "1rem"
+      },
+      "md": {
+        "trackHeight": "6px",
+        "thumbSize": "1.25rem"
+      },
+      "lg": {
+        "trackHeight": "8px",
+        "thumbSize": "1.5rem"
+      }
+    }
+  }
+}

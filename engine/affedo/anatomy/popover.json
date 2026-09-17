@@ -1,0 +1,92 @@
+{
+  "component": "popover",
+  "source": "src/lib/wa/popover/Popover.svelte",
+  "parts": {
+    "dialog": {
+      "tag": "dialog",
+      "role": null,
+      "dataSlot": "dialog"
+    },
+    "popup": {
+      "tag": "div",
+      "role": null,
+      "dataSlot": "popup"
+    },
+    "body": {
+      "tag": "div",
+      "role": "presentation",
+      "dataSlot": "body"
+    },
+    "arrow": {
+      "tag": "div",
+      "role": null,
+      "dataSlot": "arrow"
+    }
+  },
+  "states": {
+    "div": [
+      "data-open",
+      "data-placement"
+    ],
+    "arrow": [
+      "aria-hidden"
+    ]
+  },
+  "props": {
+    "placement": {
+      "type": "string",
+      "default": "top"
+    },
+    "distance": {
+      "type": "number",
+      "default": 8
+    },
+    "skidding": {
+      "type": "number",
+      "default": 0
+    },
+    "for": {
+      "type": "object",
+      "default": null
+    },
+    "withoutArrow": {
+      "type": "boolean",
+      "default": false
+    },
+    "open": {
+      "type": "object",
+      "default": null
+    },
+    "id": {
+      "type": "string",
+      "default": "undefined"
+    },
+    "class": {
+      "type": "string",
+      "default": ""
+    },
+    "children": {
+      "type": "object",
+      "default": null
+    },
+    "onshow": {
+      "type": "object",
+      "default": null
+    },
+    "onaftershow": {
+      "type": "object",
+      "default": null
+    },
+    "onhide": {
+      "type": "object",
+      "default": null
+    },
+    "onafterhide": {
+      "type": "object",
+      "default": null
+    }
+  },
+  "snippets": [
+    "children"
+  ]
+}

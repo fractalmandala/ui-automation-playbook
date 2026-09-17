@@ -1,0 +1,108 @@
+{
+  "component": "tooltip",
+  "source": "src/lib/wa/tooltip/Tooltip.svelte",
+  "parts": {
+    "base tooltip": {
+      "tag": "div",
+      "role": "presentation",
+      "dataSlot": "base tooltip"
+    },
+    "popup base__popup": {
+      "tag": "div",
+      "role": "tooltip",
+      "dataSlot": "popup base__popup"
+    },
+    "body": {
+      "tag": "div",
+      "role": null,
+      "dataSlot": "body"
+    },
+    "arrow base__arrow": {
+      "tag": "div",
+      "role": null,
+      "dataSlot": "arrow base__arrow"
+    }
+  },
+  "states": {
+    "base tooltip": [
+      "data-open",
+      "data-disabled",
+      "data-without-arrow"
+    ],
+    "popup base__popup": [
+      "data-placement"
+    ],
+    "arrow base__arrow": [
+      "aria-hidden"
+    ]
+  },
+  "props": {
+    "content": {
+      "type": "string",
+      "default": ""
+    },
+    "placement": {
+      "type": "string",
+      "default": "top"
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "distance": {
+      "type": "number",
+      "default": 8
+    },
+    "open": {
+      "type": "object",
+      "default": null
+    },
+    "skidding": {
+      "type": "number",
+      "default": 0
+    },
+    "showDelay": {
+      "type": "number",
+      "default": 150
+    },
+    "hideDelay": {
+      "type": "number",
+      "default": 0
+    },
+    "trigger": {
+      "type": "string",
+      "default": "hover focus"
+    },
+    "withoutArrow": {
+      "type": "boolean",
+      "default": false
+    },
+    "for": {
+      "type": "object",
+      "default": null
+    },
+    "onshow": {
+      "type": "object",
+      "default": null
+    },
+    "onaftershow": {
+      "type": "object",
+      "default": null
+    },
+    "onhide": {
+      "type": "object",
+      "default": null
+    },
+    "onafterhide": {
+      "type": "object",
+      "default": null
+    },
+    "children": {
+      "type": "object",
+      "default": null
+    }
+  },
+  "snippets": [
+    "children"
+  ]
+}

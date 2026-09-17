@@ -1,0 +1,80 @@
+.cui-scroller-root
+	position: relative
+	display: flex
+	width: 100%
+	height: auto
+	max-height: var(--cui-scroller-max, 100%)
+	min-height: 0
+	font-family: var(--font-sans)
+
+.cui-scroller-viewport
+	flex: 1 1 auto
+	min-width: 0
+	min-height: 0
+	overflow-y: auto
+	overscroll-behavior: contain
+	border: 1px solid var(--stroke-weakest)
+	border-radius: var(--radius-md)
+	background-color: var(--bg)
+	transition: border-color var(--duration-fast) var(--ease-out)
+
+	.cui-scroller-root[data-direction="horizontal"] &
+		overflow-y: hidden
+		overflow-x: auto
+
+	.cui-scroller-root[data-direction="both"] &
+		overflow: auto
+
+	.cui-scroller-root[data-snap="mandatory"] &
+		scroll-snap-type: y mandatory
+
+	.cui-scroller-root[data-snap="proximity"] &
+		scroll-snap-type: y proximity
+
+	.cui-scroller-root[data-direction="horizontal"][data-snap="mandatory"] &
+		scroll-snap-type: x mandatory
+
+	.cui-scroller-root[data-direction="horizontal"][data-snap="proximity"] &
+		scroll-snap-type: x proximity
+
+.cui-scroller-content
+	display: flex
+	flex-direction: column
+	min-width: 0
+	min-height: 0
+
+	.cui-scroller-root[data-direction="horizontal"] &
+		flex-direction: row
+
+	.cui-scroller-root[data-direction="both"] &
+		display: block
+
+	.cui-scroller-root[data-snap="mandatory"] & > *,
+	.cui-scroller-root[data-snap="proximity"] & > *
+		scroll-snap-align: start
+
+.cui-scroller-placeholder
+	margin: auto
+	color: var(--text-muted)
+	font-size: var(--text-sm)
+
+.cui-scroller-root[data-fade]::after
+	content: ''
+	position: absolute
+	pointer-events: none
+	z-index: 5
+	height: var(--space-4)
+	left: 1px
+	right: 1px
+	bottom: 1px
+	background: linear-gradient(to top, var(--bg), transparent)
+	border-radius: 0 0 var(--radius-md) var(--radius-md)
+
+.cui-scroller-root[data-fade][data-direction="horizontal"]::after,
+.cui-scroller-root[data-fade][data-direction="both"]::after
+	top: 1px
+	height: auto
+	width: var(--space-4)
+	left: auto
+	background: linear-gradient(to left, var(--bg), transparent)
+	border-radius: 0 var(--radius-md) var(--radius-md) 0

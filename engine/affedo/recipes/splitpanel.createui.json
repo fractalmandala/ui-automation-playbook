@@ -1,0 +1,21 @@
+{
+  "$schema": "../schemas/recipe.schema.json",
+  "component": "SplitPanel",
+  "branch": "createui",
+  "adapter": "createui",
+  "parts": {
+    "root": "layout.split",
+    "paneStart": "surface.panel",
+    "paneEnd": "surface.panel",
+    "divider": "control.divider-handle",
+    "handle": "control.divider-grip"
+  },
+  "axes": {
+    "orientation": ["horizontal", "vertical"],
+    "size": {
+      "sm": { "divider": "var(--space-1)" },
+      "md": { "divider": "var(--space-2)" },
+      "lg": { "divider": "var(--space-3)" }
+    }
+  }
+}

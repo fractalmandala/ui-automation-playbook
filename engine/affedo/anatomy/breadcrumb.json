@@ -1,0 +1,33 @@
+{
+  "component": "breadcrumb",
+  "source": "src/lib/wa/breadcrumb/Breadcrumb.svelte",
+  "parts": {
+    "base breadcrumb": {
+      "tag": "nav",
+      "role": null,
+      "dataSlot": "base breadcrumb"
+    }
+  },
+  "states": {
+    "base breadcrumb": [
+      "aria-label"
+    ]
+  },
+  "props": {
+    "label": {
+      "type": "string",
+      "default": ""
+    },
+    "separator": {
+      "type": "object",
+      "default": null
+    },
+    "children": {
+      "type": "object",
+      "default": null
+    }
+  },
+  "snippets": [
+    "children"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "../schemas/recipe.schema.json",
+  "component": "Tag",
+  "branch": "createui",
+  "adapter": "createui",
+  "parts": {
+    "root": "control.tag",
+    "label": "typography.label",
+    "remove": "control.button-ghost"
+  },
+  "axes": {
+    "variant": ["neutral", "brand", "success", "warning", "danger"],
+    "appearance": ["filled-outlined", "accent", "outlined"],
+    "size": ["sm", "md", "lg"]
+  }
+}

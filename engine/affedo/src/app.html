@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en" data-mode="dark" class="wa-theme-default wa-dark">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%sveltekit.assets%/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Web Awesome · Playground</title>
+    <script>
+      (function() {
+        try {
+          var m = localStorage.getItem('futils.mode') || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+          var root = document.documentElement;
+          root.setAttribute('data-mode', m);
+          root.classList.add('wa-theme-default');
+          if (m === 'dark') {
+            root.classList.add('wa-dark');
+            root.classList.remove('wa-light');
+          } else {
+            root.classList.add('wa-light');
+            root.classList.remove('wa-dark');
+          }
+        } catch (e) {}
+      })();
+    </script>
+    %sveltekit.head%
+  </head>
+  <body data-sveltekit-preload-data="hover">
+    <div style="display: contents">%sveltekit.body%</div>
+  </body>
+</html>

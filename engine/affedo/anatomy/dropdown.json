@@ -1,0 +1,97 @@
+{
+  "component": "Dropdown",
+  "source": "src/lib/wa/dropdown/Dropdown.svelte",
+  "parts": {
+    "trigger": {
+      "tag": "div",
+      "role": null,
+      "dataSlot": "trigger"
+    },
+    "menu": {
+      "tag": "div",
+      "role": "menu",
+      "dataSlot": "menu"
+    }
+  },
+  "states": {
+    "div": [
+      "data-open",
+      "data-size",
+      "data-placement"
+    ],
+    "trigger": [
+      "aria-haspopup",
+      "aria-expanded"
+    ]
+  },
+  "props": {
+    "open": {
+      "type": "object",
+      "default": null
+    },
+    "size": {
+      "type": "string",
+      "default": "m"
+    },
+    "placement": {
+      "type": "string",
+      "default": "bottom-start"
+    },
+    "distance": {
+      "type": "number",
+      "default": 0
+    },
+    "skidding": {
+      "type": "number",
+      "default": 0
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "stayOpenOnSelect": {
+      "type": "boolean",
+      "default": false
+    },
+    "id": {
+      "type": "string",
+      "default": "undefined"
+    },
+    "class": {
+      "type": "string",
+      "default": ""
+    },
+    "trigger": {
+      "type": "object",
+      "default": null
+    },
+    "children": {
+      "type": "object",
+      "default": null
+    },
+    "onshow": {
+      "type": "object",
+      "default": null
+    },
+    "onaftershow": {
+      "type": "object",
+      "default": null
+    },
+    "onhide": {
+      "type": "object",
+      "default": null
+    },
+    "onafterhide": {
+      "type": "object",
+      "default": null
+    },
+    "onselect": {
+      "type": "object",
+      "default": null
+    }
+  },
+  "snippets": [
+    "trigger",
+    "children"
+  ]
+}

@@ -1,0 +1,147 @@
+{
+  "component": "Checkbox",
+  "source": "src/lib/wa/checkbox/Checkbox.svelte",
+  "parts": {
+    "base checkbox": {
+      "tag": "label",
+      "role": null,
+      "dataSlot": "base checkbox"
+    },
+    "control": {
+      "tag": "span",
+      "role": null,
+      "dataSlot": "control"
+    },
+    "indeterminate-icon icon": {
+      "tag": "span",
+      "role": null,
+      "dataSlot": "indeterminate-icon icon"
+    },
+    "checked-icon icon": {
+      "tag": "span",
+      "role": null,
+      "dataSlot": "checked-icon icon"
+    },
+    "label": {
+      "tag": "span",
+      "role": null,
+      "dataSlot": "label"
+    },
+    "hint": {
+      "tag": "div",
+      "role": null,
+      "dataSlot": "hint"
+    }
+  },
+  "states": {
+    "div": [
+      "data-checked",
+      "data-disabled",
+      "data-indeterminate",
+      "data-required",
+      "data-size"
+    ],
+    "input": [
+      "aria-checked",
+      "aria-describedby"
+    ],
+    "indeterminate-icon icon": [
+      "aria-hidden"
+    ],
+    "svg": [
+      "aria-hidden"
+    ],
+    "checked-icon icon": [
+      "aria-hidden"
+    ],
+    "hint": [
+      "aria-hidden"
+    ]
+  },
+  "props": {
+    "checked": {
+      "type": "object",
+      "default": null
+    },
+    "indeterminate": {
+      "type": "object",
+      "default": null
+    },
+    "defaultChecked": {
+      "type": "object",
+      "default": null
+    },
+    "value": {
+      "type": "string",
+      "default": "on"
+    },
+    "size": {
+      "type": "string",
+      "default": "m"
+    },
+    "label": {
+      "type": "string",
+      "default": ""
+    },
+    "hint": {
+      "type": "string",
+      "default": ""
+    },
+    "required": {
+      "type": "boolean",
+      "default": false
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "name": {
+      "type": "object",
+      "default": null
+    },
+    "form": {
+      "type": "object",
+      "default": null
+    },
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "customError": {
+      "type": "object",
+      "default": null
+    },
+    "children": {
+      "type": "object",
+      "default": null
+    },
+    "hintSnippet": {
+      "type": "object",
+      "default": null
+    },
+    "onblur": {
+      "type": "object",
+      "default": null
+    },
+    "onchange": {
+      "type": "object",
+      "default": null
+    },
+    "onfocus": {
+      "type": "object",
+      "default": null
+    },
+    "oninput": {
+      "type": "object",
+      "default": null
+    },
+    "oninvalid": {
+      "type": "object",
+      "default": null
+    }
+  },
+  "snippets": [
+    "children",
+    "hintSnippet"
+  ]
+}

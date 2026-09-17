@@ -1,0 +1,38 @@
+.cui-button-group
+	display: inline-flex
+	vertical-align: middle
+	border-radius: var(--radius-md)
+
+	&[data-orientation="horizontal"]
+		flex-direction: row
+
+		.cui-button
+			border-radius: 0
+
+			&:first-child
+				border-top-left-radius: var(--radius-md)
+				border-bottom-left-radius: var(--radius-md)
+
+			&:last-child
+				border-top-right-radius: var(--radius-md)
+				border-bottom-right-radius: var(--radius-md)
+
+			&:not(:first-child)
+				margin-left: -1px
+
+	&[data-orientation="vertical"]
+		flex-direction: column
+
+		.cui-button
+			border-radius: 0
+
+			&:first-child
+				border-top-left-radius: var(--radius-md)
+				border-top-right-radius: var(--radius-md)
+
+			&:last-child
+				border-bottom-left-radius: var(--radius-md)
+				border-bottom-right-radius: var(--radius-md)
+
+			&:not(:first-child)
+				margin-top: -1px

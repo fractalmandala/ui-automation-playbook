@@ -1,0 +1,15 @@
+{
+	"$schema": "../schemas/recipe.schema.json",
+	"$comment": "`data-state=\"on\"` and `\"off\"` never both match, so the pipeline treats the two blocks as mutually exclusive rather than a specificity tie - which is why pressing this toggle produces no cascade warning.",
+	"adapter": "kitui",
+	"component": "Toggle",
+	"importFrom": "bits-ui",
+	"importName": "Toggle",
+	"parts": {
+		"root": ["control.toggle"]
+	},
+	"source": "bits-ui",
+	"unstyled": {
+		"root": ["off"]
+	}
+}

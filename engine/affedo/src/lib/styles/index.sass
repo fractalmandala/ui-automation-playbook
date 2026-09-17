@@ -1,0 +1,23 @@
+// Border/padding/gap compounds are generated at their original utility rules.
+// Configure their vocabulary in 01_config before loading this entrypoint.
+// Grammar, examples, output-cost guidance: _composition-guide.sass.
+// This entry compiles the FULL vocabulary. Applications should import
+// virtual:fractutils.css via the plugin; see PANINIAN-COMPOSITIONS.md.
+@forward '00_tokens'
+@forward 'tokens/00_createui'
+@forward 'tokens/01_terminal'
+@forward 'tokens/02_cyber'
+@forward 'tokens/03_editorial'
+@forward 'tokens/05_neobrutalist'
+@forward 'tokens/04_modifiers'
+@forward 'components/index'
+@use '00_tokens' as *
+@use 'tokens/00_createui' as *
+@use 'tokens/01_terminal' as *
+@use 'tokens/02_cyber' as *
+@use 'tokens/03_editorial' as *
+@use 'tokens/05_neobrutalist' as *
+@use 'tokens/04_modifiers' as *
+@use '01_casings' as *
+@use '08_own' as *
+@use 'components/index' as *

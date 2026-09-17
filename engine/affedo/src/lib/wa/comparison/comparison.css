@@ -1,0 +1,89 @@
+/* Ported from webawesome/src/components/comparison/comparison.styles.ts.
+   Transform applied: `:host` -> `.wa-comparison`, `:host(:state(dragging))` ->
+   `.wa-comparison.dragging` (custom states become classes per the pipeline),
+   `&::slotted(x)` -> `> x` (light DOM has no slots; slotted children render
+   directly inside the before/after containers, and ::slotted only ever matched
+   top-level nodes), internal classes (`.image`, `.before`, `.after`,
+   `.divider`, `.handle`) scoped under the root. `[part~=]` selectors need no
+   rewrite — the part attributes are emitted in markup. The source carries no
+   `@layer` wrapper; it is wrapped in `@layer wa-component` here like every
+   other port so vendored WA styles cannot override the fractalstyler registry. */
+@layer wa-component {
+  .wa-comparison {
+    --divider-width: 0.125rem;
+    --handle-size: 2.5rem;
+
+    display: block;
+    position: relative;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: hidden;
+  }
+
+  .wa-comparison .before,
+  .wa-comparison .after {
+    display: block;
+  }
+
+  .wa-comparison .before > img,
+  .wa-comparison .before > svg,
+  .wa-comparison .after > img,
+  .wa-comparison .after > svg {
+    display: block;
+    max-width: 100% !important;
+    height: auto;
+  }
+
+  .wa-comparison .before > :not(img, svg),
+  .wa-comparison .after > :not(img, svg) {
+    isolation: isolate;
+  }
+
+  .wa-comparison .after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  /* Disable pointer-events while dragging. This is especially important for iframes. */
+  .wa-comparison.dragging .before,
+  .wa-comparison.dragging .after {
+    pointer-events: none;
+  }
+
+  .wa-comparison .divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    width: var(--divider-width);
+    height: 100%;
+    background-color: var(--wa-color-surface-default);
+    translate: calc(var(--divider-width) / -2);
+    cursor: ew-resize;
+  }
+
+  .wa-comparison .handle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: calc(50% - (var(--handle-size) / 2));
+    width: var(--handle-size);
+    height: var(--handle-size);
+    background-color: var(--wa-color-surface-default);
+    border-radius: var(--wa-border-radius-circle);
+    font-size: calc(var(--handle-size) * 0.4);
+    color: var(--wa-color-neutral-on-quiet);
+    cursor: inherit;
+    z-index: 10;
+  }
+
+  .wa-comparison .handle:focus-visible {
+    outline: var(--wa-focus-ring);
+    outline-offset: var(--wa-focus-ring-offset);
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "component": "details",
+  "source": "src/lib/wa/details/Details.svelte",
+  "parts": {
+    "base details": {
+      "tag": "details",
+      "role": null,
+      "dataSlot": "base details"
+    },
+    "header": {
+      "tag": "summary",
+      "role": null,
+      "dataSlot": "header"
+    },
+    "summary": {
+      "tag": "span",
+      "role": null,
+      "dataSlot": "summary"
+    },
+    "icon": {
+      "tag": "span",
+      "role": null,
+      "dataSlot": "icon"
+    },
+    "content": {
+      "tag": "div",
+      "role": null,
+      "dataSlot": "content"
+    }
+  },
+  "states": {
+    "div": [
+      "data-open",
+      "data-disabled",
+      "data-appearance",
+      "data-icon-placement"
+    ],
+    "header": [
+      "aria-expanded",
+      "aria-disabled"
+    ],
+    "icon": [
+      "aria-hidden"
+    ]
+  },
+  "props": {
+    "open": {
+      "type": "object",
+      "default": null
+    },
+    "summary": {
+      "type": "string",
+      "default": ""
+    },
+    "name": {
+      "type": "string",
+      "default": ""
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "appearance": {
+      "type": "string",
+      "default": "default"
+    },
+    "iconPlacement": {
+      "type": "string",
+      "default": "end"
+    },
+    "children": {
+      "type": "object",
+      "default": null
+    },
+    "summarySnippet": {
+      "type": "object",
+      "default": null
+    },
+    "expandIcon": {
+      "type": "object",
+      "default": null
+    },
+    "collapseIcon": {
+      "type": "object",
+      "default": null
+    },
+    "onshow": {
+      "type": "object",
+      "default": null
+    },
+    "onaftershow": {
+      "type": "object",
+      "default": null
+    },
+    "onhide": {
+      "type": "object",
+      "default": null
+    },
+    "onafterhide": {
+      "type": "object",
+      "default": null
+    }
+  },
+  "snippets": [
+    "summarySnippet",
+    "collapseIcon",
+    "expandIcon",
+    "children"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "component": "NumberInput",
+  "source": "generated (wave 4)",
+  "parts": {
+    "root": { "tag": "div", "role": null, "dataSlot": "numberinput-root" },
+    "label": { "tag": "label", "role": null, "dataSlot": "label" },
+    "wrapper": { "tag": "div", "role": "group", "dataSlot": "wrapper" },
+    "decrement": { "tag": "button", "role": "button", "dataSlot": "stepperDecrement" },
+    "control": { "tag": "input", "role": "spinbutton", "dataSlot": "control" },
+    "increment": { "tag": "button", "role": "button", "dataSlot": "stepperIncrement" },
+    "start": { "tag": "span", "role": null, "dataSlot": "start" },
+    "end": { "tag": "span", "role": null, "dataSlot": "end" },
+    "hint": { "tag": "span", "role": null, "dataSlot": "hint" },
+    "error": { "tag": "span", "role": null, "dataSlot": "error" }
+  },
+  "states": {
+    "root": ["data-size", "data-invalid", "data-disabled"],
+    "control": ["aria-label", "aria-valuenow", "aria-valuemin", "aria-valuemax", "aria-disabled", "aria-invalid"]
+  },
+  "props": {
+    "value": { "type": "number", "default": "0" },
+    "min": { "type": "number", "default": "0" },
+    "max": { "type": "number", "default": "100" },
+    "step": { "type": "number", "default": "1" },
+    "size": { "type": "string", "default": "md" },
+    "label": { "type": "string", "default": "''" },
+    "hint": { "type": "string", "default": "''" },
+    "error": { "type": "string", "default": "''" },
+    "placeholder": { "type": "string", "default": "''" },
+    "disabled": { "type": "boolean", "default": false },
+    "readonly": { "type": "boolean", "default": false },
+    "required": { "type": "boolean", "default": false },
+    "onchange": { "type": "object", "default": null },
+    "start": { "type": "object", "default": null },
+    "end": { "type": "object", "default": null }
+  },
+  "snippets": ["start", "end"]
+}

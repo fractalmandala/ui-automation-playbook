@@ -1,0 +1,8 @@
+{
+  "$schema": "../schemas/recipe.schema.json",
+  "component": "ProgressRing",
+  "branch": "createui",
+  "adapter": "createui",
+  "parts": { "root": "control.progress-ring", "track": "stroke.ring-track", "fill": "stroke.ring-fill", "label": "typography.caption" },
+  "axes": { "size": ["sm", "md", "lg"] }
+}

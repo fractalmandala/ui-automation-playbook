@@ -1,0 +1,17 @@
+{
+  "$schema": "../schemas/recipe.schema.json",
+  "component": "Callout",
+  "branch": "createui",
+  "adapter": "createui",
+  "parts": {
+    "root": "surface.callout",
+    "icon": "control.icon",
+    "message": "typography.body",
+    "close": "control.button-ghost"
+  },
+  "axes": {
+    "variant": ["brand", "neutral", "success", "warning", "danger"],
+    "appearance": ["accent", "filled", "outlined"],
+    "size": ["sm", "md", "lg"]
+  }
+}

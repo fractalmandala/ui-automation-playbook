@@ -1,0 +1,18 @@
+{
+	"$schema": "../schemas/recipe.schema.json",
+	"$comment": "The selected dot is authored children in bits-ui, so the checked state is carried by the box itself (accent fill) and the demo passes no glyph.",
+	"adapter": "kitui",
+	"anatomy": "anatomy/radio-group.json",
+	"component": "RadioGroup",
+	"importFrom": "bits-ui",
+	"importName": "RadioGroup",
+	"parts": {
+		"root": ["layout.stack"],
+		"item": ["control.radio"]
+	},
+	"source": "bits-ui",
+	"unstyled": {
+		"root": ["disabled", "readonly"],
+		"item": ["readonly"]
+	}
+}

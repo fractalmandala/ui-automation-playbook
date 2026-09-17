@@ -1,0 +1,30 @@
+/* Ported from webawesome/src/components/carousel-item/carousel-item.styles.ts.
+   Transform applied: `:host` -> `.wa-carousel-item`. There are no `:host([attr])`
+   selectors (the item reflects no attributes) and no `[part~=]` selectors
+   (atlas: parts []). `::slotted(img)` becomes the light-DOM equivalent
+   `.wa-carousel-item > img` — in the shadow root it only ever matched direct
+   slotted children, so the child combinator is the faithful mapping. Kept
+   verbatim: `--aspect-ratio` default, flex centering, scroll-snap alignment,
+   and the `!important` image sizing. Wrapped in `@layer wa-component` like the
+   source so this cannot collide with the fractalstyler registry. */
+@layer wa-component {
+  .wa-carousel-item {
+    --aspect-ratio: inherit;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    max-height: 100%;
+    aspect-ratio: var(--aspect-ratio);
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+
+  .wa-carousel-item > img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+  }
+}

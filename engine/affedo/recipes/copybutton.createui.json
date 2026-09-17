@@ -1,0 +1,8 @@
+{
+  "$schema": "../schemas/recipe.schema.json",
+  "component": "CopyButton",
+  "branch": "createui",
+  "adapter": "createui",
+  "parts": { "root": "control.copy-button", "copyIcon": "control.icon", "checkIcon": "control.icon" },
+  "axes": { "size": ["sm", "md", "lg"] }
+}

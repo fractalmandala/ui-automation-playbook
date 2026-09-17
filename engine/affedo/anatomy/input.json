@@ -1,0 +1,270 @@
+{
+  "component": "Input",
+  "source": "src/lib/wa/input/Input.svelte",
+  "parts": {
+    "form-control-label label": {
+      "tag": "label",
+      "role": null,
+      "dataSlot": "form-control-label label"
+    },
+    "base input-wrapper": {
+      "tag": "div",
+      "role": null,
+      "dataSlot": "base input-wrapper"
+    },
+    "start": {
+      "tag": "span",
+      "role": null,
+      "dataSlot": "start"
+    },
+    "input": {
+      "tag": "input",
+      "role": null,
+      "dataSlot": "input"
+    },
+    "clear-button": {
+      "tag": "button",
+      "role": null,
+      "dataSlot": "clear-button"
+    },
+    "password-toggle-button": {
+      "tag": "button",
+      "role": null,
+      "dataSlot": "password-toggle-button"
+    },
+    "end": {
+      "tag": "span",
+      "role": null,
+      "dataSlot": "end"
+    },
+    "hint": {
+      "tag": "div",
+      "role": null,
+      "dataSlot": "hint"
+    }
+  },
+  "states": {
+    "div": [
+      "data-size",
+      "data-appearance",
+      "data-pill",
+      "data-required",
+      "data-disabled",
+      "data-readonly",
+      "data-without-spin-buttons"
+    ],
+    "form-control-label label": [
+      "aria-hidden"
+    ],
+    "input": [
+      "aria-describedby"
+    ],
+    "clear-button": [
+      "aria-label"
+    ],
+    "svg": [
+      "aria-hidden"
+    ],
+    "password-toggle-button": [
+      "aria-label"
+    ],
+    "hint": [
+      "aria-hidden"
+    ]
+  },
+  "props": {
+    "value": {
+      "type": "object",
+      "default": null
+    },
+    "defaultValue": {
+      "type": "object",
+      "default": null
+    },
+    "type": {
+      "type": "string",
+      "default": "text"
+    },
+    "size": {
+      "type": "string",
+      "default": "m"
+    },
+    "appearance": {
+      "type": "string",
+      "default": "outlined"
+    },
+    "pill": {
+      "type": "boolean",
+      "default": false
+    },
+    "label": {
+      "type": "string",
+      "default": ""
+    },
+    "hint": {
+      "type": "string",
+      "default": ""
+    },
+    "withClear": {
+      "type": "boolean",
+      "default": false
+    },
+    "placeholder": {
+      "type": "string",
+      "default": ""
+    },
+    "readonly": {
+      "type": "boolean",
+      "default": false
+    },
+    "passwordToggle": {
+      "type": "boolean",
+      "default": false
+    },
+    "passwordVisible": {
+      "type": "object",
+      "default": null
+    },
+    "withoutSpinButtons": {
+      "type": "boolean",
+      "default": false
+    },
+    "required": {
+      "type": "boolean",
+      "default": false
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "name": {
+      "type": "object",
+      "default": null
+    },
+    "form": {
+      "type": "object",
+      "default": null
+    },
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "pattern": {
+      "type": "object",
+      "default": null
+    },
+    "minlength": {
+      "type": "object",
+      "default": null
+    },
+    "maxlength": {
+      "type": "object",
+      "default": null
+    },
+    "min": {
+      "type": "object",
+      "default": null
+    },
+    "max": {
+      "type": "object",
+      "default": null
+    },
+    "step": {
+      "type": "object",
+      "default": null
+    },
+    "autocapitalize": {
+      "type": "object",
+      "default": null
+    },
+    "autocorrect": {
+      "type": "object",
+      "default": null
+    },
+    "autocomplete": {
+      "type": "object",
+      "default": null
+    },
+    "autofocus": {
+      "type": "boolean",
+      "default": false
+    },
+    "enterkeyhint": {
+      "type": "object",
+      "default": null
+    },
+    "spellcheck": {
+      "type": "boolean",
+      "default": true
+    },
+    "inputmode": {
+      "type": "object",
+      "default": null
+    },
+    "customError": {
+      "type": "object",
+      "default": null
+    },
+    "labelSnippet": {
+      "type": "object",
+      "default": null
+    },
+    "hintSnippet": {
+      "type": "object",
+      "default": null
+    },
+    "start": {
+      "type": "object",
+      "default": null
+    },
+    "end": {
+      "type": "object",
+      "default": null
+    },
+    "clearIcon": {
+      "type": "object",
+      "default": null
+    },
+    "showPasswordIcon": {
+      "type": "object",
+      "default": null
+    },
+    "hidePasswordIcon": {
+      "type": "object",
+      "default": null
+    },
+    "onblur": {
+      "type": "object",
+      "default": null
+    },
+    "onchange": {
+      "type": "object",
+      "default": null
+    },
+    "onfocus": {
+      "type": "object",
+      "default": null
+    },
+    "oninput": {
+      "type": "object",
+      "default": null
+    },
+    "onclear": {
+      "type": "object",
+      "default": null
+    },
+    "oninvalid": {
+      "type": "object",
+      "default": null
+    }
+  },
+  "snippets": [
+    "labelSnippet",
+    "start",
+    "clearIcon",
+    "hidePasswordIcon",
+    "showPasswordIcon",
+    "end",
+    "hintSnippet"
+  ]
+}

@@ -1,0 +1,26 @@
+.cui-progress-ring
+	display: inline-flex
+	align-items: center
+	justify-content: center
+	position: relative
+	width: var(--space-12)
+	height: var(--space-12)
+	vertical-align: middle
+
+.cui-progress-ring-svg
+	transform: rotate(0deg)
+
+.cui-progress-ring-track
+	stroke: var(--stroke-weakest)
+
+.cui-progress-ring-fill
+	stroke: var(--color-primary)
+	stroke-linecap: round
+	transition: stroke-dashoffset var(--duration-normal) var(--ease-out)
+
+.cui-progress-ring-center
+	position: absolute
+	font-family: var(--font-sans)
+	font-size: var(--text-xs)
+	font-weight: 600
+	color: var(--text-primary)

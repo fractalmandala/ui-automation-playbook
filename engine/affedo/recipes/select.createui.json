@@ -1,0 +1,8 @@
+{
+  "$schema": "../schemas/recipe.schema.json",
+  "component": "Select",
+  "branch": "createui",
+  "adapter": "createui",
+  "parts": { "root": "control.select-root", "trigger": "control.select-trigger", "menu": "surface.select-dropdown", "option": "control.option-item" },
+  "axes": { "size": ["sm", "md", "lg"] }
+}

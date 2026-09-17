@@ -1,0 +1,31 @@
+{
+  "$schema": "../schemas/recipe.schema.json",
+  "component": "Dialog",
+  "branch": "createui",
+  "adapter": "createui",
+  "parts": {
+    "overlay": "surface.modal-overlay",
+    "panel": "surface.dialog-panel",
+    "header": "layout.row",
+    "title": "typography.heading",
+    "body": "typography.body",
+    "footer": "layout.row",
+    "closeButton": "control.button-ghost"
+  },
+  "axes": {
+    "size": {
+      "sm": {
+        "maxWidth": "24rem",
+        "pad": "var(--space-4)"
+      },
+      "md": {
+        "maxWidth": "32rem",
+        "pad": "var(--space-6)"
+      },
+      "lg": {
+        "maxWidth": "42rem",
+        "pad": "var(--space-8)"
+      }
+    }
+  }
+}

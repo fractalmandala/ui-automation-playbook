@@ -1,0 +1,53 @@
+{
+  "component": "progressbar",
+  "source": "src/lib/wa/progress-bar/ProgressBar.svelte",
+  "parts": {
+    "base progress-bar": {
+      "tag": "div",
+      "role": "progressbar",
+      "dataSlot": "base progress-bar"
+    },
+    "indicator": {
+      "tag": "div",
+      "role": null,
+      "dataSlot": "indicator"
+    },
+    "label": {
+      "tag": "span",
+      "role": null,
+      "dataSlot": "label"
+    }
+  },
+  "states": {
+    "div": [
+      "data-indeterminate"
+    ],
+    "base progress-bar": [
+      "aria-label",
+      "aria-valuemin",
+      "aria-valuemax",
+      "aria-valuenow"
+    ]
+  },
+  "props": {
+    "value": {
+      "type": "number",
+      "default": 0
+    },
+    "indeterminate": {
+      "type": "boolean",
+      "default": false
+    },
+    "label": {
+      "type": "string",
+      "default": ""
+    },
+    "children": {
+      "type": "object",
+      "default": null
+    }
+  },
+  "snippets": [
+    "children"
+  ]
+}

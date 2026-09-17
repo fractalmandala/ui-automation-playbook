@@ -1,0 +1,30 @@
+.cui-copy-btn
+	display: inline-flex
+	align-items: center
+	gap: var(--space-1)
+	padding: var(--space-1) var(--space-2)
+	border-radius: var(--radius-sm)
+	border: 1px solid var(--stroke-weakest)
+	background-color: var(--bg-weaker)
+	color: var(--text-primary)
+	font-family: var(--font-sans)
+	font-size: var(--text-xs)
+	font-weight: 500
+	cursor: pointer
+	transition: all var(--duration-fast) var(--ease-out)
+
+	&:hover
+		background-color: var(--state-hover)
+
+	&[data-copied]
+		background-color: var(--color-primary-subtle)
+		color: var(--color-primary)
+		border-color: var(--stroke-weaker)
+
+.cui-copy-icon
+	display: inline-flex
+	align-items: center
+	justify-content: center
+
+.cui-copy-label
+	line-height: 1

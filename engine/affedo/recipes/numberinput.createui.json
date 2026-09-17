@@ -1,0 +1,25 @@
+{
+  "$schema": "../schemas/recipe.schema.json",
+  "component": "NumberInput",
+  "branch": "createui",
+  "adapter": "createui",
+  "parts": {
+    "root": "layout.stack",
+    "label": "typography.label",
+    "wrapper": "control.input",
+    "control": "typography.body",
+    "decrement": "control.button-ghost",
+    "increment": "control.button-ghost",
+    "start": "layout.row",
+    "end": "layout.row",
+    "hint": "typography.caption",
+    "error": "typography.caption-danger"
+  },
+  "axes": {
+    "size": {
+      "sm": { "height": "1.75rem", "text": "var(--text-xs)" },
+      "md": { "height": "2.25rem", "text": "var(--text-sm)" },
+      "lg": { "height": "2.75rem", "text": "var(--text-base)" }
+    }
+  }
+}

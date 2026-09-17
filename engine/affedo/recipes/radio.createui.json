@@ -1,0 +1,32 @@
+{
+  "$schema": "../schemas/recipe.schema.json",
+  "component": "Radio",
+  "branch": "createui",
+  "adapter": "createui",
+  "parts": {
+    "root": "layout.row",
+    "control": "control.radio-circle",
+    "indicator": "control.radio-dot",
+    "label": "typography.body",
+    "hint": "typography.caption"
+  },
+  "axes": {
+    "size": {
+      "sm": {
+        "boxSize": "1rem",
+        "dotSize": "0.375rem",
+        "text": "var(--text-xs)"
+      },
+      "md": {
+        "boxSize": "1.25rem",
+        "dotSize": "0.5rem",
+        "text": "var(--text-sm)"
+      },
+      "lg": {
+        "boxSize": "1.5rem",
+        "dotSize": "0.625rem",
+        "text": "var(--text-base)"
+      }
+    }
+  }
+}

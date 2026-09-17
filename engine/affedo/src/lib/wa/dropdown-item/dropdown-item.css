@@ -1,0 +1,98 @@
+@layer wa-component {
+	.wa-dropdown-item {
+		display: flex;
+		position: relative;
+		align-items: center;
+		padding: 0.5em 1em;
+		border-radius: var(--wa-border-radius-s, 4px);
+		isolation: isolate;
+		color: var(--wa-color-text-normal);
+		line-height: var(--wa-line-height-condensed, 1.25);
+		cursor: pointer;
+		user-select: none;
+		-webkit-user-select: none;
+		outline: none;
+		font-family: inherit;
+		font-size: var(--wa-font-size-m, 1rem);
+		text-align: start;
+		text-decoration: none;
+		box-sizing: border-box;
+		width: 100%;
+		border: none;
+		background: transparent;
+		transition:
+			var(--wa-transition-fast, 150ms) background-color var(--wa-transition-easing, ease),
+			var(--wa-transition-fast, 150ms) color var(--wa-transition-easing, ease);
+	}
+
+	@media (hover: hover) {
+		.wa-dropdown-item:hover:not([data-disabled]) {
+			background-color: var(--wa-color-neutral-fill-normal);
+		}
+	}
+
+	.wa-dropdown-item:focus-visible {
+		z-index: 1;
+		outline: var(--wa-focus-ring);
+		background-color: var(--wa-color-neutral-fill-normal);
+	}
+
+	.wa-dropdown-item[data-active] {
+		background-color: var(--wa-color-neutral-fill-normal);
+	}
+
+	.wa-dropdown-item[data-disabled] {
+		opacity: 0.5;
+		cursor: not-allowed;
+		pointer-events: none;
+	}
+
+	/* Danger variant */
+	.wa-dropdown-item[data-variant='danger'] {
+		color: var(--wa-color-danger-on-quiet, #d32f2f);
+	}
+
+	@media (hover: hover) {
+		.wa-dropdown-item[data-variant='danger']:hover:not([data-disabled]) {
+			background-color: var(--wa-color-danger-fill-normal, #ffebee);
+			color: var(--wa-color-danger-on-normal, #c62828);
+		}
+	}
+
+	.wa-dropdown-item .check {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		visibility: hidden;
+		margin-inline-start: -0.25em;
+		margin-inline-end: 0.5em;
+		width: 1em;
+		height: 1em;
+	}
+
+	.wa-dropdown-item[data-checked] .check {
+		visibility: visible;
+	}
+
+	.wa-dropdown-item .icon {
+		display: flex;
+		flex: 0 0 auto;
+		align-items: center;
+		margin-inline-end: 0.75em;
+	}
+
+	.wa-dropdown-item .label {
+		flex: 1 1 auto;
+		min-width: 0;
+	}
+
+	.wa-dropdown-item .details {
+		display: flex;
+		flex: 0 0 auto;
+		align-items: center;
+		justify-content: end;
+		color: var(--wa-color-text-quiet);
+		font-size: var(--wa-font-size-smaller, 0.85em);
+		margin-inline-start: 1.5em;
+	}
+}

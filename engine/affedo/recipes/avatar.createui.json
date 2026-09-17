@@ -1,0 +1,8 @@
+{
+  "$schema": "../schemas/recipe.schema.json",
+  "component": "Avatar",
+  "branch": "createui",
+  "adapter": "createui",
+  "parts": { "root": "control.avatar", "image": "surface.media", "initials": "typography.label", "indicator": "control.status-dot" },
+  "axes": { "shape": ["circle", "square", "rounded"], "size": ["sm", "md", "lg"] }
+}

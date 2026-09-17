@@ -1,0 +1,109 @@
+@layer wa-component {
+  .wa-scroller {
+    --shadow-color: var(--wa-color-surface-default, #fff);
+    --shadow-size: 2rem;
+    --start-shadow-opacity: 0;
+    --end-shadow-opacity: 0;
+
+    display: block;
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .wa-scroller[data-orientation='vertical'] {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .wa-scroller .scroller-content {
+    z-index: 1;
+    border-radius: inherit;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  .wa-scroller .scroller-content:focus {
+    outline: none;
+  }
+
+  .wa-scroller .scroller-content:focus-visible {
+    outline: var(--wa-focus-ring);
+    outline-offset: var(--wa-focus-ring-offset);
+  }
+
+  .wa-scroller[data-without-scrollbar] .scroller-content {
+    scrollbar-width: none;
+  }
+  .wa-scroller[data-without-scrollbar] .scroller-content::-webkit-scrollbar {
+    display: none;
+  }
+
+  .wa-scroller[data-orientation='horizontal'] .scroller-content {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .wa-scroller[data-orientation='vertical'] .scroller-content {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .wa-scroller .start-shadow,
+  .wa-scroller .end-shadow {
+    z-index: 2;
+  }
+
+  .wa-scroller .start-shadow {
+    opacity: var(--start-shadow-opacity);
+  }
+
+  .wa-scroller .end-shadow {
+    opacity: var(--end-shadow-opacity);
+  }
+
+  /* Horizontal shadows */
+  .wa-scroller[data-orientation='horizontal'] .start-shadow,
+  .wa-scroller[data-orientation='horizontal'] .end-shadow {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: var(--shadow-size);
+    pointer-events: none;
+  }
+
+  .wa-scroller[data-orientation='horizontal'] .start-shadow {
+    left: 0;
+    background: linear-gradient(to right, var(--shadow-color), transparent 100%);
+  }
+
+  .wa-scroller[data-orientation='horizontal'] .end-shadow {
+    right: 0;
+    background: linear-gradient(to left, var(--shadow-color), transparent 100%);
+  }
+
+  /* Vertical shadows */
+  .wa-scroller[data-orientation='vertical'] .start-shadow,
+  .wa-scroller[data-orientation='vertical'] .end-shadow {
+    position: absolute;
+    right: 0;
+    left: 0;
+    height: var(--shadow-size);
+    pointer-events: none;
+  }
+
+  .wa-scroller[data-orientation='vertical'] .start-shadow {
+    top: 0;
+    background: linear-gradient(to bottom, var(--shadow-color), transparent 100%);
+  }
+
+  .wa-scroller[data-orientation='vertical'] .end-shadow {
+    bottom: 0;
+    background: linear-gradient(to top, var(--shadow-color), transparent 100%);
+  }
+}

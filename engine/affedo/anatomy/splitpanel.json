@@ -1,0 +1,26 @@
+{
+  "component": "SplitPanel",
+  "source": "generated (wave 4)",
+  "parts": {
+    "root": { "tag": "div", "role": null, "dataSlot": "splitpanel-root" },
+    "paneStart": { "tag": "div", "role": null, "dataSlot": "paneStart" },
+    "divider": { "tag": "div", "role": "separator", "dataSlot": "divider" },
+    "handle": { "tag": "div", "role": null, "dataSlot": "handle" },
+    "paneEnd": { "tag": "div", "role": null, "dataSlot": "paneEnd" }
+  },
+  "states": {
+    "root": ["data-orientation", "data-disabled"],
+    "divider": ["aria-orientation", "aria-valuenow", "aria-valuemin", "aria-valuemax", "tabindex"]
+  },
+  "props": {
+    "split": { "type": "number", "default": "50" },
+    "orientation": { "type": "string", "default": "horizontal" },
+    "min": { "type": "number", "default": "10" },
+    "max": { "type": "number", "default": "90" },
+    "disabled": { "type": "boolean", "default": false },
+    "start": { "type": "object", "default": null },
+    "end": { "type": "object", "default": null },
+    "class": { "type": "string", "default": "''" }
+  },
+  "snippets": ["start", "end"]
+}

@@ -1,0 +1,126 @@
+@layer wa-component {
+  .wa-tag {
+    display: inline-flex;
+    gap: 0.5em;
+    border-radius: var(--wa-border-radius-m);
+    align-items: center;
+    background-color: var(--wa-color-fill-quiet, var(--wa-color-neutral-fill-quiet));
+    border-color: var(--wa-color-border-normal, var(--wa-color-neutral-border-normal));
+    border-style: var(--wa-border-style);
+    border-width: var(--wa-border-width-s);
+    color: var(--wa-color-on-quiet, var(--wa-color-neutral-on-quiet));
+    font-size: inherit;
+    line-height: 1;
+    white-space: nowrap;
+    user-select: none;
+    -webkit-user-select: none;
+    height: calc(var(--wa-form-control-height, 2rem) * 0.8);
+    line-height: calc(var(--wa-form-control-height, 2rem) - var(--wa-form-control-border-width, 1px) * 2);
+    padding: 0 0.75em;
+  }
+
+  /* Appearance modifiers */
+  .wa-tag[data-appearance='outlined'] {
+    color: var(--wa-color-on-quiet, var(--wa-color-neutral-on-quiet));
+    background-color: transparent;
+    border-color: var(--wa-color-border-loud, var(--wa-color-neutral-border-loud));
+  }
+
+  .wa-tag[data-appearance='filled'] {
+    color: var(--wa-color-on-quiet, var(--wa-color-neutral-on-quiet));
+    background-color: var(--wa-color-fill-quiet, var(--wa-color-neutral-fill-quiet));
+    border-color: transparent;
+  }
+
+  .wa-tag[data-appearance='filled-outlined'] {
+    color: var(--wa-color-on-quiet, var(--wa-color-neutral-on-quiet));
+    background-color: var(--wa-color-fill-quiet, var(--wa-color-neutral-fill-quiet));
+    border-color: var(--wa-color-border-normal, var(--wa-color-neutral-border-normal));
+  }
+
+  .wa-tag[data-appearance='accent'] {
+    color: var(--wa-color-on-loud, var(--wa-color-neutral-on-loud));
+    background-color: var(--wa-color-fill-loud, var(--wa-color-neutral-fill-loud));
+    border-color: transparent;
+  }
+
+  /* Variants */
+  .wa-tag[data-variant='brand'] {
+    --wa-color-fill-quiet: var(--wa-color-brand-fill-quiet);
+    --wa-color-border-normal: var(--wa-color-brand-border-normal);
+    --wa-color-border-loud: var(--wa-color-brand-border-loud);
+    --wa-color-on-quiet: var(--wa-color-brand-on-quiet);
+    --wa-color-fill-loud: var(--wa-color-brand-fill-loud);
+    --wa-color-on-loud: var(--wa-color-brand-on-loud);
+  }
+
+  .wa-tag[data-variant='success'] {
+    --wa-color-fill-quiet: var(--wa-color-success-fill-quiet);
+    --wa-color-border-normal: var(--wa-color-success-border-normal);
+    --wa-color-border-loud: var(--wa-color-success-border-loud);
+    --wa-color-on-quiet: var(--wa-color-success-on-quiet);
+    --wa-color-fill-loud: var(--wa-color-success-fill-loud);
+    --wa-color-on-loud: var(--wa-color-success-on-loud);
+  }
+
+  .wa-tag[data-variant='warning'] {
+    --wa-color-fill-quiet: var(--wa-color-warning-fill-quiet);
+    --wa-color-border-normal: var(--wa-color-warning-border-normal);
+    --wa-color-border-loud: var(--wa-color-warning-border-loud);
+    --wa-color-on-quiet: var(--wa-color-warning-on-quiet);
+    --wa-color-fill-loud: var(--wa-color-warning-fill-loud);
+    --wa-color-on-loud: var(--wa-color-warning-on-loud);
+  }
+
+  .wa-tag[data-variant='danger'] {
+    --wa-color-fill-quiet: var(--wa-color-danger-fill-quiet);
+    --wa-color-border-normal: var(--wa-color-danger-border-normal);
+    --wa-color-border-loud: var(--wa-color-danger-border-loud);
+    --wa-color-on-quiet: var(--wa-color-danger-on-quiet);
+    --wa-color-fill-loud: var(--wa-color-danger-fill-loud);
+    --wa-color-on-loud: var(--wa-color-danger-on-loud);
+  }
+
+  /* Sizes */
+  .wa-tag[data-size='s'] {
+    --wa-form-control-height: var(--wa-form-control-height-s, 1.75rem);
+    font-size: var(--wa-font-size-s);
+  }
+
+  .wa-tag[data-size='m'] {
+    --wa-form-control-height: var(--wa-form-control-height-m, 2.25rem);
+    font-size: var(--wa-font-size-m);
+  }
+
+  .wa-tag[data-size='l'] {
+    --wa-form-control-height: var(--wa-form-control-height-l, 2.75rem);
+    font-size: var(--wa-font-size-l);
+  }
+
+  .wa-tag .content {
+    font-size: var(--wa-font-size-smaller, 0.875em);
+  }
+
+  .wa-tag [part='remove-button'] {
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    color: currentColor;
+    border-radius: var(--wa-border-radius-circle);
+    transition: opacity var(--wa-transition-fast);
+  }
+
+  .wa-tag [part='remove-button']:hover {
+    opacity: 0.7;
+  }
+
+  .wa-tag[data-pill] {
+    border-radius: var(--wa-border-radius-pill);
+  }
+}

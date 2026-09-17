@@ -1,0 +1,21 @@
+{
+	"$schema": "../schemas/recipe.schema.json",
+	"$comment": "Six parts, five roles: the two label parts resolve to the same role, which is the point of a taxonomy - `typography.muted` means one thing everywhere.",
+	"adapter": "kitui",
+	"component": "Slider",
+	"importFrom": "bits-ui",
+	"importName": "Slider",
+	"parts": {
+		"root": ["slider.track"],
+		"range": ["slider.range"],
+		"thumb": ["slider.thumb"],
+		"tick": ["slider.tick"],
+		"thumblabel": ["typography.muted"],
+		"ticklabel": ["typography.muted"]
+	},
+	"source": "bits-ui",
+	"unstyled": {
+		"range": ["disabled"],
+		"tick": ["disabled"]
+	}
+}

@@ -1,0 +1,92 @@
+{
+  "component": "card",
+  "source": "src/lib/wa/card/Card.svelte",
+  "parts": {
+    "media": {
+      "tag": "div",
+      "role": null,
+      "dataSlot": "media"
+    },
+    "body": {
+      "tag": "div",
+      "role": null,
+      "dataSlot": "body"
+    },
+    "actions": {
+      "tag": "div",
+      "role": null,
+      "dataSlot": "actions"
+    },
+    "header": {
+      "tag": "div",
+      "role": null,
+      "dataSlot": "header"
+    },
+    "footer": {
+      "tag": "div",
+      "role": null,
+      "dataSlot": "footer"
+    }
+  },
+  "states": {
+    "div": [
+      "data-appearance",
+      "data-orientation",
+      "data-size",
+      "data-with-media",
+      "data-with-header",
+      "data-with-footer"
+    ]
+  },
+  "props": {
+    "appearance": {
+      "type": "string",
+      "default": "outlined"
+    },
+    "orientation": {
+      "type": "string",
+      "default": "vertical"
+    },
+    "size": {
+      "type": "string",
+      "default": "undefined"
+    },
+    "children": {
+      "type": "object",
+      "default": null
+    },
+    "header": {
+      "type": "object",
+      "default": null
+    },
+    "footer": {
+      "type": "object",
+      "default": null
+    },
+    "media": {
+      "type": "object",
+      "default": null
+    },
+    "actions": {
+      "type": "object",
+      "default": null
+    },
+    "headerActions": {
+      "type": "object",
+      "default": null
+    },
+    "footerActions": {
+      "type": "object",
+      "default": null
+    }
+  },
+  "snippets": [
+    "media",
+    "children",
+    "actions",
+    "header",
+    "headerActions",
+    "footer",
+    "footerActions"
+  ]
+}

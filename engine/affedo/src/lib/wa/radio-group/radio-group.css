@@ -1,0 +1,56 @@
+/* Ported from webawesome/src/components/radio-group/radio-group.styles.ts.
+   Transform applied: `:host` -> `.wa-radio-group`, wrapped in @layer wa-component. */
+@layer wa-component {
+  .wa-radio-group {
+    display: block;
+  }
+
+  .wa-radio-group .form-control {
+    position: relative;
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .wa-radio-group .label {
+    padding: 0;
+    font-size: var(--wa-font-size-m, 1rem);
+    font-weight: var(--wa-font-weight-bold, 600);
+    color: var(--wa-color-text-normal, #1b1d26);
+    display: block;
+    /* padding, not margin: the host app's unlayered `* { margin: 0 }` reset
+       outranks every @layer and would zero margin-based spacing. */
+    padding-block-end: 0.25em;
+  }
+
+  .wa-radio-group[data-required] .label::after {
+    content: var(--wa-form-control-required-content, '*');
+    margin-inline-start: var(--wa-form-control-required-content-offset, 0.25em);
+    color: var(--wa-color-danger-fill-loud, #dc3146);
+  }
+
+  .wa-radio-group [part~='form-control-input'] {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    /* WA spaces radios with per-item margins (0.75em between items, 1em
+       horizontal, 0 at the group edges). The host app's unlayered
+       `* { margin: 0 }` reset outranks the cascade layers, so the same
+       geometry is carried here as flex gap — gap survives the reset and is
+       host-independent. */
+    gap: 0.75em;
+  }
+
+  /* Horizontal */
+  .wa-radio-group[data-orientation='horizontal'] [part~='form-control-input'] {
+    flex-direction: row;
+    gap: 1em;
+  }
+
+  /* Hint */
+  .wa-radio-group [part~='hint'] {
+    margin-block-start: 0.5em;
+    font-size: var(--wa-font-size-s, 0.875rem);
+    color: var(--wa-color-text-quiet, #71717a);
+  }
+}

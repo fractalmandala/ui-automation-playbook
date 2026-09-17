@@ -1,0 +1,90 @@
+{
+  "component": "Radio",
+  "source": "src/lib/wa/radio/Radio.svelte",
+  "parts": {
+    "control": {
+      "tag": "span",
+      "role": null,
+      "dataSlot": "control"
+    },
+    "checked-icon": {
+      "tag": "svg",
+      "role": null,
+      "dataSlot": "checked-icon"
+    },
+    "label": {
+      "tag": "span",
+      "role": null,
+      "dataSlot": "label"
+    }
+  },
+  "states": {
+    "div": [
+      "aria-checked",
+      "aria-disabled",
+      "data-checked",
+      "data-disabled",
+      "data-appearance",
+      "data-size"
+    ],
+    "input": [
+      "aria-hidden"
+    ],
+    "checked-icon": [
+      "aria-hidden"
+    ]
+  },
+  "props": {
+    "value": {
+      "type": "object",
+      "default": null
+    },
+    "checked": {
+      "type": "object",
+      "default": null
+    },
+    "defaultChecked": {
+      "type": "object",
+      "default": null
+    },
+    "appearance": {
+      "type": "string",
+      "default": "default"
+    },
+    "size": {
+      "type": "object",
+      "default": null
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "name": {
+      "type": "object",
+      "default": null
+    },
+    "required": {
+      "type": "boolean",
+      "default": false
+    },
+    "form": {
+      "type": "object",
+      "default": null
+    },
+    "children": {
+      "type": "object",
+      "default": null
+    },
+    "onblur": {
+      "type": "object",
+      "default": null
+    },
+    "onfocus": {
+      "type": "object",
+      "default": null
+    }
+  },
+  "snippets": [
+    "children"
+  ]
+}

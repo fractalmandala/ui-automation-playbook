@@ -1,0 +1,15 @@
+{
+  "$schema": "../schemas/recipe.schema.json",
+  "component": "Scroller",
+  "branch": "createui",
+  "adapter": "createui",
+  "parts": {
+    "root": "layout.scroll-frame",
+    "viewport": "layout.scroll-body",
+    "content": "layout.stack"
+  },
+  "axes": {
+    "direction": ["vertical", "horizontal", "both"],
+    "snap": ["none", "proximity", "mandatory"]
+  }
+}

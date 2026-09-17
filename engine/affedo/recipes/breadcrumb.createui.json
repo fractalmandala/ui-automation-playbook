@@ -1,0 +1,8 @@
+{
+  "$schema": "../schemas/recipe.schema.json",
+  "component": "Breadcrumb",
+  "branch": "createui",
+  "adapter": "createui",
+  "parts": { "root": "layout.breadcrumb", "item": "control.breadcrumb-item", "separator": "control.icon" },
+  "axes": { "size": ["sm", "md", "lg"] }
+}

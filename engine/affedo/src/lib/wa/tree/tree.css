@@ -1,0 +1,15 @@
+@layer wa-component {
+	.wa-tree {
+		--indent-guide-color: var(--wa-color-surface-border, #e2e8f0);
+		--indent-guide-offset: 0;
+		--indent-guide-style: solid;
+		--indent-guide-width: 0px;
+		--indent-size: 1.5em;
+
+		display: flex;
+		flex-direction: column;
+		gap: 0.125em;
+		padding: 0.25em;
+		box-sizing: border-box;
+	}
+}

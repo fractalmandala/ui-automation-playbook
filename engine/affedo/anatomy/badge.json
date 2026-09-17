@@ -1,0 +1,64 @@
+{
+  "component": "badge",
+  "source": "src/lib/wa/badge/Badge.svelte",
+  "parts": {
+    "start": {
+      "tag": "span",
+      "role": null,
+      "dataSlot": "start"
+    },
+    "base badge": {
+      "tag": "span",
+      "role": "status",
+      "dataSlot": "base badge"
+    },
+    "end": {
+      "tag": "span",
+      "role": null,
+      "dataSlot": "end"
+    }
+  },
+  "states": {
+    "span": [
+      "data-variant",
+      "data-appearance",
+      "data-pill",
+      "data-attention"
+    ]
+  },
+  "props": {
+    "variant": {
+      "type": "string",
+      "default": "brand"
+    },
+    "appearance": {
+      "type": "string",
+      "default": "accent"
+    },
+    "pill": {
+      "type": "boolean",
+      "default": false
+    },
+    "attention": {
+      "type": "string",
+      "default": "none"
+    },
+    "start": {
+      "type": "object",
+      "default": null
+    },
+    "end": {
+      "type": "object",
+      "default": null
+    },
+    "children": {
+      "type": "object",
+      "default": null
+    }
+  },
+  "snippets": [
+    "start",
+    "children",
+    "end"
+  ]
+}

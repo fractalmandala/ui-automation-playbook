@@ -1,0 +1,103 @@
+.cui-toast-region
+	position: fixed
+	z-index: 1000
+	display: flex
+	flex-direction: column
+	gap: var(--space-2)
+	pointer-events: none
+	padding: var(--space-4)
+
+	&[data-placement="bottom-end"]
+		bottom: 0
+		right: 0
+
+	&[data-placement="bottom-start"]
+		bottom: 0
+		left: 0
+
+	&[data-placement="top-end"]
+		top: 0
+		right: 0
+
+	&[data-placement="top-start"]
+		top: 0
+		left: 0
+
+.cui-toast-item
+	pointer-events: auto
+	min-width: 18rem
+	max-width: 26rem
+	display: flex
+	align-items: flex-start
+	gap: var(--space-3)
+	padding: var(--space-3) var(--space-4)
+	background-color: var(--bg)
+	border: 1px solid var(--stroke-weakest)
+	border-left: 2px solid var(--stroke-weaker)
+	border-radius: var(--radius-md)
+	box-shadow: var(--shadow-lg)
+	color: var(--text-primary)
+	font-family: var(--font-sans)
+	transition: all var(--duration-fast) var(--ease-out)
+
+	&[data-variant="brand"]
+		border-left-color: var(--color-primary)
+		.cui-toast-icon
+			color: var(--color-primary)
+
+	&[data-variant="success"]
+		border-left-color: var(--status-success-fg)
+		.cui-toast-icon
+			color: var(--status-success-fg)
+
+	&[data-variant="warning"]
+		border-left-color: var(--status-warning-fg)
+		.cui-toast-icon
+			color: var(--status-warning-fg)
+
+	&[data-variant="danger"]
+		border-left-color: var(--status-danger-fg)
+		.cui-toast-icon
+			color: var(--status-danger-fg)
+
+.cui-toast-icon
+	flex-shrink: 0
+	margin-top: 2px
+	display: flex
+	align-items: center
+	justify-content: center
+	color: var(--text-secondary)
+
+.cui-toast-body
+	flex: 1
+	min-width: 0
+	display: flex
+	flex-direction: column
+	gap: 2px
+
+.cui-toast-title
+	font-weight: 600
+	font-size: var(--text-sm)
+	color: var(--text-primary)
+
+.cui-toast-message
+	font-size: var(--text-xs)
+	color: var(--text-secondary)
+	line-height: 1.4
+
+.cui-toast-close
+	flex-shrink: 0
+	display: inline-flex
+	align-items: center
+	justify-content: center
+	background: transparent
+	border: none
+	color: var(--text-muted)
+	cursor: pointer
+	padding: var(--space-1)
+	border-radius: var(--radius-sm)
+	transition: background-color var(--duration-fast) var(--ease-out), color var(--duration-fast) var(--ease-out)
+
+	&:hover
+		color: var(--text-primary)
+		background-color: var(--state-hover)

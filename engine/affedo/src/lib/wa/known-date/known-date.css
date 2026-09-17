@@ -1,0 +1,158 @@
+@layer wa-component {
+  .wa-known-date {
+    display: block;
+    container-type: inline-size;
+    container-name: known-date;
+    box-sizing: border-box;
+  }
+
+  .wa-known-date .fieldset,
+  .wa-known-date [part~='fieldset'] {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    min-inline-size: 0;
+  }
+
+  .wa-known-date legend[part~='legend'],
+  .wa-known-date legend {
+    padding: 0;
+    display: block;
+  }
+
+  .wa-known-date .label {
+    display: inline-block;
+  }
+
+  .wa-known-date [part~='fields'],
+  .wa-known-date .fields {
+    display: flex;
+    gap: var(--wa-space-xs);
+    align-items: start;
+    inline-size: 100%;
+    min-inline-size: 0;
+  }
+
+  .wa-known-date [part~='field'],
+  .wa-known-date .field {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 0;
+    min-inline-size: 0;
+  }
+
+  .wa-known-date [part~='field-month'],
+  .wa-known-date [part~='field-day'],
+  .wa-known-date .field-month,
+  .wa-known-date .field-day {
+    min-inline-size: 2.5em;
+  }
+
+  .wa-known-date [part~='field-year'],
+  .wa-known-date .field-year {
+    flex-grow: 2;
+    min-inline-size: 6em;
+  }
+
+  .wa-known-date [part~='field-label'],
+  .wa-known-date .field-label {
+    color: var(--wa-form-control-hint-color);
+    font-weight: var(--wa-form-control-hint-font-weight);
+    line-height: var(--wa-form-control-hint-line-height);
+    font-size: var(--wa-font-size-smaller);
+    margin-block-start: 0.5em;
+  }
+
+  .wa-known-date [part~='field-input'],
+  .wa-known-date .field-input {
+    -webkit-appearance: none;
+    appearance: none;
+    box-sizing: border-box;
+    height: var(--wa-form-control-height);
+    inline-size: 100%;
+    min-inline-size: 0;
+    border-style: var(--wa-form-control-border-style);
+    border-width: var(--wa-form-control-border-width);
+    border-color: var(--wa-form-control-border-color);
+    border-radius: var(--wa-form-control-border-radius);
+    background-color: var(--wa-form-control-background-color);
+    color: var(--wa-form-control-value-color);
+    font-family: inherit;
+    font-size: var(--wa-form-control-value-font-size);
+    font-weight: var(--wa-form-control-value-font-weight);
+    line-height: var(--wa-form-control-value-line-height);
+    padding: 0 var(--wa-form-control-padding-inline);
+    outline: var(--wa-focus-ring-style) var(--wa-focus-ring-width) transparent;
+    outline-offset: var(--wa-focus-ring-offset);
+    transition:
+      background-color var(--wa-transition-normal),
+      border-color var(--wa-transition-normal),
+      outline-color var(--wa-transition-fast);
+    transition-timing-function: var(--wa-transition-easing);
+  }
+
+  .wa-known-date [part~='field-input']:focus,
+  .wa-known-date .field-input:focus {
+    outline-color: var(--wa-color-focus);
+  }
+
+  @container known-date (inline-size < 300px) {
+    .wa-known-date [part~='fields'],
+    .wa-known-date .fields {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+
+  .wa-known-date [part~='field-input']::-webkit-outer-spin-button,
+  .wa-known-date [part~='field-input']::-webkit-inner-spin-button,
+  .wa-known-date .field-input::-webkit-outer-spin-button,
+  .wa-known-date .field-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  .wa-known-date .value-input {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    opacity: 0;
+    pointer-events: none;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+  }
+
+  .wa-known-date[data-appearance='outlined'] [part~='field-input'],
+  .wa-known-date[data-appearance='outlined'] .field-input {
+    background-color: var(--wa-form-control-background-color);
+    border-color: var(--wa-form-control-border-color);
+  }
+
+  .wa-known-date[data-appearance='filled'] [part~='field-input'],
+  .wa-known-date[data-appearance='filled'] .field-input {
+    background-color: var(--wa-color-neutral-fill-quiet);
+    border-color: var(--wa-color-neutral-fill-quiet);
+  }
+
+  .wa-known-date[data-appearance='filled-outlined'] [part~='field-input'],
+  .wa-known-date[data-appearance='filled-outlined'] .field-input {
+    background-color: var(--wa-color-neutral-fill-quiet);
+    border-color: var(--wa-form-control-border-color);
+  }
+
+  .wa-known-date[data-pill] [part~='field-input'],
+  .wa-known-date[data-pill] .field-input {
+    border-radius: var(--wa-border-radius-pill) !important;
+  }
+
+  .wa-known-date[data-disabled] [part~='field'],
+  .wa-known-date[data-disabled] .field,
+  .wa-known-date [part~='field-input']:disabled,
+  .wa-known-date .field-input:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}

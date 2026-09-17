@@ -1,0 +1,19 @@
+{
+  "$schema": "../schemas/recipe.schema.json",
+  "component": "Card",
+  "branch": "createui",
+  "adapter": "createui",
+  "parts": {
+    "root": "surface.card",
+    "media": "surface.media",
+    "header": "typography.heading",
+    "headerActions": "layout.row",
+    "body": "typography.body",
+    "footer": "layout.row",
+    "footerActions": "layout.row"
+  },
+  "axes": {
+    "appearance": ["outlined", "filled", "elevated"],
+    "orientation": ["vertical", "horizontal"]
+  }
+}

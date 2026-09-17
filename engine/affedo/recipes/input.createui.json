@@ -1,0 +1,44 @@
+{
+  "$schema": "../schemas/recipe.schema.json",
+  "component": "Input",
+  "branch": "createui",
+  "adapter": "createui",
+  "parts": {
+    "root": "layout.stack",
+    "label": "typography.label",
+    "control": "control.input",
+    "start": "layout.row",
+    "end": "layout.row",
+    "clearButton": "control.button-ghost",
+    "hint": "typography.caption"
+  },
+  "axes": {
+    "size": {
+      "sm": {
+        "height": "1.75rem",
+        "pad": "var(--space-1) var(--space-2)",
+        "text": "var(--text-xs)"
+      },
+      "md": {
+        "height": "2.25rem",
+        "pad": "var(--space-2) var(--space-3)",
+        "text": "var(--text-sm)"
+      },
+      "lg": {
+        "height": "2.75rem",
+        "pad": "var(--space-3) var(--space-4)",
+        "text": "var(--text-base)"
+      }
+    },
+    "appearance": {
+      "outlined": {
+        "bg": "transparent",
+        "border": "1px solid var(--stroke-weaker)"
+      },
+      "filled": {
+        "bg": "var(--bg-weaker)",
+        "border": "1px solid transparent"
+      }
+    }
+  }
+}

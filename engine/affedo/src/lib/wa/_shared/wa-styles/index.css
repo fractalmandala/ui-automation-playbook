@@ -1,0 +1,10 @@
+/* Vendored Web Awesome theme foundation. Import once, from the root layout.
+   Everything here lives in WA's own cascade layers (see layers.css), so it
+   cannot fight fractalstyler's registry — which is what makes the styling
+   reconciliation pass safe to defer. */
+@import './layers.css';
+@import './color/palettes/default.css';
+@import './color/variants.css';
+@import './themes/default.css';
+@import './native.css';
+@import './utilities.css';

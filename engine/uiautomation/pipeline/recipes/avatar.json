@@ -1,0 +1,13 @@
+{
+	"$schema": "../schemas/recipe.schema.json",
+	"component": "Avatar",
+	"source": "bits-ui",
+	"importFrom": "bits-ui",
+	"importName": "Avatar",
+	"adapter": "kitui",
+	"parts": {
+		"root": ["media.frame"],
+		"image": ["media.cover"],
+		"fallback": ["media.initials"]
+	}
+}

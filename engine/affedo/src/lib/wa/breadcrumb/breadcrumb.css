@@ -1,0 +1,12 @@
+/* Ported from webawesome/src/components/breadcrumb/breadcrumb.styles.ts.
+   Transform applied: `.breadcrumb` (the shadow-root inner nav) -> `.wa-breadcrumb`
+   (the light-DOM root nav itself, which keeps both classes). Wrapped in
+   `@layer wa-component` (the source predates the layer convention) so this cannot
+   collide with the fractalstyler registry. */
+@layer wa-component {
+  .wa-breadcrumb {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+}

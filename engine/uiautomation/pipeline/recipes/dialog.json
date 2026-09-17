@@ -1,0 +1,18 @@
+{
+	"$schema": "../schemas/recipe.schema.json",
+	"$comment": "Root and Portal are pure context providers with no DOM to style, so they are absent here and re-exported unchanged by the emitter. Centering is `inset: 0` + `margin: auto` rather than a transform, because the closed vocabulary has no composite-value syntax and inventing one for a single role would be the wrong trade.",
+	"adapter": "kitui",
+	"axes": ["size"],
+	"component": "Dialog",
+	"importFrom": "bits-ui",
+	"importName": "Dialog",
+	"parts": {
+		"trigger": ["control.solid"],
+		"overlay": ["surface.overlay"],
+		"content": ["surface.dialog"],
+		"title": ["typography.heading"],
+		"description": ["typography.muted"],
+		"close": ["control.icon"]
+	},
+	"source": "bits-ui"
+}

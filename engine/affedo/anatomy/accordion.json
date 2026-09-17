@@ -1,0 +1,35 @@
+{
+  "component": "accordion",
+  "source": "src/lib/wa/accordion/Accordion.svelte",
+  "parts": {},
+  "states": {
+    "div": [
+      "data-appearance"
+    ]
+  },
+  "props": {
+    "mode": {
+      "type": "string",
+      "default": "multiple"
+    },
+    "iconPlacement": {
+      "type": "string",
+      "default": "end"
+    },
+    "headingLevel": {
+      "type": "string",
+      "default": "3"
+    },
+    "appearance": {
+      "type": "string",
+      "default": "outlined"
+    },
+    "children": {
+      "type": "object",
+      "default": null
+    }
+  },
+  "snippets": [
+    "children"
+  ]
+}

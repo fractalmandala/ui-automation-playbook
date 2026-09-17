@@ -1,0 +1,41 @@
+{
+  "component": "tree",
+  "source": "src/lib/wa/tree/Tree.svelte",
+  "parts": {
+    "tree base": {
+      "tag": "div",
+      "role": "tree",
+      "dataSlot": "tree base"
+    }
+  },
+  "states": {
+    "div": [
+      "aria-multiselectable"
+    ]
+  },
+  "props": {
+    "selection": {
+      "type": "string",
+      "default": "single"
+    },
+    "id": {
+      "type": "string",
+      "default": "undefined"
+    },
+    "class": {
+      "type": "string",
+      "default": ""
+    },
+    "children": {
+      "type": "object",
+      "default": null
+    },
+    "onselectionchange": {
+      "type": "object",
+      "default": null
+    }
+  },
+  "snippets": [
+    "children"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "../schemas/recipe.schema.json",
+  "component": "TabGroup",
+  "branch": "createui",
+  "adapter": "createui",
+  "parts": {
+    "root": "layout.tab-group",
+    "nav": "layout.tab-nav",
+    "tab": "control.tab-button",
+    "indicator": "control.tab-indicator",
+    "panels": "layout.panels",
+    "panel": "typography.body"
+  },
+  "axes": {
+    "placement": ["top", "bottom", "left", "right"],
+    "size": ["sm", "md", "lg"]
+  }
+}

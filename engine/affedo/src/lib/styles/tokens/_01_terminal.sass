@@ -1,0 +1,165 @@
+// =============================================================================
+// 01_TERMINAL — Fractal Terminal / Monochrome Theme
+// High contrast, stark borders, 0px border radiuses, monospace typography.
+// =============================================================================
+
+=terminal-light
+	color-scheme: light
+	--bg: #ffffff
+	--bg-weakest: #f4f4f5
+	--bg-weaker: #e4e4e7
+	--bg-base: #d4d4d8
+	--bg-stronger: #a1a1aa
+	--bg-strongest: #71717a
+
+	--stroke-weakest: #e4e4e7
+	--stroke-weaker: #a1a1aa
+	--stroke-base: #52525b
+	--stroke-stronger: #27272a
+	--stroke-strongest: #09090b
+
+	--text-primary: #000000
+	--text-secondary: #3f3f46
+	--text-tertiary: #71717a
+	--text-muted: #71717a
+	--text-inverse: #ffffff
+
+	--icon-primary: #000000
+	--icon-secondary: #3f3f46
+	--icon-tertiary: #71717a
+	--icon-disabled: rgba(0, 0, 0, 0.3)
+
+	--color-primary: #059669
+	--color-primary-hover: #047857
+	--color-primary-active: #065f46
+	--color-primary-fg: #ffffff
+	--color-primary-subtle: #ecfdf5
+
+	--state-hover: rgba(0, 0, 0, 0.08)
+	--state-active: rgba(0, 0, 0, 0.15)
+	--state-selected: rgba(5, 150, 105, 0.15)
+	--state-focus: #059669
+	--state-disabled: 0.35
+
+	--status-success-bg: #ecfdf5
+	--status-success-fg: #059669
+	--status-success-border: #059669
+	--status-warning-bg: #fffbeb
+	--status-warning-fg: #d97706
+	--status-warning-border: #d97706
+	--status-danger-bg: #fef2f2
+	--status-danger-fg: #dc2626
+	--status-danger-border: #dc2626
+	--status-info-bg: #eff6ff
+	--status-info-fg: #2563eb
+	--status-info-border: #2563eb
+
+	--overlay-dimmer: rgba(0, 0, 0, 0.6)
+	--blur-xs: 0px
+	--blur-sm: 0px
+	--blur-md: 0px
+	--blur-lg: 0px
+	--blur-xl: 0px
+
+	--shadow-xs: none
+	--shadow-sm: none
+	--shadow-md: none
+	--shadow-lg: none
+	--shadow-xl: none
+
+	--radius-xs: 0px
+	--radius-sm: 0px
+	--radius-md: 0px
+	--radius-lg: 0px
+	--radius-xl: 0px
+	--radius-full: 0px
+
+	--font-sans: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, monospace
+	--font-mono: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, monospace
+
+=terminal-dark
+	color-scheme: dark
+	--bg: #000000
+	--bg-weakest: #0d0d0f
+	--bg-weaker: #17171a
+	--bg-base: #242428
+	--bg-stronger: #36363d
+	--bg-strongest: #4a4a54
+
+	--stroke-weakest: #27272a
+	--stroke-weaker: #3f3f46
+	--stroke-base: #71717a
+	--stroke-stronger: #a1a1aa
+	--stroke-strongest: #ffffff
+
+	--text-primary: #f4f4f5
+	--text-secondary: #a1a1aa
+	--text-tertiary: #71717a
+	--text-muted: #52525b
+	--text-inverse: #000000
+
+	--icon-primary: #10b981
+	--icon-secondary: #a1a1aa
+	--icon-tertiary: #71717a
+	--icon-disabled: rgba(244, 244, 245, 0.25)
+
+	--color-primary: #10b981
+	--color-primary-hover: #34d399
+	--color-primary-active: #6ee7b7
+	--color-primary-fg: #000000
+	--color-primary-subtle: #064e3b
+
+	--state-hover: rgba(16, 185, 129, 0.12)
+	--state-active: rgba(16, 185, 129, 0.22)
+	--state-selected: rgba(16, 185, 129, 0.2)
+	--state-focus: #10b981
+	--state-disabled: 0.3
+
+	--status-success-bg: #022c22
+	--status-success-fg: #34d399
+	--status-success-border: #10b981
+	--status-warning-bg: #451a03
+	--status-warning-fg: #fbbf24
+	--status-warning-border: #f59e0b
+	--status-danger-bg: #450a0a
+	--status-danger-fg: #f87171
+	--status-danger-border: #ef4444
+	--status-info-bg: #172554
+	--status-info-fg: #60a5fa
+	--status-info-border: #3b82f6
+
+	--overlay-dimmer: rgba(0, 0, 0, 0.85)
+	--blur-xs: 0px
+	--blur-sm: 0px
+	--blur-md: 0px
+	--blur-lg: 0px
+	--blur-xl: 0px
+
+	--shadow-xs: none
+	--shadow-sm: none
+	--shadow-md: none
+	--shadow-lg: none
+	--shadow-xl: none
+
+	--radius-xs: 0px
+	--radius-sm: 0px
+	--radius-md: 0px
+	--radius-lg: 0px
+	--radius-xl: 0px
+	--radius-full: 0px
+
+	--font-sans: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, monospace
+	--font-mono: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, monospace
+
+[data-theme="terminal"]
+	+terminal-light
+
+[data-theme="terminal"][data-mode="dark"]
+	+terminal-dark
+
+[data-theme="terminal"][data-mode="light"]
+	+terminal-light
+
+@media (prefers-color-scheme: dark)
+	[data-theme="terminal"]:not([data-mode="light"])
+		+terminal-dark

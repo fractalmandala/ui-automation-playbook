@@ -1,0 +1,33 @@
+.cui-popover-root
+	position: relative
+	display: inline-block
+
+.cui-popover-panel
+	position: absolute
+	z-index: 100
+	min-width: 16rem
+	background-color: var(--bg)
+	border: 1px solid var(--stroke-weakest)
+	border-radius: var(--radius-md)
+	box-shadow: var(--shadow-lg)
+	padding: var(--space-4)
+	color: var(--text-primary)
+	font-family: var(--font-sans)
+	font-size: var(--text-sm)
+	line-height: 1.5
+
+	&[data-placement="bottom"]
+		top: calc(100% + var(--space-2))
+		left: 0
+
+	&[data-placement="top"]
+		bottom: calc(100% + var(--space-2))
+		left: 0
+
+	&[data-placement="right"]
+		left: calc(100% + var(--space-2))
+		top: 0
+
+	&[data-placement="left"]
+		right: calc(100% + var(--space-2))
+		top: 0

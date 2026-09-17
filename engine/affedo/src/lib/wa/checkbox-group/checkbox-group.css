@@ -1,0 +1,63 @@
+/* Ported from webawesome/src/components/checkbox-group/checkbox-group.styles.ts.
+   Transform applied: `:host` -> `.wa-checkbox-group`, wrapped in @layer wa-component. */
+@layer wa-component {
+  .wa-checkbox-group {
+    --gap: 0.5em;
+    display: block;
+  }
+
+  .wa-checkbox-group[data-orientation='horizontal'] {
+    --gap: 1em;
+  }
+
+  .wa-checkbox-group .form-control {
+    position: relative;
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .wa-checkbox-group .label {
+    padding: 0;
+    font-size: var(--wa-font-size-m, 1rem);
+    font-weight: var(--wa-font-weight-bold, 600);
+    color: var(--wa-color-text-normal, #1b1d26);
+    display: block;
+    margin-bottom: 0.25em;
+  }
+
+  .wa-checkbox-group[data-required] .label::after {
+    content: var(--wa-form-control-required-content, '*');
+    margin-inline-start: var(--wa-form-control-required-content-offset, 0.25em);
+    color: var(--wa-color-danger-fill-loud, #dc3146);
+  }
+
+  /* The group of checkboxes */
+  .wa-checkbox-group [part~='form-control-input'] {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: var(--gap);
+    margin-block-start: 0.5em;
+  }
+
+  /* Horizontal */
+  .wa-checkbox-group[data-orientation='horizontal'] [part~='form-control-input'] {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  /* Hint */
+  .wa-checkbox-group [part~='hint'] {
+    margin-block-start: 0.5em;
+    font-size: var(--wa-font-size-s, 0.875rem);
+    color: var(--wa-color-text-quiet, #71717a);
+  }
+
+  /* Hide the required asterisk on individual controls inside the group */
+  .wa-checkbox-group .wa-checkbox,
+  .wa-checkbox-group .wa-switch {
+    --wa-form-control-required-content: '';
+  }
+}

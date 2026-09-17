@@ -1,0 +1,18 @@
+{
+  "$schema": "../schemas/recipe.schema.json",
+  "component": "Accordion",
+  "branch": "createui",
+  "adapter": "createui",
+  "parts": {
+    "root": "surface.panel",
+    "item": "surface.card",
+    "header": "typography.heading",
+    "trigger": "control.button-ghost",
+    "indicator": "control.icon",
+    "panel": "typography.body"
+  },
+  "axes": {
+    "mode": ["multiple", "single", "single-collapsible"],
+    "appearance": ["outlined", "separated", "plain"]
+  }
+}

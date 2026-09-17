@@ -1,0 +1,17 @@
+{
+  "$schema": "../schemas/recipe.schema.json",
+  "component": "Badge",
+  "branch": "createui",
+  "adapter": "createui",
+  "parts": {
+    "root": "control.badge",
+    "start": "control.icon",
+    "label": "typography.badge-label",
+    "end": "control.icon"
+  },
+  "axes": {
+    "variant": ["brand", "neutral", "success", "warning", "danger"],
+    "appearance": ["accent", "filled", "outlined"],
+    "size": ["sm", "md", "lg"]
+  }
+}

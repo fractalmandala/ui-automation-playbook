@@ -1,0 +1,41 @@
+{
+  "component": "buttongroup",
+  "source": "src/lib/wa/button-group/ButtonGroup.svelte",
+  "parts": {
+    "base": {
+      "tag": "div",
+      "role": null,
+      "dataSlot": "base"
+    }
+  },
+  "states": {
+    "div": [
+      "data-orientation"
+    ],
+    "base": [
+      "aria-label",
+      "aria-orientation"
+    ]
+  },
+  "props": {
+    "label": {
+      "type": "string",
+      "default": ""
+    },
+    "orientation": {
+      "type": "string",
+      "default": "horizontal"
+    },
+    "disableRole": {
+      "type": "boolean",
+      "default": false
+    },
+    "children": {
+      "type": "object",
+      "default": null
+    }
+  },
+  "snippets": [
+    "children"
+  ]
+}

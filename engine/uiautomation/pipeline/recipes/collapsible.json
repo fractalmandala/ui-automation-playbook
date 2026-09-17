@@ -1,0 +1,18 @@
+{
+	"$schema": "../schemas/recipe.schema.json",
+	"adapter": "kitui",
+	"axes": ["size"],
+	"component": "Collapsible",
+	"importFrom": "bits-ui",
+	"importName": "Collapsible",
+	"parts": {
+		"root": ["layout.stack"],
+		"trigger": ["control.outline", "control.expanded"],
+		"content": ["surface.canvas", "typography.body"]
+	},
+	"source": "bits-ui",
+	"unstyled": {
+		"root": ["disabled", "open"],
+		"content": ["disabled", "open"]
+	}
+}

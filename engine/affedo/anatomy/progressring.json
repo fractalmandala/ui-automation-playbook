@@ -1,0 +1,79 @@
+{
+  "component": "progressring",
+  "source": "src/lib/wa/progress-ring/ProgressRing.svelte",
+  "parts": {
+    "base progress-ring": {
+      "tag": "div",
+      "role": "progressbar",
+      "dataSlot": "base progress-ring"
+    },
+    "image": {
+      "tag": "svg",
+      "role": null,
+      "dataSlot": "image"
+    },
+    "track": {
+      "tag": "circle",
+      "role": null,
+      "dataSlot": "track"
+    },
+    "indicator": {
+      "tag": "circle",
+      "role": null,
+      "dataSlot": "indicator"
+    },
+    "label": {
+      "tag": "span",
+      "role": null,
+      "dataSlot": "label"
+    }
+  },
+  "states": {
+    "base progress-ring": [
+      "aria-label",
+      "aria-valuemin",
+      "aria-valuemax",
+      "aria-valuenow"
+    ],
+    "image": [
+      "aria-hidden"
+    ]
+  },
+  "props": {
+    "value": {
+      "type": "number",
+      "default": 0
+    },
+    "label": {
+      "type": "string",
+      "default": ""
+    },
+    "size": {
+      "type": "object",
+      "default": null
+    },
+    "trackWidth": {
+      "type": "object",
+      "default": null
+    },
+    "indicatorWidth": {
+      "type": "object",
+      "default": null
+    },
+    "indicatorColor": {
+      "type": "object",
+      "default": null
+    },
+    "trackColor": {
+      "type": "object",
+      "default": null
+    },
+    "children": {
+      "type": "object",
+      "default": null
+    }
+  },
+  "snippets": [
+    "children"
+  ]
+}

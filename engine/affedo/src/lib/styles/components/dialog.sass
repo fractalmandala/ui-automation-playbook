@@ -1,0 +1,100 @@
+.cui-dialog-root
+	position: fixed
+	inset: 0
+	z-index: 1000
+	display: flex
+	align-items: center
+	justify-content: center
+	padding: var(--space-4)
+
+.cui-dialog-overlay
+	position: fixed
+	inset: 0
+	background-color: var(--overlay-dimmer)
+	backdrop-filter: blur(var(--blur-sm))
+	animation: cui-dialog-fade var(--duration-fast) var(--ease-out)
+
+.cui-dialog-panel
+	position: relative
+	z-index: 1001
+	width: 100%
+	background-color: var(--bg)
+	color: var(--text-primary)
+	border: 1px solid var(--stroke-weakest)
+	border-radius: var(--radius-lg)
+	box-shadow: var(--shadow-xl)
+	padding: var(--space-6)
+	font-family: var(--font-sans)
+	animation: cui-dialog-scale var(--duration-normal) var(--ease-spring)
+
+	// Size axes
+	.cui-dialog-root[data-size="sm"] &
+		max-width: 24rem
+		padding: var(--space-4)
+
+	.cui-dialog-root[data-size="md"] &
+		max-width: 32rem
+		padding: var(--space-6)
+
+	.cui-dialog-root[data-size="lg"] &
+		max-width: 42rem
+		padding: var(--space-8)
+
+.cui-dialog-header
+	flex-shrink: 0
+	display: flex
+	align-items: center
+	justify-content: space-between
+	margin-bottom: var(--space-4)
+
+.cui-dialog-title
+	margin: 0
+	font-size: var(--text-lg)
+	font-weight: 600
+	color: var(--text-primary)
+
+.cui-dialog-close
+	display: inline-flex
+	align-items: center
+	justify-content: center
+	width: 2rem
+	height: 2rem
+	border: none
+	border-radius: var(--radius-sm)
+	background-color: transparent
+	color: var(--text-secondary)
+	cursor: pointer
+	transition: background-color var(--duration-fast) var(--ease-out), color var(--duration-fast) var(--ease-out)
+
+	&:hover
+		background-color: var(--state-hover)
+		color: var(--text-primary)
+
+.cui-dialog-body
+	flex: 1 1 auto
+	min-height: 0
+	color: var(--text-secondary)
+	font-size: var(--text-sm)
+	line-height: 1.5
+	margin-bottom: var(--space-6)
+
+.cui-dialog-footer
+	flex-shrink: 0
+	display: flex
+	align-items: center
+	justify-content: flex-end
+	gap: var(--space-3)
+
+@keyframes cui-dialog-fade
+	from
+		opacity: 0
+	to
+		opacity: 1
+
+@keyframes cui-dialog-scale
+	from
+		opacity: 0
+		transform: scale(0.95) translateY(var(--space-2))
+	to
+		opacity: 1
+		transform: scale(1) translateY(0)

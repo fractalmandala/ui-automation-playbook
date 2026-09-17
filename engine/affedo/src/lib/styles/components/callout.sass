@@ -1,0 +1,98 @@
+.cui-callout
+	display: flex
+	align-items: flex-start
+	gap: var(--space-3)
+	padding: var(--space-3) var(--space-4)
+	border-radius: var(--radius-md)
+	border: 1px solid var(--stroke-weakest)
+	background-color: var(--bg-weaker)
+	color: var(--text-primary)
+	font-family: var(--font-sans)
+	transition: all var(--duration-fast) var(--ease-out)
+
+	&[data-size="sm"]
+		padding: var(--space-2) var(--space-3)
+		gap: var(--space-2)
+		font-size: var(--text-xs)
+
+	&[data-size="lg"]
+		padding: var(--space-4) var(--space-6)
+		gap: var(--space-4)
+		font-size: var(--text-base)
+
+	// Variant styling
+	&[data-variant="brand"]
+		border-color: var(--stroke-weaker)
+		.cui-callout-icon
+			color: var(--color-primary)
+
+	&[data-variant="success"]
+		border-color: var(--status-success-border)
+		background-color: var(--status-success-bg)
+		.cui-callout-icon
+			color: var(--status-success-fg)
+
+	&[data-variant="warning"]
+		border-color: var(--status-warning-border)
+		background-color: var(--status-warning-bg)
+		.cui-callout-icon
+			color: var(--status-warning-fg)
+
+	&[data-variant="danger"]
+		border-color: var(--status-danger-border)
+		background-color: var(--status-danger-bg)
+		.cui-callout-icon
+			color: var(--status-danger-fg)
+
+	&[data-variant="neutral"]
+		border-color: var(--stroke-weakest)
+		.cui-callout-icon
+			color: var(--text-secondary)
+
+.cui-callout-icon
+	flex-shrink: 0
+	margin-top: 2px
+	display: flex
+	align-items: center
+	justify-content: center
+
+.cui-callout-body
+	flex: 1
+	min-width: 0
+	display: flex
+	flex-direction: column
+	gap: var(--space-1)
+
+.cui-callout-title
+	font-weight: 600
+	font-size: var(--text-sm)
+	color: var(--text-primary)
+	line-height: 1.3
+
+.cui-callout-message
+	font-size: var(--text-sm)
+	color: var(--text-secondary)
+	line-height: 1.5
+
+.cui-callout-actions
+	display: flex
+	align-items: center
+	gap: var(--space-2)
+	margin-top: var(--space-2)
+
+.cui-callout-close
+	flex-shrink: 0
+	display: inline-flex
+	align-items: center
+	justify-content: center
+	background: transparent
+	border: none
+	color: var(--text-muted)
+	cursor: pointer
+	padding: var(--space-1)
+	border-radius: var(--radius-sm)
+	transition: background-color var(--duration-fast) var(--ease-out), color var(--duration-fast) var(--ease-out)
+
+	&:hover
+		color: var(--text-primary)
+		background-color: var(--state-hover)

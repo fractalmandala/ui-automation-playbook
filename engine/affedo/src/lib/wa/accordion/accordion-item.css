@@ -1,0 +1,121 @@
+/* Ported from webawesome/src/components/accordion-item/accordion-item.styles.ts.
+   Transform applied: `:host` -> `.wa-accordion-item`, `:host([attr])` ->
+   `.wa-accordion-item[data-attr]`, and `[part~='x']` scoped under the root.
+   `[part~=]` selectors are otherwise UNCHANGED — a part attribute in light DOM
+   matches the same selector it did in the shadow root, so these port verbatim
+   and the external styling seam survives. */
+@layer wa-component {
+  .wa-accordion-item {
+    --spacing: var(--wa-space-m);
+    --show-duration: var(--wa-transition-normal);
+    --hide-duration: var(--wa-transition-normal);
+    --easing: var(--wa-transition-easing);
+
+    display: block;
+  }
+
+  .wa-accordion-item:not(:first-child) {
+    border-top: var(--wa-panel-border-width) var(--wa-panel-border-style) var(--wa-color-surface-border);
+  }
+
+  .wa-accordion-item[data-appearance='filled'] {
+    background-color: var(--wa-color-neutral-fill-quiet);
+  }
+
+  .wa-accordion-item[data-appearance='filled']:not(:first-child) {
+    margin-block-start: var(--wa-panel-border-width);
+    border-top: none;
+  }
+
+  .wa-accordion-item [part~='heading'] {
+    margin: 0;
+    font: inherit;
+  }
+
+  .wa-accordion-item [part~='button'] {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing);
+    padding: var(--spacing);
+    width: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: start;
+    color: var(--wa-color-text-normal);
+    font: inherit;
+    font-weight: var(--wa-font-weight-semibold);
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      outline: var(--wa-focus-ring);
+      /* Inset by the full ring width + offset so the parent's overflow:hidden doesn't clip it */
+      outline-offset: calc(0px - var(--wa-focus-ring-width) - var(--wa-focus-ring-offset));
+    }
+  }
+
+  /* Icon at end (default) */
+  .wa-accordion-item[data-icon-placement='end'] [part~='button'] {
+    justify-content: space-between;
+  }
+
+  /* Icon at start */
+  .wa-accordion-item[data-icon-placement='start'] [part~='button'] {
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+  }
+
+  .wa-accordion-item[data-disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .wa-accordion-item[data-disabled] [part~='button'] {
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  .wa-accordion-item:first-child [part~='button'] {
+    border-top-left-radius: var(--wa-panel-border-radius);
+    border-top-right-radius: var(--wa-panel-border-radius);
+  }
+
+  .wa-accordion-item:last-child:not([data-expanded]) [part~='button'] {
+    border-bottom-left-radius: var(--wa-panel-border-radius);
+    border-bottom-right-radius: var(--wa-panel-border-radius);
+  }
+
+  .wa-accordion-item [part~='icon'] {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    color: var(--wa-color-text-quiet);
+    transition: rotate var(--hide-duration) var(--easing);
+  }
+
+  .wa-accordion-item[data-expanded] [part~='icon'] {
+    rotate: 90deg;
+    transition-duration: var(--show-duration);
+  }
+
+  .wa-accordion-item[data-expanded]:dir(rtl) [part~='icon'] {
+    rotate: -90deg;
+  }
+
+  .wa-accordion-item .body {
+    overflow: hidden;
+    color: var(--wa-color-text-quiet);
+  }
+
+  .wa-accordion-item[data-expanded] .body:not(.animating) {
+    overflow: visible;
+  }
+
+  .wa-accordion-item .content {
+    display: block;
+    padding: 0 var(--spacing) var(--spacing);
+  }
+}

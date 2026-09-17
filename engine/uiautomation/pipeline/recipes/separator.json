@@ -1,0 +1,12 @@
+{
+	"$schema": "../schemas/recipe.schema.json",
+	"$comment": "The simplest component in the set: one part, one role, no axes. It exists here as the reference point for what a recipe costs.",
+	"adapter": "kitui",
+	"component": "Separator",
+	"importFrom": "bits-ui",
+	"importName": "Separator",
+	"parts": {
+		"root": ["layout.divider"]
+	},
+	"source": "bits-ui"
+}

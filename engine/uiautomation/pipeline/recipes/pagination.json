@@ -1,0 +1,16 @@
+{
+	"$schema": "../schemas/recipe.schema.json",
+	"$comment": "Two roles on one part: control.ghost supplies the shape and hover, control.selected adds the selected treatment on top. Later roles win per property, which is why the selected chip stays accent while hovered instead of flickering back to bg-hover.",
+	"adapter": "kitui",
+	"axes": ["size"],
+	"component": "Pagination",
+	"importFrom": "bits-ui",
+	"importName": "Pagination",
+	"parts": {
+		"root": ["layout.row"],
+		"prevbutton": ["control.ghost"],
+		"page": ["control.ghost", "control.selected"],
+		"nextbutton": ["control.ghost"]
+	},
+	"source": "bits-ui"
+}

@@ -1,0 +1,90 @@
+.cui-card
+	display: flex
+	flex-direction: column
+	background-color: var(--bg)
+	border-radius: var(--radius-lg)
+	overflow: hidden
+	font-family: var(--font-sans)
+	border: 1px solid var(--stroke-weakest)
+	transition: border-color var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast) var(--ease-out)
+
+	&[data-appearance="filled"]
+		background-color: var(--bg-weaker)
+
+	&[data-appearance="elevated"]
+		box-shadow: var(--shadow-md)
+
+	&[data-orientation="horizontal"]
+		flex-direction: row
+
+		.cui-card-media
+			width: 35%
+			min-width: 8rem
+
+			img, video
+				height: 100%
+				object-fit: cover
+
+		.cui-card-content-wrap
+			flex: 1
+			display: flex
+			flex-direction: column
+
+.cui-card-media
+	position: relative
+	overflow: hidden
+	background-color: var(--bg-weaker)
+
+	img, video
+		display: block
+		width: 100%
+		height: auto
+
+.cui-card-content-wrap
+	display: flex
+	flex-direction: column
+	flex: 1
+
+.cui-card-header
+	display: flex
+	align-items: center
+	justify-content: space-between
+	gap: var(--space-3)
+	padding: var(--space-4)
+	border-bottom: 1px solid var(--stroke-weakest)
+
+.cui-card-header-main
+	font-size: var(--text-base)
+	font-weight: 600
+	color: var(--text-primary)
+	flex: 1
+
+.cui-card-header-actions
+	display: flex
+	align-items: center
+	gap: var(--space-2)
+
+.cui-card-body
+	padding: var(--space-4)
+	color: var(--text-secondary)
+	font-size: var(--text-sm)
+	line-height: 1.5
+	flex: 1
+
+.cui-card-footer
+	display: flex
+	align-items: center
+	justify-content: space-between
+	gap: var(--space-3)
+	padding: var(--space-3) var(--space-4)
+	border-top: 1px solid var(--stroke-weakest)
+	background-color: var(--bg-weaker)
+
+.cui-card-footer-main
+	font-size: var(--text-xs)
+	color: var(--text-muted)
+
+.cui-card-footer-actions
+	display: flex
+	align-items: center
+	gap: var(--space-2)

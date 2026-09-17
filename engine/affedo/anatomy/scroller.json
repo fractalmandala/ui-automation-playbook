@@ -1,0 +1,22 @@
+{
+  "component": "Scroller",
+  "source": "generated (wave 4)",
+  "parts": {
+    "root": { "tag": "div", "role": null, "dataSlot": "scroller-root" },
+    "viewport": { "tag": "div", "role": null, "dataSlot": "viewport" },
+    "content": { "tag": "div", "role": null, "dataSlot": "content" }
+  },
+  "states": {
+    "root": ["data-direction", "data-snap", "data-fade"],
+    "viewport": ["tabindex"]
+  },
+  "props": {
+    "direction": { "type": "string", "default": "vertical" },
+    "snap": { "type": "string", "default": "none" },
+    "fade": { "type": "boolean", "default": false },
+    "maxHeight": { "type": "string", "default": "''" },
+    "onscroll": { "type": "object", "default": null },
+    "class": { "type": "string", "default": "''" }
+  },
+  "snippets": ["children"]
+}

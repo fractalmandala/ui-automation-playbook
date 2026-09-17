@@ -1,0 +1,46 @@
+.cui-tab-group
+	display: flex
+	flex-direction: column
+	width: 100%
+	font-family: var(--font-sans)
+
+.cui-tab-nav
+	display: flex
+	align-items: center
+	gap: var(--space-1)
+	border-bottom: 1px solid var(--stroke-weakest)
+	position: relative
+
+.cui-tab-item
+	display: inline-flex
+	align-items: center
+	gap: var(--space-2)
+	padding: var(--space-2) var(--space-4)
+	background: transparent
+	border: none
+	border-bottom: 2px solid transparent
+	color: var(--text-secondary)
+	font-size: var(--text-sm)
+	font-weight: 500
+	cursor: pointer
+	transition: all var(--duration-fast) var(--ease-out)
+	margin-bottom: -1px
+
+	&:hover:not([disabled])
+		color: var(--text-primary)
+		background-color: var(--state-hover)
+
+	&[data-active]
+		color: var(--text-primary)
+		border-bottom-color: var(--color-primary)
+		font-weight: 600
+
+	&:disabled
+		opacity: 0.5
+		cursor: not-allowed
+
+.cui-tab-panel
+	padding: var(--space-4) 0
+	color: var(--text-secondary)
+	font-size: var(--text-sm)
+	line-height: 1.5

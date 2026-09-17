@@ -1,0 +1,299 @@
+/* Ported from webawesome/src/components/number-input/number-input.styles.ts (+
+   styles/component/size.styles.ts, vendored inline per the input.css precedent).
+   Transform applied: `:host` -> `.wa-number-input`,
+   `:host([appearance='x'])` -> `.wa-number-input[data-appearance='x']`,
+   `:host([pill])` -> `.wa-number-input[data-pill]`,
+   `:host([without-steppers])` -> `.wa-number-input[data-without-steppers]`,
+   `:host(:focus)` -> `.wa-number-input:focus`, internal classes (`.number-field`,
+   `.stepper`, `.stepper-decrement`, `.stepper-increment`, `.start`, `.end`,
+   `.control`) scoped under the root. `::slotted(wa-icon)` becomes the light-DOM
+   equivalent `> wa-icon` — snippet content renders as direct children of the part
+   wrapper (see input.css). `[part~=]` selectors need no rewrite — the part
+   attributes are emitted in markup. Nesting, `&:has()`, custom properties, and
+   `calc()` port verbatim. Label/hint layout rules live in
+   `../_shared/wa-styles/component/form-control.css`, imported from the component
+   script alongside this file; the root stacking + required-asterisk rules below
+   mirror that shared file locally so it is never overwritten (same pattern as the
+   stacking the shared file provides for `.wa-input`). Wrapped in
+   `@layer wa-component` so this cannot collide with the fractalstyler registry. */
+@layer wa-component {
+  /* Root stacking (mirrors form-control.css `.wa-input` rule for the new root;
+     the shared file itself is imported, not overwritten). */
+  .wa-number-input {
+    display: flex;
+    flex-direction: column;
+    border-width: 0;
+  }
+
+  .wa-number-input:focus {
+    outline: none;
+  }
+
+  /* Required asterisk (mirrors form-control.css `[data-required]` rule). */
+  .wa-number-input[data-required] :is([part~='form-control-label'], [part~='label'])::after {
+    content: var(--wa-form-control-required-content);
+    margin-inline-start: var(--wa-form-control-required-content-offset);
+    color: var(--wa-form-control-required-content-color);
+  }
+
+  .wa-number-input .number-field {
+    display: flex;
+    align-items: stretch;
+    justify-content: start;
+    position: relative;
+    height: var(--wa-form-control-height);
+    border-color: var(--wa-form-control-border-color);
+    border-radius: var(--wa-form-control-border-radius);
+    border-style: var(--wa-form-control-border-style);
+    border-width: var(--wa-form-control-border-width);
+    cursor: text;
+    color: var(--wa-form-control-value-color);
+    font-size: inherit;
+    font-family: inherit;
+    font-weight: var(--wa-form-control-value-font-weight);
+    line-height: var(--wa-form-control-value-line-height);
+    vertical-align: middle;
+    width: 100%;
+    transition:
+      background-color var(--wa-transition-normal),
+      border-color var(--wa-transition-normal),
+      outline-color var(--wa-transition-fast);
+    transition-timing-function: var(--wa-transition-easing);
+    background-color: var(--wa-form-control-background-color);
+    padding: 0;
+    outline: var(--wa-focus-ring-style) var(--wa-focus-ring-width) transparent;
+    outline-offset: var(--wa-focus-ring-offset);
+
+    &:focus-within {
+      outline-color: var(--wa-color-focus);
+    }
+
+    /* Style disabled inputs */
+    &:has(input:disabled) {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+  }
+
+  /* Appearance modifiers */
+  .wa-number-input[data-appearance='outlined'] .number-field {
+    background-color: var(--wa-form-control-background-color);
+    border-color: var(--wa-form-control-border-color);
+  }
+
+  .wa-number-input[data-appearance='outlined'] .stepper {
+    color: var(--wa-color-neutral-on-quiet);
+
+    @media (hover: hover) {
+      &:hover:not(:disabled) {
+        color: var(--wa-color-neutral-on-quiet);
+        background-color: var(--wa-color-neutral-fill-quiet);
+      }
+    }
+
+    &:active:not(:disabled) {
+      color: color-mix(in oklab, var(--wa-color-neutral-on-quiet), var(--wa-color-mix-active));
+      background-color: color-mix(in oklab, var(--wa-color-neutral-fill-quiet), var(--wa-color-mix-active));
+    }
+  }
+
+  .wa-number-input[data-appearance='filled'] .number-field {
+    background-color: var(--wa-color-neutral-fill-quiet);
+    border-color: var(--wa-color-neutral-fill-quiet);
+  }
+
+  .wa-number-input[data-appearance='filled'] .stepper {
+    color: var(--wa-color-neutral-on-quiet);
+
+    @media (hover: hover) {
+      &:hover:not(:disabled) {
+        color: var(--wa-color-neutral-on-normal);
+        background-color: var(--wa-color-neutral-fill-normal);
+      }
+    }
+
+    &:active:not(:disabled) {
+      color: color-mix(in oklab, var(--wa-color-neutral-on-normal), var(--wa-color-mix-active));
+      background-color: color-mix(in oklab, var(--wa-color-neutral-fill-normal), var(--wa-color-mix-active));
+    }
+  }
+
+  .wa-number-input[data-appearance='filled-outlined'] .number-field {
+    background-color: var(--wa-color-neutral-fill-quiet);
+    border-color: var(--wa-form-control-border-color);
+  }
+
+  .wa-number-input[data-appearance='filled-outlined'] .stepper {
+    color: var(--wa-color-neutral-on-quiet);
+
+    @media (hover: hover) {
+      &:hover:not(:disabled) {
+        color: var(--wa-color-neutral-on-normal);
+        background-color: var(--wa-color-neutral-fill-normal);
+      }
+    }
+
+    &:active:not(:disabled) {
+      color: color-mix(in oklab, var(--wa-color-neutral-on-normal), var(--wa-color-mix-active));
+      background-color: color-mix(in oklab, var(--wa-color-neutral-fill-normal), var(--wa-color-mix-active));
+    }
+  }
+
+  .wa-number-input[data-pill] .number-field,
+  .wa-number-input[data-pill] .stepper {
+    border-radius: var(--wa-border-radius-pill);
+  }
+
+  .wa-number-input .number-field {
+    /* Show autofill styles over the entire number field, not just the native <input> */
+    &:has(:autofill),
+    &:has(:-webkit-autofill) {
+      background-color: var(--wa-color-brand-fill-quiet) !important;
+    }
+
+    input {
+      flex: auto;
+      height: 100%;
+      width: auto;
+      min-width: 0;
+      margin: 0;
+      padding: 0 var(--wa-form-control-padding-inline);
+      outline: none;
+      box-shadow: none;
+      border: none;
+      background-color: transparent;
+      font: inherit;
+      transition: inherit;
+      cursor: inherit;
+      -webkit-appearance: none;
+
+      /* Center-align and use tabular numbers for better alignment */
+      text-align: center;
+      font-variant-numeric: tabular-nums;
+
+      /* Hide the number spinners in Firefox */
+      -moz-appearance: textfield;
+
+      /* Hide the number spinners in Chrome/Safari */
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+        display: none;
+      }
+
+      /* Turn off Safari's autofill styles */
+      &:-webkit-autofill,
+      &:-webkit-autofill:hover,
+      &:-webkit-autofill:focus,
+      &:-webkit-autofill:active {
+        -webkit-background-clip: text;
+        background-color: transparent;
+        -webkit-text-fill-color: inherit;
+      }
+    }
+
+    &:autofill {
+      &,
+      &:hover,
+      &:focus,
+      &:active {
+        box-shadow: none;
+        caret-color: var(--wa-form-control-value-color);
+      }
+    }
+
+    &::placeholder {
+      color: var(--wa-form-control-placeholder-color);
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .wa-number-input .start,
+  .wa-number-input .end {
+    display: inline-flex;
+    flex: 1;
+    align-items: center;
+    cursor: default;
+  }
+
+  .wa-number-input .start > wa-icon,
+  .wa-number-input .end > wa-icon {
+    color: var(--wa-color-neutral-on-quiet);
+  }
+
+  .wa-number-input .start {
+    justify-content: start;
+    margin-inline-start: var(--wa-form-control-padding-inline);
+  }
+
+  .wa-number-input .end {
+    justify-content: end;
+    margin-inline-end: var(--wa-form-control-padding-inline);
+  }
+
+  /*
+   * Steppers - horizontal layout with minus on start, plus on end
+   */
+
+  .wa-number-input .stepper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1 / 1;
+    height: calc(100% - var(--wa-form-control-border-width) * 2);
+    flex: 0 0 auto;
+    border: none;
+    border-radius: calc(var(--wa-form-control-border-radius) - var(--wa-form-control-border-width) * 2);
+    background: transparent;
+    cursor: pointer;
+    margin: var(--wa-form-control-border-width);
+    padding: 0;
+    font-size: inherit;
+    transition-property: background-color, color;
+    transition-duration: var(--wa-transition-fast);
+    transition-timing-function: var(--wa-transition-easing);
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .wa-number-input[data-without-steppers] .stepper {
+    display: none;
+  }
+
+  /* Size modifiers (from styles/component/size.styles.ts, vendored inline) */
+  .wa-number-input[data-size='xs'] {
+    font-size: var(--wa-font-size-xs);
+  }
+
+  .wa-number-input[data-size='s'],
+  .wa-number-input[data-size='small'] {
+    font-size: var(--wa-font-size-s);
+  }
+
+  .wa-number-input[data-size='m'],
+  .wa-number-input[data-size='medium'] {
+    font-size: var(--wa-font-size-m);
+  }
+
+  .wa-number-input[data-size='l'],
+  .wa-number-input[data-size='large'] {
+    font-size: var(--wa-font-size-l);
+  }
+
+  .wa-number-input[data-size='xl'] {
+    font-size: var(--wa-font-size-xl);
+  }
+}

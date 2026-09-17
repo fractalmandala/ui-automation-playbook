@@ -1,0 +1,78 @@
+@layer wa-component {
+  .wa-popup {
+    --arrow-color: var(--wa-color-surface-default, var(--bg));
+    --arrow-size: var(--wa-tooltip-arrow-size, 6px);
+    --popup-border-width: 1px;
+    --show-duration: var(--wa-transition-fast);
+    --hide-duration: var(--wa-transition-fast);
+
+    --arrow-base-offset: var(--popup-border-width);
+    --arrow-size-diagonal: calc((var(--arrow-size) + var(--arrow-base-offset)) * 0.7071);
+    --arrow-padding-offset: calc(var(--arrow-size-diagonal) - var(--arrow-size));
+    --arrow-size-div: calc(var(--arrow-size-diagonal) * 2);
+    --arrow-clipping-corner: calc(var(--arrow-base-offset) * 1.4142);
+
+    display: contents;
+  }
+
+  .wa-popup .popup,
+  .wa-popup [part~='popup'] {
+    position: fixed;
+    isolation: isolate;
+    max-width: var(--auto-size-available-width, none);
+    max-height: var(--auto-size-available-height, none);
+    z-index: 900;
+  }
+
+  .wa-popup .popup:not(.popup-active) {
+    display: none;
+  }
+
+  .wa-popup .arrow,
+  .wa-popup [part~='arrow'] {
+    position: absolute;
+    width: var(--arrow-size-div);
+    height: var(--arrow-size-div);
+    background: var(--arrow-color);
+    z-index: 3;
+    clip-path: polygon(
+      var(--arrow-clipping-corner) 100%,
+      var(--arrow-base-offset) calc(100% - var(--arrow-base-offset)),
+      calc(var(--arrow-base-offset) - 2px) calc(100% - var(--arrow-base-offset)),
+      calc(100% - var(--arrow-base-offset)) calc(var(--arrow-base-offset) - 2px),
+      calc(100% - var(--arrow-base-offset)) var(--arrow-base-offset),
+      100% var(--arrow-clipping-corner),
+      100% 100%
+    );
+    rotate: 45deg;
+  }
+
+  .wa-popup[data-current-placement|='left'] .arrow,
+  .wa-popup[data-current-placement|='left'] [part~='arrow'] {
+    rotate: -45deg;
+  }
+
+  .wa-popup[data-current-placement|='right'] .arrow,
+  .wa-popup[data-current-placement|='right'] [part~='arrow'] {
+    rotate: 135deg;
+  }
+
+  .wa-popup[data-current-placement|='bottom'] .arrow,
+  .wa-popup[data-current-placement|='bottom'] [part~='arrow'] {
+    rotate: 225deg;
+  }
+
+  /* Hover bridge */
+  .wa-popup .popup-hover-bridge:not(.popup-hover-bridge-visible) {
+    display: none;
+  }
+
+  .wa-popup .popup-hover-bridge {
+    position: fixed;
+    z-index: 899;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}

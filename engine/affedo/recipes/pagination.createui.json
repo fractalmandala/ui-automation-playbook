@@ -1,0 +1,24 @@
+{
+  "$schema": "../schemas/recipe.schema.json",
+  "component": "Pagination",
+  "branch": "createui",
+  "adapter": "createui",
+  "parts": {
+    "root": "layout.row",
+    "list": "layout.row",
+    "page": "control.button-secondary",
+    "page-active": "control.button-primary",
+    "prev": "control.button-ghost",
+    "next": "control.button-ghost",
+    "first": "control.button-ghost",
+    "last": "control.button-ghost",
+    "ellipsis": "typography.caption"
+  },
+  "axes": {
+    "size": {
+      "sm": { "pad": "var(--space-1) var(--space-2)", "text": "var(--text-xs)" },
+      "md": { "pad": "var(--space-2) var(--space-3)", "text": "var(--text-sm)" },
+      "lg": { "pad": "var(--space-3) var(--space-4)", "text": "var(--text-base)" }
+    }
+  }
+}

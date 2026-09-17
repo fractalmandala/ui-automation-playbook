@@ -1,0 +1,37 @@
+.cui-breadcrumb
+	display: flex
+	align-items: center
+	font-family: var(--font-sans)
+	font-size: var(--text-sm)
+
+.cui-breadcrumb-list
+	display: flex
+	align-items: center
+	flex-wrap: wrap
+	gap: var(--space-1)
+	list-style: none
+	margin: 0
+	padding: 0
+
+.cui-breadcrumb-item
+	display: inline-flex
+	align-items: center
+	gap: var(--space-1)
+
+.cui-breadcrumb-link
+	color: var(--text-secondary)
+	text-decoration: none
+	transition: color var(--duration-fast) var(--ease-out)
+
+	&:hover
+		color: var(--color-primary)
+
+.cui-breadcrumb-current
+	color: var(--text-primary)
+	font-weight: 600
+
+.cui-breadcrumb-separator
+	display: inline-flex
+	align-items: center
+	justify-content: center
+	color: var(--text-muted)

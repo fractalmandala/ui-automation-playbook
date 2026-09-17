@@ -1,0 +1,17 @@
+{
+  "$schema": "../schemas/recipe.schema.json",
+  "component": "Tree",
+  "branch": "createui",
+  "adapter": "createui",
+  "parts": {
+    "root": "layout.tree-root",
+    "item": "control.tree-node",
+    "trigger": "control.tree-expand",
+    "icon": "control.icon",
+    "label": "typography.label",
+    "children": "layout.tree-branch"
+  },
+  "axes": {
+    "selection": ["single", "multiple", "leaf"]
+  }
+}

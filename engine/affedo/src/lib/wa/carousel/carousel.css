@@ -1,0 +1,166 @@
+@layer wa-component {
+  .wa-carousel {
+    --aspect-ratio: 16 / 9;
+    --scroll-hint: 0px;
+    --slide-gap: var(--wa-space-m, 1rem);
+
+    display: flex;
+    width: 100%;
+  }
+
+  .wa-carousel .carousel {
+    display: grid;
+    grid-template-columns: min-content 1fr min-content;
+    grid-template-rows: 1fr min-content;
+    grid-template-areas:
+      '. slides .'
+      '. pagination .';
+    gap: var(--wa-space-m);
+    align-items: center;
+    min-height: 100%;
+    min-width: 100%;
+    width: 100%;
+    position: relative;
+  }
+
+  .wa-carousel .pagination {
+    grid-area: pagination;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: var(--wa-space-s, 0.5rem);
+    padding-block: var(--wa-space-3xs, 0.25rem);
+  }
+
+  .wa-carousel .slides {
+    grid-area: slides;
+
+    display: grid;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-items: center;
+    overflow: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    aspect-ratio: 16 / 9;
+    border-radius: var(--wa-border-radius-m);
+
+    --slide-size: 100%;
+  }
+
+  .wa-carousel .slides,
+  .wa-carousel .pagination {
+    transition: opacity var(--wa-transition-fast) ease;
+  }
+
+  .wa-carousel .slides-awaiting-position,
+  .wa-carousel .pagination-awaiting-position {
+    opacity: 0;
+    transition: none;
+  }
+
+  @media (prefers-reduced-motion) {
+    :where(.wa-carousel .slides) {
+      scroll-behavior: auto;
+    }
+  }
+
+  .wa-carousel .slides-horizontal {
+    grid-auto-flow: column;
+    grid-auto-columns: 100%;
+    grid-auto-rows: 100%;
+    column-gap: var(--slide-gap);
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--scroll-hint);
+    padding-inline: var(--scroll-hint);
+    overflow-y: hidden;
+  }
+
+  .wa-carousel .slides-vertical {
+    grid-auto-flow: row;
+    grid-auto-columns: 100%;
+    grid-auto-rows: 100%;
+    row-gap: var(--slide-gap);
+    scroll-snap-type: y mandatory;
+    scroll-padding-block: var(--scroll-hint);
+    padding-block: var(--scroll-hint);
+    overflow-x: hidden;
+  }
+
+  .wa-carousel .slides::-webkit-scrollbar {
+    display: none;
+  }
+
+  .wa-carousel .navigation {
+    grid-area: navigation;
+    display: contents;
+    font-size: var(--wa-font-size-l, 1.25rem);
+  }
+
+  .wa-carousel .navigation-button {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: var(--wa-border-radius-m);
+    font-size: inherit;
+    color: var(--wa-color-text-quiet, #666);
+    padding: var(--wa-space-xs, 0.25rem) !important;
+    cursor: pointer;
+    transition: var(--wa-transition-normal) color;
+    appearance: none;
+  }
+
+  .wa-carousel .navigation-button:hover {
+    color: var(--wa-color-text-normal, #111);
+  }
+
+  .wa-carousel .navigation-button-disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  .wa-carousel .navigation-button-previous {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .wa-carousel .navigation-button-next {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  .wa-carousel .pagination-item {
+    display: inline-block;
+    cursor: pointer;
+    background: var(--wa-color-neutral-fill-normal, #d1d5db) !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 9999px !important;
+    width: 8px !important;
+    height: 8px !important;
+    min-width: 8px !important;
+    min-height: 8px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    transition: transform var(--wa-transition-slow), background-color var(--wa-transition-fast);
+  }
+
+  .wa-carousel .pagination-item-active {
+    background-color: var(--wa-color-brand-fill-loud, #0284c7) !important;
+    transform: scale(1.3);
+  }
+
+  .wa-carousel .slides:focus-visible,
+  .wa-carousel .navigation-button:focus-visible,
+  .wa-carousel .pagination-item:focus-visible {
+    outline: var(--wa-focus-ring);
+    outline-offset: var(--wa-focus-ring-offset);
+  }
+}

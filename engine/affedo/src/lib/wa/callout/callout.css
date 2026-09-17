@@ -1,0 +1,166 @@
+/* Ported from webawesome/src/components/callout/callout.styles.ts plus the shared
+   `size.styles.ts` and `variants.styles.ts` it composes via `static css`.
+   Transform applied: `:host` -> `.wa-callout`, `:host([attr])` ->
+   `.wa-callout[data-attr]` (with `~=` preserved for `appearance`), and
+   `[part~='x']` scoped under the root. `[part~=]` selectors are otherwise
+   UNCHANGED — a part attribute in light DOM matches the same selector it did
+   in the shadow root, so the external styling seam survives.
+   `::slotted([slot='icon'])` becomes `.wa-callout [part~='icon'] > *`: in Svelte
+   the `icon` snippet renders as a direct child of the icon container, so the
+   spacing rule targets that child directly.
+   Shared `size` / `variant` rules are scoped to `.wa-callout[data-*]` here (not
+   vendored globally to `wa-styles/component/`) so importing this file has no
+   global `:root` side effect; a later pass can extract them to shared files.
+   Wrapped in `@layer wa-component` so this cannot collide with the
+   fractalstyler registry. */
+@layer wa-component {
+	.wa-callout {
+		display: flex;
+		position: relative;
+		align-items: stretch;
+		border-radius: var(--wa-panel-border-radius);
+		background-color: var(--wa-color-fill-quiet, var(--wa-color-brand-fill-quiet));
+		border-color: var(--wa-color-border-quiet, var(--wa-color-brand-border-quiet));
+		border-style: var(--wa-panel-border-style);
+		border-width: var(--wa-panel-border-width);
+		color: var(--wa-color-text-normal);
+		padding: 1em;
+	}
+
+	/* Appearance modifiers */
+	.wa-callout[data-appearance~='plain'] {
+		background-color: transparent;
+		border-color: transparent;
+	}
+
+	.wa-callout[data-appearance~='outlined'] {
+		background-color: transparent;
+		border-color: var(--wa-color-border-loud, var(--wa-color-brand-border-loud));
+	}
+
+	.wa-callout[data-appearance~='filled'] {
+		background-color: var(--wa-color-fill-quiet, var(--wa-color-brand-fill-quiet));
+		border-color: transparent;
+	}
+
+	.wa-callout[data-appearance~='filled-outlined'] {
+		border-color: var(--wa-color-border-quiet, var(--wa-color-brand-border-quiet));
+	}
+
+	.wa-callout[data-appearance~='accent'] {
+		color: var(--wa-color-on-loud, var(--wa-color-brand-on-loud));
+		background-color: var(--wa-color-fill-loud, var(--wa-color-brand-fill-loud));
+		border-color: transparent;
+	}
+
+	.wa-callout[data-appearance~='accent'] [part~='icon'] {
+		color: currentColor;
+	}
+
+	.wa-callout [part~='icon'] {
+		flex: 0 0 auto;
+		display: flex;
+		align-items: center;
+		color: var(--wa-color-on-quiet);
+		font-size: 1.25em;
+	}
+
+	.wa-callout [part~='icon'] > * {
+		margin-inline-end: var(--wa-form-control-padding-inline);
+	}
+
+	.wa-callout [part~='message'] {
+		flex: 1 1 auto;
+		display: block;
+		overflow: hidden;
+	}
+
+	/* Shared size styles, scoped: `:host([size='x'])` -> `.wa-callout[data-size='x']`. */
+	.wa-callout[data-size='xs'] {
+		font-size: var(--wa-font-size-xs);
+	}
+
+	.wa-callout[data-size='s'],
+	.wa-callout[data-size='small'] {
+		font-size: var(--wa-font-size-s);
+	}
+
+	.wa-callout[data-size='m'],
+	.wa-callout[data-size='medium'] {
+		font-size: var(--wa-font-size-m);
+	}
+
+	.wa-callout[data-size='l'],
+	.wa-callout[data-size='large'] {
+		font-size: var(--wa-font-size-l);
+	}
+
+	.wa-callout[data-size='xl'] {
+		font-size: var(--wa-font-size-xl);
+	}
+
+	/* Shared variant styles, scoped: `:host([variant='x'])` -> `.wa-callout[data-variant='x']`.
+	   Ancestor `.wa-*` / `:where(:root)` selectors from the source are omitted here on
+	   purpose: they are global defaults, and emitting them from a per-component file
+	   would set `:root` vars as a side effect of importing the callout. The host-scoped
+	   rules below are what the `variant` prop drives. */
+	.wa-callout[data-variant='neutral'] {
+		--wa-color-fill-loud: var(--wa-color-neutral-fill-loud);
+		--wa-color-fill-normal: var(--wa-color-neutral-fill-normal);
+		--wa-color-fill-quiet: var(--wa-color-neutral-fill-quiet);
+		--wa-color-border-loud: var(--wa-color-neutral-border-loud);
+		--wa-color-border-normal: var(--wa-color-neutral-border-normal);
+		--wa-color-border-quiet: var(--wa-color-neutral-border-quiet);
+		--wa-color-on-loud: var(--wa-color-neutral-on-loud);
+		--wa-color-on-normal: var(--wa-color-neutral-on-normal);
+		--wa-color-on-quiet: var(--wa-color-neutral-on-quiet);
+	}
+
+	.wa-callout[data-variant='brand'] {
+		--wa-color-fill-loud: var(--wa-color-brand-fill-loud);
+		--wa-color-fill-normal: var(--wa-color-brand-fill-normal);
+		--wa-color-fill-quiet: var(--wa-color-brand-fill-quiet);
+		--wa-color-border-loud: var(--wa-color-brand-border-loud);
+		--wa-color-border-normal: var(--wa-color-brand-border-normal);
+		--wa-color-border-quiet: var(--wa-color-brand-border-quiet);
+		--wa-color-on-loud: var(--wa-color-brand-on-loud);
+		--wa-color-on-normal: var(--wa-color-brand-on-normal);
+		--wa-color-on-quiet: var(--wa-color-brand-on-quiet);
+	}
+
+	.wa-callout[data-variant='success'] {
+		--wa-color-fill-loud: var(--wa-color-success-fill-loud);
+		--wa-color-fill-normal: var(--wa-color-success-fill-normal);
+		--wa-color-fill-quiet: var(--wa-color-success-fill-quiet);
+		--wa-color-border-loud: var(--wa-color-success-border-loud);
+		--wa-color-border-normal: var(--wa-color-success-border-normal);
+		--wa-color-border-quiet: var(--wa-color-success-border-quiet);
+		--wa-color-on-loud: var(--wa-color-success-on-loud);
+		--wa-color-on-normal: var(--wa-color-success-on-normal);
+		--wa-color-on-quiet: var(--wa-color-success-on-quiet);
+	}
+
+	.wa-callout[data-variant='warning'] {
+		--wa-color-fill-loud: var(--wa-color-warning-fill-loud);
+		--wa-color-fill-normal: var(--wa-color-warning-fill-normal);
+		--wa-color-fill-quiet: var(--wa-color-warning-fill-quiet);
+		--wa-color-border-loud: var(--wa-color-warning-border-loud);
+		--wa-color-border-normal: var(--wa-color-warning-border-normal);
+		--wa-color-border-quiet: var(--wa-color-warning-border-quiet);
+		--wa-color-on-loud: var(--wa-color-warning-on-loud);
+		--wa-color-on-normal: var(--wa-color-warning-on-normal);
+		--wa-color-on-quiet: var(--wa-color-warning-on-quiet);
+	}
+
+	.wa-callout[data-variant='danger'] {
+		--wa-color-fill-loud: var(--wa-color-danger-fill-loud);
+		--wa-color-fill-normal: var(--wa-color-danger-fill-normal);
+		--wa-color-fill-quiet: var(--wa-color-danger-fill-quiet);
+		--wa-color-border-loud: var(--wa-color-danger-border-loud);
+		--wa-color-border-normal: var(--wa-color-danger-border-normal);
+		--wa-color-border-quiet: var(--wa-color-danger-border-quiet);
+		--wa-color-on-loud: var(--wa-color-danger-on-loud);
+		--wa-color-on-normal: var(--wa-color-danger-on-normal);
+		--wa-color-on-quiet: var(--wa-color-danger-on-quiet);
+	}
+}

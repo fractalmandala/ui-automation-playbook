@@ -1,0 +1,65 @@
+/* Ported from webawesome/src/components/tooltip/tooltip.styles.ts.
+   Transform applied: `:host` -> `.wa-tooltip`, wrapped in @layer wa-component. */
+@layer wa-component {
+  .wa-tooltip {
+    --max-width: 30ch;
+    display: inline-block;
+    position: absolute;
+    color: var(--wa-tooltip-content-color, var(--wa-color-neutral-on-loud));
+    font-size: var(--wa-tooltip-font-size, var(--wa-font-size-s));
+    line-height: var(--wa-tooltip-line-height, var(--wa-line-height-dense));
+    text-align: start;
+    white-space: normal;
+    pointer-events: none;
+  }
+
+  .wa-tooltip .tooltip {
+    --arrow-size: var(--wa-tooltip-arrow-size, 6px);
+    --arrow-color: var(--wa-tooltip-background-color, var(--wa-color-neutral-fill-loud));
+    --popup-border-width: var(--wa-tooltip-border-width, 0px);
+    position: fixed;
+    z-index: 1000;
+    pointer-events: auto;
+  }
+
+  .wa-tooltip .tooltip[data-placement^='top'] {
+    transform-origin: bottom;
+  }
+
+  .wa-tooltip .tooltip[data-placement^='bottom'] {
+    transform-origin: top;
+  }
+
+  .wa-tooltip .tooltip[data-placement^='left'] {
+    transform-origin: right;
+  }
+
+  .wa-tooltip .tooltip[data-placement^='right'] {
+    transform-origin: left;
+  }
+
+  .wa-tooltip .body {
+    display: block;
+    width: max-content;
+    max-width: var(--max-width);
+    border-radius: var(--wa-tooltip-border-radius, var(--wa-border-radius-m));
+    background-color: var(--wa-tooltip-background-color, var(--wa-color-neutral-fill-loud));
+    border: var(--wa-tooltip-border-width, 0px) var(--wa-tooltip-border-style, solid) var(--wa-tooltip-border-color, transparent);
+    padding: 0.25em 0.5em;
+    user-select: none;
+    -webkit-user-select: none;
+    box-shadow: var(--wa-shadow-small);
+    color: inherit;
+    font: inherit;
+  }
+
+  .wa-tooltip .arrow {
+    position: absolute;
+    width: var(--arrow-size, 6px);
+    height: var(--arrow-size, 6px);
+    background: var(--arrow-color, var(--wa-tooltip-background-color, var(--wa-color-neutral-fill-loud)));
+    transform: rotate(45deg);
+    box-shadow: inset calc(-1 * var(--wa-tooltip-border-width, 0px)) calc(-1 * var(--wa-tooltip-border-width, 0px)) 0 0
+      var(--wa-tooltip-border-color, transparent);
+  }
+}

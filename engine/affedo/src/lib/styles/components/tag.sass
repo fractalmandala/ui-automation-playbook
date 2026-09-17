@@ -1,0 +1,64 @@
+.cui-tag
+	display: inline-flex
+	align-items: center
+	gap: var(--space-1)
+	padding: var(--space-1) var(--space-2)
+	border-radius: var(--radius-sm)
+	border: 1px solid var(--stroke-weakest)
+	background-color: var(--bg-weaker)
+	color: var(--text-primary)
+	font-family: var(--font-sans)
+	font-size: var(--text-xs)
+	font-weight: 500
+	line-height: 1.2
+	vertical-align: middle
+	transition: all var(--duration-fast) var(--ease-out)
+
+	&[data-pill]
+		border-radius: var(--radius-full)
+
+	&[data-size="sm"]
+		padding: 2px var(--space-1)
+		font-size: var(--text-xs)
+
+	&[data-size="lg"]
+		padding: var(--space-1) var(--space-3)
+		font-size: var(--text-sm)
+
+	// Variants
+	&[data-variant="brand"]
+		color: var(--color-primary)
+		border-color: var(--stroke-weaker)
+
+	&[data-variant="success"]
+		color: var(--status-success-fg)
+		border-color: var(--status-success-border)
+
+	&[data-variant="warning"]
+		color: var(--status-warning-fg)
+		border-color: var(--status-warning-border)
+
+	&[data-variant="danger"]
+		color: var(--status-danger-fg)
+		border-color: var(--status-danger-border)
+
+.cui-tag-content
+	display: inline-flex
+	align-items: center
+
+.cui-tag-remove
+	display: inline-flex
+	align-items: center
+	justify-content: center
+	background: transparent
+	border: none
+	color: var(--text-muted)
+	cursor: pointer
+	padding: 2px
+	margin-left: 2px
+	border-radius: var(--radius-full)
+	transition: background-color var(--duration-fast) var(--ease-out), color var(--duration-fast) var(--ease-out)
+
+	&:hover
+		color: var(--text-primary)
+		background-color: var(--state-hover)

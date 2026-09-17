@@ -1,0 +1,23 @@
+{
+	"name": "@fractal/uiautomation-pipeline",
+	"version": "0.0.0",
+	"private": true,
+	"type": "module",
+	"description": "Deterministic anatomy -> recipe -> emitter pipeline (CORE-IDEA prototype). Headless parts own behaviour, roles.json owns aesthetics, the emitter is a pure lookup.",
+	"scripts": {
+		"anatomy": "node scripts/extract-anatomy.mjs node_modules/bits-ui/dist/bits/accordion --component Accordion --source bits-ui",
+		"anatomy:all": "node scripts/extract-all.mjs",
+		"gen": "node scripts/gen.mjs",
+		"check": "node scripts/check.mjs",
+		"verify": "node scripts/extract-all.mjs && node scripts/gen.mjs && node scripts/check.mjs",
+		"verify:clean": "node scripts/gen.mjs --check && node scripts/check.mjs"
+	},
+	"dependencies": {
+		"bits-ui": "^2.19.2"
+	},
+	"devDependencies": {
+		"acorn": "^8.15.0",
+		"sass": "^1.103.1",
+		"svelte": "^5.56.10"
+	}
+}

@@ -1,0 +1,8 @@
+{
+  "$schema": "../schemas/recipe.schema.json",
+  "component": "ProgressBar",
+  "branch": "createui",
+  "adapter": "createui",
+  "parts": { "root": "control.progress-track", "fill": "control.progress-fill", "label": "typography.caption" },
+  "axes": { "size": ["sm", "md", "lg"] }
+}

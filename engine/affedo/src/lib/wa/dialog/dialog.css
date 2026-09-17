@@ -1,0 +1,167 @@
+@layer wa-component {
+	.wa-dialog {
+		--width: 31rem;
+		--spacing: var(--wa-space-l);
+		--backdrop-filter: none;
+		--show-duration: var(--wa-transition-normal);
+		--hide-duration: var(--wa-transition-normal);
+
+		display: flex;
+		flex-direction: column;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		width: var(--width);
+		max-width: calc(100% - var(--wa-space-2xl));
+		max-height: calc(100% - var(--wa-space-2xl));
+		color: inherit;
+		background-color: var(--wa-color-surface-raised);
+		border-radius: var(--wa-panel-border-radius);
+		border: none;
+		box-shadow: var(--wa-shadow-l);
+		padding: 0;
+		margin: auto;
+	}
+
+	.wa-dialog:not([open]) {
+		display: none;
+	}
+
+	.wa-dialog.show {
+		animation: wa-show-dialog var(--show-duration) ease;
+	}
+
+	.wa-dialog.show::backdrop {
+		animation: wa-show-backdrop var(--show-duration, 200ms) ease;
+	}
+
+	.wa-dialog.hide {
+		animation: wa-show-dialog var(--hide-duration) ease reverse;
+	}
+
+	.wa-dialog.hide::backdrop {
+		animation: wa-show-backdrop var(--hide-duration, 200ms) ease reverse;
+	}
+
+	.wa-dialog.pulse {
+		animation: wa-dialog-pulse 250ms ease;
+	}
+
+	.wa-dialog:focus {
+		outline: none;
+	}
+
+	@media screen and (max-width: 420px) {
+		.wa-dialog {
+			max-height: 80vh;
+		}
+	}
+
+	.wa-dialog .header {
+		flex: 0 0 auto;
+		display: flex;
+		flex-wrap: nowrap;
+		align-items: center;
+		padding-inline-start: var(--spacing);
+		padding-block-end: 0;
+		padding-inline-end: calc(var(--spacing) - var(--wa-form-control-padding-block, 0.5rem));
+		padding-block-start: calc(var(--spacing) - var(--wa-form-control-padding-block, 0.5rem));
+	}
+
+	.wa-dialog .title {
+		align-self: center;
+		flex: 1 1 auto;
+		font-family: inherit;
+		font-size: var(--wa-font-size-l);
+		font-weight: var(--wa-font-weight-heading);
+		line-height: var(--wa-line-height-condensed);
+		margin: 0;
+	}
+
+	.wa-dialog .header-actions {
+		align-self: start;
+		display: flex;
+		flex-shrink: 0;
+		flex-wrap: wrap;
+		justify-content: end;
+		gap: var(--wa-space-2xs);
+		padding-inline-start: var(--spacing);
+	}
+
+	.wa-dialog .header-actions .close {
+		flex: 0 0 auto;
+		display: flex;
+		align-items: center;
+	}
+
+	.wa-dialog .body {
+		flex: 1 1 auto;
+		display: block;
+		padding: var(--spacing);
+		overflow: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	.wa-dialog .body:focus {
+		outline: none;
+	}
+
+	.wa-dialog .body:focus-visible {
+		outline: var(--wa-focus-ring);
+		outline-offset: var(--wa-focus-ring-offset);
+	}
+
+	.wa-dialog .footer {
+		flex: 0 0 auto;
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--wa-space-xs);
+		justify-content: end;
+		padding: var(--spacing);
+		padding-block-start: 0;
+	}
+
+	.wa-dialog::backdrop {
+		background-color: var(--wa-color-overlay-modal, rgb(0 0 0 / 0.25));
+		backdrop-filter: var(--backdrop-filter);
+	}
+
+	@keyframes wa-dialog-pulse {
+		0% {
+			transform: scale(1);
+		}
+		50% {
+			transform: scale(1.02);
+		}
+		100% {
+			transform: scale(1);
+		}
+	}
+
+	@keyframes wa-show-dialog {
+		from {
+			opacity: 0;
+			transform: scale(0.8);
+		}
+		to {
+			opacity: 1;
+			transform: scale(1);
+		}
+	}
+
+	@keyframes wa-show-backdrop {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+
+	@media (forced-colors: active) {
+		.wa-dialog {
+			border: solid 1px white;
+		}
+	}
+}

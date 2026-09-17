@@ -1,0 +1,13 @@
+{
+	"$schema": "../schemas/recipe.schema.json",
+	"$comment": "One part. The anatomy tag is `svelte:element` because bits-ui renders a button or an anchor depending on `href`, and the generated class lands on whichever it picks - no special case in the emitter.",
+	"adapter": "kitui",
+	"axes": ["size"],
+	"component": "Button",
+	"importFrom": "bits-ui",
+	"importName": "Button",
+	"parts": {
+		"root": ["control.solid"]
+	},
+	"source": "bits-ui"
+}

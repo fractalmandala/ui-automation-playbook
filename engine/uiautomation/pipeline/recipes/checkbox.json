@@ -1,0 +1,18 @@
+{
+	"$schema": "../schemas/recipe.schema.json",
+	"$comment": "The checkmark itself is authored children in bits-ui, so the recipe styles the box and the demo supplies the glyph. Nothing here invents a part the library does not have.",
+	"adapter": "kitui",
+	"component": "Checkbox",
+	"importFrom": "bits-ui",
+	"importName": "Checkbox",
+	"parts": {
+		"group": ["layout.stack"],
+		"grouplabel": ["typography.label"],
+		"root": ["control.checkbox"]
+	},
+	"source": "bits-ui",
+	"unstyled": {
+		"group": ["disabled"],
+		"root": ["readonly", "unchecked"]
+	}
+}

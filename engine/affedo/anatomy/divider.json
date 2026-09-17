@@ -1,0 +1,22 @@
+{
+  "component": "divider",
+  "source": "src/lib/wa/divider/Divider.svelte",
+  "parts": {},
+  "states": {
+    "div": [
+      "aria-orientation",
+      "data-orientation"
+    ]
+  },
+  "props": {
+    "orientation": {
+      "type": "string",
+      "default": "horizontal"
+    },
+    "class": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "snippets": []
+}

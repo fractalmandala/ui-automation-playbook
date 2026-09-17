@@ -1,0 +1,23 @@
+{
+	"$schema": "../schemas/recipe.schema.json",
+	"$comment": "The only per-component file. Every value is a multiple-choice pick from a closed vocabulary: part names come from anatomy/accordion.json, role names come from roles.json, axis names come from axes.json. Part order here IS the emission order, which is what makes output deterministic and the cascade contract explicit.",
+	"adapter": "kitui",
+	"axes": ["size", "tone"],
+	"component": "Accordion",
+	"importFrom": "bits-ui",
+	"importName": "Accordion",
+	"parts": {
+		"root": ["layout.stack"],
+		"item": ["surface.raised"],
+		"header": ["layout.row"],
+		"trigger": ["control.ghost", "typography.label", "control.expanded"],
+		"content": ["surface.canvas", "typography.body"]
+	},
+	"source": "bits-ui",
+	"unstyled": {
+		"root": ["disabled"],
+		"item": ["open"],
+		"header": ["open"],
+		"content": ["disabled", "open"]
+	}
+}

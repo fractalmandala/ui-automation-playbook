@@ -1,0 +1,36 @@
+{
+  "$schema": "../schemas/recipe.schema.json",
+  "component": "Button",
+  "branch": "createui",
+  "adapter": "createui",
+  "parts": {
+    "root": "layout.row",
+    "control": "control.button-primary",
+    "label": "typography.body",
+    "start": "layout.row",
+    "end": "layout.row",
+    "caret": "layout.row"
+  },
+  "axes": {
+    "variant": {
+      "primary": "control.button-primary",
+      "secondary": "control.button-secondary",
+      "ghost": "control.button-ghost",
+      "danger": "control.button-danger"
+    },
+    "size": {
+      "sm": {
+        "pad": "var(--space-1) var(--space-3)",
+        "text": "var(--text-xs)"
+      },
+      "md": {
+        "pad": "var(--space-2) var(--space-4)",
+        "text": "var(--text-sm)"
+      },
+      "lg": {
+        "pad": "var(--space-3) var(--space-5)",
+        "text": "var(--text-base)"
+      }
+    }
+  }
+}

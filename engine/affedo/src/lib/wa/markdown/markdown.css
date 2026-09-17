@@ -1,0 +1,5 @@
+@layer wa-component {
+  .wa-markdown {
+    display: contents;
+  }
+}

@@ -1,0 +1,62 @@
+/* Ported from webawesome/src/components/avatar/avatar.styles.ts.
+   Transform applied: `:host` -> `.wa-avatar`, `:host([shape='x'])` ->
+   `.wa-avatar[data-shape='x']`, internal classes (`.icon`, `.initials`,
+   `.image`) scoped under the root. No `[part~=]` selectors exist in the
+   source; the `part` attributes are still emitted in markup so the external
+   styling seam survives. The cascade layer is preserved so this cannot
+   collide with the fractalstyler registry. */
+@layer wa-component {
+  .wa-avatar {
+    --size: 3rem;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: var(--size);
+    height: var(--size);
+    color: var(--wa-color-neutral-on-normal);
+    font: inherit;
+    font-size: calc(var(--size) * 0.4);
+    vertical-align: middle;
+    background-color: var(--wa-color-neutral-fill-normal);
+    border-radius: var(--wa-border-radius-circle);
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  .wa-avatar[data-shape='square'] {
+    border-radius: 0;
+  }
+
+  .wa-avatar[data-shape='rounded'] {
+    border-radius: var(--wa-border-radius-m);
+  }
+
+  .wa-avatar .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .wa-avatar .initials {
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .wa-avatar .image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+    border-radius: inherit;
+  }
+}

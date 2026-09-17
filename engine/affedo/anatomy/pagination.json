@@ -1,0 +1,28 @@
+{
+  "component": "Pagination",
+  "source": "generated (wave 4)",
+  "parts": {
+    "root": { "tag": "nav", "role": "navigation", "dataSlot": "pagination-root" },
+    "list": { "tag": "div", "role": "list", "dataSlot": "list" },
+    "first": { "tag": "button", "role": "button", "dataSlot": "pageFirst" },
+    "prev": { "tag": "button", "role": "button", "dataSlot": "pagePrev" },
+    "page": { "tag": "button", "role": "button", "dataSlot": "pageItem" },
+    "ellipsis": { "tag": "span", "role": null, "dataSlot": "ellipsis" },
+    "next": { "tag": "button", "role": "button", "dataSlot": "pageNext" },
+    "last": { "tag": "button", "role": "button", "dataSlot": "pageLast" }
+  },
+  "states": {
+    "root": ["data-size", "aria-label"],
+    "page": ["data-active", "aria-current", "aria-label"]
+  },
+  "props": {
+    "page": { "type": "number", "default": "1" },
+    "totalPages": { "type": "number", "default": "10" },
+    "siblingCount": { "type": "number", "default": "1" },
+    "size": { "type": "string", "default": "md" },
+    "disabled": { "type": "boolean", "default": false },
+    "showEdges": { "type": "boolean", "default": false },
+    "onchange": { "type": "object", "default": null }
+  },
+  "snippets": []
+}

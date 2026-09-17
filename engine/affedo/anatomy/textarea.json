@@ -1,0 +1,198 @@
+{
+  "component": "Textarea",
+  "source": "src/lib/wa/textarea/Textarea.svelte",
+  "parts": {
+    "form-control-label label": {
+      "tag": "label",
+      "role": null,
+      "dataSlot": "form-control-label label"
+    },
+    "base textarea-wrapper": {
+      "tag": "div",
+      "role": null,
+      "dataSlot": "base textarea-wrapper"
+    },
+    "textarea": {
+      "tag": "textarea",
+      "role": null,
+      "dataSlot": "textarea"
+    },
+    "textarea-adjuster": {
+      "tag": "div",
+      "role": null,
+      "dataSlot": "textarea-adjuster"
+    },
+    "hint": {
+      "tag": "div",
+      "role": null,
+      "dataSlot": "hint"
+    },
+    "count": {
+      "tag": "div",
+      "role": null,
+      "dataSlot": "count"
+    }
+  },
+  "states": {
+    "div": [
+      "data-size",
+      "data-appearance",
+      "data-resize",
+      "data-required",
+      "data-disabled",
+      "data-readonly",
+      "data-blank",
+      "aria-live"
+    ],
+    "form-control-label label": [
+      "aria-hidden"
+    ],
+    "textarea": [
+      "aria-describedby"
+    ],
+    "span": [
+      "aria-hidden"
+    ],
+    "count": [
+      "aria-hidden"
+    ]
+  },
+  "props": {
+    "value": {
+      "type": "object",
+      "default": null
+    },
+    "defaultValue": {
+      "type": "object",
+      "default": null
+    },
+    "size": {
+      "type": "string",
+      "default": "m"
+    },
+    "appearance": {
+      "type": "string",
+      "default": "outlined"
+    },
+    "label": {
+      "type": "string",
+      "default": ""
+    },
+    "hint": {
+      "type": "string",
+      "default": ""
+    },
+    "placeholder": {
+      "type": "string",
+      "default": ""
+    },
+    "rows": {
+      "type": "number",
+      "default": 4
+    },
+    "resize": {
+      "type": "string",
+      "default": "vertical"
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "readonly": {
+      "type": "boolean",
+      "default": false
+    },
+    "required": {
+      "type": "boolean",
+      "default": false
+    },
+    "minlength": {
+      "type": "object",
+      "default": null
+    },
+    "maxlength": {
+      "type": "object",
+      "default": null
+    },
+    "name": {
+      "type": "object",
+      "default": null
+    },
+    "form": {
+      "type": "object",
+      "default": null
+    },
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "autocapitalize": {
+      "type": "object",
+      "default": null
+    },
+    "autocorrect": {
+      "type": "object",
+      "default": null
+    },
+    "autocomplete": {
+      "type": "object",
+      "default": null
+    },
+    "autofocus": {
+      "type": "boolean",
+      "default": false
+    },
+    "enterkeyhint": {
+      "type": "object",
+      "default": null
+    },
+    "spellcheck": {
+      "type": "boolean",
+      "default": true
+    },
+    "inputmode": {
+      "type": "object",
+      "default": null
+    },
+    "withCount": {
+      "type": "boolean",
+      "default": false
+    },
+    "customError": {
+      "type": "object",
+      "default": null
+    },
+    "labelSnippet": {
+      "type": "object",
+      "default": null
+    },
+    "hintSnippet": {
+      "type": "object",
+      "default": null
+    },
+    "onblur": {
+      "type": "object",
+      "default": null
+    },
+    "onchange": {
+      "type": "object",
+      "default": null
+    },
+    "onfocus": {
+      "type": "object",
+      "default": null
+    },
+    "oninput": {
+      "type": "object",
+      "default": null
+    },
+    "oninvalid": {
+      "type": "object",
+      "default": null
+    }
+  },
+  "snippets": [
+    "labelSnippet",
+    "hintSnippet"
+  ]
+}

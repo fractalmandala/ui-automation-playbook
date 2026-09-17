@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ComponentRecipe",
+  "type": "object",
+  "required": [
+    "component",
+    "parts"
+  ],
+  "properties": {
+    "component": {
+      "type": "string"
+    },
+    "branch": {
+      "type": "string"
+    },
+    "adapter": {
+      "type": "string"
+    },
+    "parts": {
+      "type": "object",
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "role": {
+                "type": "string"
+              },
+              "bg": {
+                "type": "string"
+              },
+              "fg": {
+                "type": "string"
+              },
+              "border": {
+                "type": "string"
+              },
+              "pad": {
+                "type": "string"
+              },
+              "radius": {
+                "type": "string"
+              },
+              "shadow": {
+                "type": "string"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "axes": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object"
+      }
+    }
+  }
+}

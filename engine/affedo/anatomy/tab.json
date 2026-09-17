@@ -1,0 +1,90 @@
+{
+  "component": "tab",
+  "source": "src/lib/wa/tab-group/TabGroup.svelte",
+  "parts": {
+    "base tab-group": {
+      "tag": "div",
+      "role": null,
+      "dataSlot": "base tab-group"
+    },
+    "nav": {
+      "tag": "div",
+      "role": null,
+      "dataSlot": "nav"
+    },
+    "scroll-button scroll-button-start": {
+      "tag": "button",
+      "role": null,
+      "dataSlot": "scroll-button scroll-button-start"
+    },
+    "tabs": {
+      "tag": "div",
+      "role": "tablist",
+      "dataSlot": "tabs"
+    },
+    "indicator": {
+      "tag": "div",
+      "role": null,
+      "dataSlot": "indicator"
+    },
+    "scroll-button scroll-button-end": {
+      "tag": "button",
+      "role": null,
+      "dataSlot": "scroll-button scroll-button-end"
+    },
+    "body": {
+      "tag": "div",
+      "role": null,
+      "dataSlot": "body"
+    }
+  },
+  "states": {
+    "div": [
+      "data-placement"
+    ],
+    "scroll-button scroll-button-start": [
+      "aria-label"
+    ],
+    "scroll-button scroll-button-end": [
+      "aria-label"
+    ]
+  },
+  "props": {
+    "active": {
+      "type": "object",
+      "default": null
+    },
+    "placement": {
+      "type": "string",
+      "default": "top"
+    },
+    "activation": {
+      "type": "string",
+      "default": "auto"
+    },
+    "withoutScrollControls": {
+      "type": "boolean",
+      "default": false
+    },
+    "nav": {
+      "type": "object",
+      "default": null
+    },
+    "children": {
+      "type": "object",
+      "default": null
+    },
+    "onshow": {
+      "type": "object",
+      "default": null
+    },
+    "onhide": {
+      "type": "object",
+      "default": null
+    }
+  },
+  "snippets": [
+    "nav",
+    "children"
+  ]
+}

@@ -1,0 +1,102 @@
+/* Ported from webawesome/src/components/breadcrumb-item/breadcrumb-item.styles.ts.
+   Transform applied: `:host` -> `.wa-breadcrumb-item`, `:host(:last-of-type)` ->
+   `.wa-breadcrumb-item:last-of-type`, `:host(:not(:last-of-type))` ->
+   `.wa-breadcrumb-item:not(:last-of-type)`, internal classes (`.label`, `.start`,
+   `.end`, `.separator`) scoped under the root, `::slotted([slot='x'])` ->
+   `.wa-breadcrumb-item [part~='x'] > *` (the snippet renders as direct children of
+   the part wrapper, per the badge precedent). `[part~=]` selectors are otherwise
+   UNCHANGED. `[data-last]` mirrors each `:last-of-type` selector so the last-item
+   styling (quiet color, hidden separator, no hover/active) survives when light-DOM
+   order differs from element type order; `aria-current` carries the AT semantics.
+   The RTL default-separator flip preserves WA swapping chevron-right/chevron-left
+   by `localize.dir()`. Wrapped in `@layer wa-component` (the source predates the
+   layer convention) so this cannot collide with the fractalstyler registry. */
+@layer wa-component {
+  .wa-breadcrumb-item {
+    color: var(--wa-color-text-link);
+    display: inline-flex;
+    align-items: center;
+    font: inherit;
+    font-weight: var(--wa-font-weight-action);
+    line-height: var(--wa-line-height-normal);
+    white-space: nowrap;
+  }
+
+  .wa-breadcrumb-item:last-of-type,
+  .wa-breadcrumb-item[data-last] {
+    color: var(--wa-color-text-quiet);
+  }
+
+  .wa-breadcrumb-item .label {
+    display: inline-block;
+    font: inherit;
+    text-decoration: none;
+    color: currentColor;
+    background: none;
+    border: none;
+    border-radius: var(--wa-border-radius-m);
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    transition: color var(--wa-transition-normal) var(--wa-transition-easing);
+  }
+
+  @media (hover: hover) {
+    .wa-breadcrumb-item:not(:last-of-type):not([data-last]) .label:hover {
+      color: color-mix(in oklab, currentColor, var(--wa-color-mix-hover));
+    }
+  }
+
+  .wa-breadcrumb-item:not(:last-of-type):not([data-last]) .label:active {
+    color: color-mix(in oklab, currentColor, var(--wa-color-mix-active));
+  }
+
+  .wa-breadcrumb-item .label:focus {
+    outline: none;
+  }
+
+  .wa-breadcrumb-item .label:focus-visible {
+    outline: var(--wa-focus-ring);
+    outline-offset: var(--wa-focus-ring-offset);
+  }
+
+  .wa-breadcrumb-item .start,
+  .wa-breadcrumb-item .end {
+    display: none;
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+  }
+
+  .wa-breadcrumb-item .start,
+  .wa-breadcrumb-item .end {
+    display: inline-flex;
+    color: var(--wa-color-text-quiet);
+  }
+
+  .wa-breadcrumb-item [part~='start'] > * {
+    margin-inline-end: var(--wa-space-s);
+  }
+
+  .wa-breadcrumb-item [part~='end'] > * {
+    margin-inline-start: var(--wa-space-s);
+  }
+
+  .wa-breadcrumb-item:last-of-type .separator,
+  .wa-breadcrumb-item[data-last] .separator {
+    display: none;
+  }
+
+  .wa-breadcrumb-item .separator {
+    color: var(--wa-color-text-quiet);
+    display: inline-flex;
+    align-items: center;
+    margin: 0 var(--wa-space-s);
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  .wa-breadcrumb-item:dir(rtl) [part~='separator'] .default-separator {
+    rotate: 180deg;
+  }
+}

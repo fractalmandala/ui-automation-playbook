@@ -1,0 +1,23 @@
+{
+  "$schema": "../schemas/recipe.schema.json",
+  "component": "Carousel",
+  "branch": "createui",
+  "adapter": "createui",
+  "parts": {
+    "root": "layout.stack",
+    "viewport": "surface.panel",
+    "track": "layout.row",
+    "slide": "surface.card",
+    "arrowPrev": "control.button-secondary",
+    "arrowNext": "control.button-secondary",
+    "dots": "layout.row",
+    "dot": "control.indicator"
+  },
+  "axes": {
+    "size": {
+      "sm": { "slidePad": "var(--space-3)", "text": "var(--text-xs)" },
+      "md": { "slidePad": "var(--space-4)", "text": "var(--text-sm)" },
+      "lg": { "slidePad": "var(--space-5)", "text": "var(--text-base)" }
+    }
+  }
+}

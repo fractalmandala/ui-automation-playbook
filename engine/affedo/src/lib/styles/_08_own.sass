@@ -1,0 +1,126 @@
+// =============================================================================
+// 11_OWN — bespoke project-specific styles and micro-components.
+// =============================================================================
+
+.bdr
+	border: 1px solid red
+
+h1, h2, h3, h4
+	font-weight: 600
+
+.nav-logo img
+	object-fit: contain
+	width: 36px
+
+.marg-auto
+	margin-inline: auto
+
+.rig-harness
+	background: var(--bg-dialog)
+	padding: var(--space-xl)
+	border: 1px solid var(--border-strong)
+	border-radius: 1rem
+	box-shadow: 5px -9px 14px 3px rgba(0, 0, 0, 0.06)
+.in-rig
+	background: var(--bg)
+
+.header-link img
+	object-fit: contain
+	width: 24px
+
+:root
+	--default-transition-duration: 150ms
+	--default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1)
+	--ease-out: cubic-bezier(0, 0, 0.2, 1)
+	--animate-spin: spin 1s linear infinite
+	--animate-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite
+
+.transition-all
+	transition-property: all
+	transition-timing-function: var(--tw-ease, var(--default-transition-timing-function))
+	transition-duration: var(--tw-duration, var(--default-transition-duration))
+.transition-colors
+	transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to
+	transition-timing-function: var(--tw-ease, var(--default-transition-timing-function))
+	transition-duration: var(--tw-duration, var(--default-transition-duration))
+.transition-transform
+	transition-property: transform, translate, scale, rotate
+	transition-timing-function: var(--tw-ease, var(--default-transition-timing-function))
+	transition-duration: var(--tw-duration, var(--default-transition-duration))
+.duration-150
+	--tw-duration: 150ms
+	transition-duration: 150ms
+.duration-200
+	--tw-duration: 200ms
+	transition-duration: 200ms
+.duration-300
+	--tw-duration: 300ms
+	transition-duration: 300ms
+.duration-500
+	--tw-duration: 500ms
+	transition-duration: 500ms
+.ease-out
+	--tw-ease: var(--ease-out)
+	transition-timing-function: var(--ease-out)
+
+.frk-appshell
+	height: 100vh
+	width: 100vw
+
+.frk-header
+	height: var(--frk-header-height)
+	padding-inline: var(--space-sm)
+	background: var(--bg-primary, #0c0c0c)
+	color: #e1e1e1
+
+.app-footer
+	background: var(--bg-primary, #0c0c0c)
+
+.app-main
+	min-height: calc(100vh - var(--frk-header-height) - var(--footer-height)) !important
+
+.header-nav-link
+	padding: 0 12px
+	background: var(--text-primary)
+	transition: transform 80ms ease, color 80ms ease
+	&:hover
+		transform: scale(1.05)
+		color: var(--theme-color)
+
+// Light/dark swap — the incoming theme wipes across the outgoing one.
+//
+// Scoped to [data-mode-switch], which toggleMode() in states/presets.svelte.ts
+// puts on <html> for the duration of the transition. Unscoped, these rules also
+// hit page navigations (which share the `root` transition name) and strip their
+// animation rather than restyling it.
+html[data-mode-switch]
+	&::view-transition-group(root)
+		animation: none
+	&::view-transition-old(root),
+	&::view-transition-new(root)
+		// Default cross-fade off; the wipe below replaces it. cover + top left
+		// keep the snapshots from stretching while they are on screen.
+		animation: none
+		mix-blend-mode: normal
+		width: 100vw
+		height: 100vh
+		object-fit: cover
+		object-position: top left
+	&::view-transition-old(root)
+		z-index: 0
+	&::view-transition-new(root)
+		z-index: 1
+		animation: frk-mode-wipe var(--frk-mode-wipe-duration, 520ms) var(--frk-mode-wipe-ease, cubic-bezier(0.65, 0, 0.35, 1)) both
+
+@keyframes frk-mode-wipe
+	from
+		clip-path: inset(0 0 0 100%)
+	to
+		clip-path: inset(0 0 0 0)
+
+// Belt and braces: toggleMode() already skips the transition when the user
+// prefers reduced motion, so this only matters if the mode is driven elsewhere.
+@media (prefers-reduced-motion: reduce)
+	html[data-mode-switch]
+		&::view-transition-new(root)
+			animation: none

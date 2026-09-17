@@ -1,0 +1,18 @@
+{
+	"$schema": "../schemas/recipe.schema.json",
+	"$comment": "The thumb moves because `control.switch-thumb` answers an ancestor's state (`[data-state=\"checked\"] &`), not because the demo sets a class. bits-ui puts data-state on both parts, and the extractor read that off the library's own state module.",
+	"adapter": "kitui",
+	"component": "Switch",
+	"importFrom": "bits-ui",
+	"importName": "Switch",
+	"parts": {
+		"root": ["control.switch-track"],
+		"thumb": ["control.switch-thumb"]
+	},
+	"source": "bits-ui",
+	"$unstyledNote": "required is an ARIA/validation state with nothing to draw; unchecked and off are resting states - the base declarations ARE their appearance; disabled on the thumb is redundant because the root it sits in dims and the thumb inherits the opacity.",
+	"unstyled": {
+		"root": ["required", "unchecked"],
+		"thumb": ["disabled", "required", "unchecked"]
+	}
+}

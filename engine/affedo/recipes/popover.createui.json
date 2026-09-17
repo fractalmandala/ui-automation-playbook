@@ -1,0 +1,8 @@
+{
+  "$schema": "../schemas/recipe.schema.json",
+  "component": "Popover",
+  "branch": "createui",
+  "adapter": "createui",
+  "parts": { "root": "surface.popover-root", "trigger": "control.trigger", "panel": "surface.popover-card" },
+  "axes": { "placement": ["top", "bottom", "left", "right"] }
+}

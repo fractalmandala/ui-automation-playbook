@@ -1,0 +1,195 @@
+{
+  "component": "Button",
+  "source": "src/lib/wa/button/Button.svelte",
+  "parts": {
+    "start": {
+      "tag": "span",
+      "role": null,
+      "dataSlot": "start"
+    },
+    "label": {
+      "tag": "span",
+      "role": null,
+      "dataSlot": "label"
+    },
+    "end": {
+      "tag": "span",
+      "role": null,
+      "dataSlot": "end"
+    },
+    "caret": {
+      "tag": "span",
+      "role": null,
+      "dataSlot": "caret"
+    },
+    "spinner": {
+      "tag": "span",
+      "role": null,
+      "dataSlot": "spinner"
+    },
+    "base spinner": {
+      "tag": "svg",
+      "role": "progressbar",
+      "dataSlot": "base spinner"
+    },
+    "base button": {
+      "tag": "a",
+      "role": null,
+      "dataSlot": "base button"
+    }
+  },
+  "states": {
+    "base spinner": [
+      "aria-label"
+    ],
+    "span": [
+      "data-variant",
+      "data-appearance",
+      "data-size",
+      "data-pill",
+      "data-loading",
+      "data-disabled"
+    ],
+    "base button": [
+      "aria-label",
+      "aria-disabled",
+      "aria-busy"
+    ]
+  },
+  "props": {
+    "variant": {
+      "type": "string",
+      "default": "neutral"
+    },
+    "appearance": {
+      "type": "string",
+      "default": "accent"
+    },
+    "size": {
+      "type": "string",
+      "default": "m"
+    },
+    "withCaret": {
+      "type": "boolean",
+      "default": false
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "loading": {
+      "type": "boolean",
+      "default": false
+    },
+    "pill": {
+      "type": "boolean",
+      "default": false
+    },
+    "id": {
+      "type": "string",
+      "default": "undefined"
+    },
+    "class": {
+      "type": "string",
+      "default": ""
+    },
+    "type": {
+      "type": "string",
+      "default": "button"
+    },
+    "name": {
+      "type": "object",
+      "default": null
+    },
+    "value": {
+      "type": "object",
+      "default": null
+    },
+    "href": {
+      "type": "object",
+      "default": null
+    },
+    "target": {
+      "type": "object",
+      "default": null
+    },
+    "rel": {
+      "type": "object",
+      "default": null
+    },
+    "download": {
+      "type": "object",
+      "default": null
+    },
+    "form": {
+      "type": "object",
+      "default": null
+    },
+    "formAction": {
+      "type": "object",
+      "default": null
+    },
+    "formEnctype": {
+      "type": "object",
+      "default": null
+    },
+    "formMethod": {
+      "type": "object",
+      "default": null
+    },
+    "formNoValidate": {
+      "type": "object",
+      "default": null
+    },
+    "formTarget": {
+      "type": "object",
+      "default": null
+    },
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "part": {
+      "type": "object",
+      "default": null
+    },
+    "aria-label": {
+      "type": "object",
+      "default": null
+    },
+    "children": {
+      "type": "object",
+      "default": null
+    },
+    "start": {
+      "type": "object",
+      "default": null
+    },
+    "end": {
+      "type": "object",
+      "default": null
+    },
+    "onclick": {
+      "type": "object",
+      "default": null
+    },
+    "onblur": {
+      "type": "object",
+      "default": null
+    },
+    "onfocus": {
+      "type": "object",
+      "default": null
+    },
+    "oninvalid": {
+      "type": "object",
+      "default": null
+    }
+  },
+  "snippets": [
+    "inner",
+    "start",
+    "children",
+    "end"
+  ]
+}

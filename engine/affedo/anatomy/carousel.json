@@ -1,0 +1,29 @@
+{
+  "component": "Carousel",
+  "source": "generated (wave 4)",
+  "parts": {
+    "root": { "tag": "section", "role": "region", "dataSlot": "carousel-root" },
+    "viewport": { "tag": "div", "role": "group", "dataSlot": "viewport" },
+    "track": { "tag": "div", "role": null, "dataSlot": "track" },
+    "slide": { "tag": "div", "role": "group", "dataSlot": "slide" },
+    "arrowPrev": { "tag": "button", "role": "button", "dataSlot": "arrowPrev" },
+    "arrowNext": { "tag": "button", "role": "button", "dataSlot": "arrowNext" },
+    "dots": { "tag": "div", "role": "tablist", "dataSlot": "dots" },
+    "dot": { "tag": "button", "role": "tab", "dataSlot": "dot" }
+  },
+  "states": {
+    "root": ["aria-roledescription", "aria-label"],
+    "slide": ["data-active", "aria-roledescription"],
+    "dot": ["data-active", "aria-selected", "aria-label"]
+  },
+  "props": {
+    "items": { "type": "array", "default": "[]" },
+    "index": { "type": "number", "default": "0" },
+    "loop": { "type": "boolean", "default": false },
+    "showArrows": { "type": "boolean", "default": true },
+    "showDots": { "type": "boolean", "default": true },
+    "slide": { "type": "object", "default": null },
+    "onchange": { "type": "object", "default": null }
+  },
+  "snippets": ["slide"]
+}
